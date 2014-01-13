@@ -1,0 +1,4 @@
+<div class="fields">
+  <%= f.label :name, "Question" %>
+  <%= link_to_remove_fields "remove", builder %><br />
+</div>

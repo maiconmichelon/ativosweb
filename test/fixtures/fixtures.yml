@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  warranty: MyString
+  provider_id: 1
+  acquisition: 2014-01-08 22:42:36
+  type_id: 1
+  person_id: 1
+  purchaseValue: 9.99
+
+two:
+  number: 1
+  warranty: MyString
+  provider_id: 1
+  acquisition: 2014-01-08 22:42:36
+  type_id: 1
+  person_id: 1
+  purchaseValue: 9.99

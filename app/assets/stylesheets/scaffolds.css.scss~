@@ -1,0 +1,112 @@
+$error-text-color: #B94A48;
+$success-text-color: #468847;
+
+@mixin shadow($color, $x, $y, $radius) {
+  -moz-box-shadow: $color $x $y $radius;
+  -webkit-box-shadow: $color $x $y $radius;
+  box-shadow: $color $x $y $radius;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  padding-top: 20px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.field_with_errors {
+  display: inline;
+  label { color: $error-text-color; }
+  input[type=text], input[type=password], textarea {
+    border: 1px solid rgba(189,74,72, 0.5);
+    @include shadow(rgba(189,74,72, 0.2), 0px, 0px, 8px);
+    &:focus { border: 1px solid rgba(189,74,72, 0.6); }
+  }
+}
+
+.error_message {
+  margin-left: 5px;
+  display: inline;
+  color: $error-text-color;
+}
+
+.padded_flash {
+  padding: 10px;
+  margin: 10px 0;
+  font-weight: bold;
+  width: 500px;
+}
+
+#error_explanation {
+  border: 1px solid $error-text-color;
+  color: $error-text-color;
+  background-color: #F2DEDE;
+  @extend .padded_flash;
+}
+
+#notice {
+  color: $success-text-color;
+  border: 1px solid $success-text-color;
+  @extend .padded_flash;
+  background-color: #DFF0D8;
+}
+
+#alert {
+  color: $error-text-color;
+  border: 1px solid $error-text-color;
+  @extend .padded_flash;
+  background-color: #F2DEDE;
+}
+
+.content {
+  margin-top: 15px;
+  padding-top: 7px;
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.row > .btn {
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.form-actions {
+  margin-bottom: 0px;
+}
+
+.row > form {
+  margin-bottom: 0px;
+}
+
+.row > .table {
+  margin-left: 0px;
+}
+
+.page-header {
+  padding-left: 30px;
+  margin-bottom: 10px;
+}

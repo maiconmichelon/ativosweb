@@ -1,0 +1,19 @@
+defaults: &defaults
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: admin
+  pool: 5
+  timeout: 5000
+
+development:
+  database: ativo_dev
+  <<: *defaults
+
+test:
+  database: ativo_test
+  <<: *defaults
+
+production:
+  database: ativo_prod
+  <<: *defaults
