@@ -1,4 +1,8 @@
-<div class="fields">
-  <%= f.label :name, "Question" %>
-  <%= link_to_remove_fields "remove", builder %><br />
-</div>
+<tr class = "fields">
+  <td>
+    <%= f.label :name, "Question" %>
+  </td>
+  <td>
+    <%= link_to_remove_fields t('actions.destroy'), f %>
+  </td>
+</tr>

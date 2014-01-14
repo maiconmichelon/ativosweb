@@ -12,10 +12,24 @@
     </div>
   </div>
 
-  <%= f.fields_for :components do |builder| %>
-    <%= render "component_fields", f: builder %>
-  <% end %>
-  <%= link_to_add_fields t(".add_component"), f, :components %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= :description %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :components do |builder| %>
+        <%= render 'component_fields', :f => builder %>
+      <% end %>
+      <tr>
+        <td colspan = "2">
+          <%= link_to_add_fields t(".add_component"), f, :components %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

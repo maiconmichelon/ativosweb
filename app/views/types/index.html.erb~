@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= Component.klass.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:initial_code) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -15,7 +15,6 @@
       <tr>
         <td><%= link_to type.description, type_path(type) %></td>
         <td><%= type.initial_code %></td>
-        <td><%=l type.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_type_path(type), :class => 'btn btn-mini' %>
