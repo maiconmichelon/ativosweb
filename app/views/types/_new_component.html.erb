@@ -1,0 +1,14 @@
+<div id="teste", class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="driverAddModalLabel"> <%= t('helpers.titles.new', model: t( 'activerecord.models.component')) %> </h3>
+  </div>
+
+  <div class="modal-body">
+      <%= t 'activerecord.models.component' %>
+      <%= f.collection_select :component, Component.activated, :id, :name %> </br></br>
+      <a href='#{alert_post(@post)}'>View post</a>
+
+      <%= link_to link_to_add_fields(t('.new', :default => t("helpers.links.new")), parent, f, :components) %>
+  </div>
+</div>

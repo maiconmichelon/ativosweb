@@ -29,4 +29,3 @@ end
 gem 'jquery-rails'
 
 gem "twitter-bootstrap-rails"
-gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'

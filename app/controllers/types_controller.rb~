@@ -25,7 +25,7 @@ class TypesController < ApplicationController
   # POST /types.json
   def create
     @type = Type.new(type_params)
-
+    setComponents(@type, component_params)
     respond_to do |format|
       if @type.save
         format.html { redirect_to @type, notice: 'Type was successfully created.' }
@@ -40,6 +40,7 @@ class TypesController < ApplicationController
   # PATCH/PUT /types/1
   # PATCH/PUT /types/1.json
   def update
+    setComponents(@type, component_params)
     respond_to do |format|
       if @type.update(type_params)
         format.html { redirect_to @type, notice: 'Type was successfully updated.' }
@@ -69,6 +70,17 @@ class TypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def type_params
-      params.require(:type).permit(:description, :active, :initial_code)
+      params[:type].permit(:description, :initial_code)
+    end
+
+    def component_params
+      params[:type].permit(components_attributes: [:id, :_destroy])
+    end
+
+    def setComponents(type, cParams)
+      type.components.clear
+      for key, value in cParams[:components_attributes]
+        type.components << Component.find(value[:id]) unless value[:_destroy] == "false"
+      end
     end
 end

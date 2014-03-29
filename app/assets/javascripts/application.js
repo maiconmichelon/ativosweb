@@ -15,17 +15,14 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
-
-function remove_fields (link) {
-  $(link).prev("input[type=hidden]:first").val('1');
-  $(link).closest(".fields").hide();
+function remove_fields(link) {
+    $(link).prev("input[type=hidden]").val("1");
+    $(link).closest(".fields").hide();
 }
 
 function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $(link).parent().parent().before(content.replace(regexp, new_id));
+    var new_id = new Date().getTime();
+    var regex = new RegExp("new_" + association, "g");
+    $(link).parent().after(content.replace(regex, new_id));
+    $('#new_component_fields').modal('show');
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111154854) do
+ActiveRecord::Schema.define(version: 20140119002818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,17 @@ ActiveRecord::Schema.define(version: 20140111154854) do
   add_index "component_fixtures", ["component_id", "fixture_id"], name: "index_component_fixtures_on_component_id_and_fixture_id", unique: true, using: :btree
 
   create_table "components", force: true do |t|
-    t.string   "name"
-    t.boolean  "active"
+    t.string   "name",       default: "",   null: false
+    t.boolean  "active",     default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "components", ["name"], name: "index_components_on_name", unique: true, using: :btree
+
+  create_table "components_types", id: false, force: true do |t|
+    t.integer "component_id"
+    t.integer "type_id"
   end
 
   create_table "fixtures", force: true do |t|
@@ -77,13 +84,6 @@ ActiveRecord::Schema.define(version: 20140111154854) do
   end
 
   add_index "providers", ["cpfCnpj"], name: "index_providers_on_cpfCnpj", unique: true, using: :btree
-
-  create_table "type_components", id: false, force: true do |t|
-    t.integer "type_id"
-    t.integer "component_id"
-  end
-
-  add_index "type_components", ["type_id", "component_id"], name: "index_type_components_on_type_id_and_component_id", unique: true, using: :btree
 
   create_table "types", force: true do |t|
     t.string   "description",  default: "",   null: false

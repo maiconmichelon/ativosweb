@@ -5,13 +5,6 @@ pt-BR:
   link:
     back: Voltar
 
-  components:
-    new:
-      title: Cadastro de Componente
-    edit:
-    index:
-      new: Novo
-
   layout:
     people: Pessoas
     fixtures: Ativos
@@ -68,7 +61,10 @@ pt-BR:
       save: "Salvar %{model}"
       new: "Novo %{model}"
       delete: "Apagar %{model}"
+      add: "Adicionar %{model}"
 
+  dialogs:
+    destroy: 'Você tem certeza que quer remover?'
 
 
 
@@ -86,8 +82,7 @@ pt-BR:
     form_error: Há erros no formulário, por favor verifique.
 
 
-  dialogs:
-    destroy: 'Você tem certeza que quer remover?'
+
 
   rooms:
     index:

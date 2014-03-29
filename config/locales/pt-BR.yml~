@@ -5,13 +5,6 @@ pt-BR:
   link:
     back: Voltar
 
-  components:
-    new:
-      title: Cadastro de Componente
-    edit:
-    index:
-      new: Novo
-
   layout:
     people: Pessoas
     fixtures: Ativos
@@ -43,6 +36,7 @@ pt-BR:
         purchaseValue: Valor
       person:
         name: Nome
+        group_id: Grupo
       component:
         name: Nome
       group:
@@ -67,6 +61,7 @@ pt-BR:
       save: "Salvar %{model}"
       new: "Novo %{model}"
       delete: "Apagar %{model}"
+      add: "Adicionar %{model}"
 
 
 

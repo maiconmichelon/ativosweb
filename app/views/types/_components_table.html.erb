@@ -1,0 +1,14 @@
+<table id="components_table" class="table table-hover table-striped">
+  <thead>
+    <th>Componente</th>
+  <th></th>
+  </thead>
+  <tbody>
+    <%= f.fields_for(:components) do |pilots_form| %>
+      <tr class="fields">
+        <td> <%= pilots_form.object.name %> </td>
+        <td> <%= link_to_remove_fields('<i class="icon-remove"></i>'.html_safe, pilots_form, :title => "Delete this Pilot.") %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,8 +1,7 @@
-<tr class = "fields">
-  <td>
-    <%= f.label :name, "Question" %>
-  </td>
-  <td>
-    <%= link_to_remove_fields t('actions.destroy'), f %>
-  </td>
-</tr>
+<div id="new_component_fields" class="modal fade" data-backdrop="static">
+
+</div>
+
+<script type="text/javascript">
+  pilotFieldsUI.init();
+</script>

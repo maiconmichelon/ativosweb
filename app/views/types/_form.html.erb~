@@ -1,35 +1,25 @@
-<%= form_for @type, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
+<%= form_for @type, :html => { :class => 'form form-horizontal' } do |f| %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :description, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :description, :class => 'text_field' %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :initial_code, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :initial_code, :class => 'text_field' %>
+    <div class="control-group">
+      <%= f.label :initial_code, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :initial_code, :class => 'text_field' %>
+      </div>
     </div>
-  </div>
+  </fieldset>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th><%= :description %></th>
-        <th><%=t '.actions', :default => t("helpers.actions") %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= f.fields_for :components do |builder| %>
-        <%= render 'component_fields', :f => builder %>
-      <% end %>
-      <tr>
-        <td colspan = "2">
-          <%= link_to_add_fields t(".add_component"), f, :components %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <fieldset>
+    <legend>Componentes</legend>
+    <%= render('components_table', :f => f) %>
+    <%= link_to_add_fields("Add a Component", f, :type_components, :class => "btn btn-primary", :title => "Add a new Pilot to the list of Pilots that fly this Ship.") %>
+    <p></p>
+  </fieldset>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
