@@ -11,4 +11,8 @@ module ApplicationHelper
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", options)
   end
 
+  def back_button components_path
+    link_to t('.cancel', :default => t("helpers.links.cancel")), components_path, :class => 'btn'
+  end
+
 end

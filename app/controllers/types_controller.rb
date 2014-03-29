@@ -25,7 +25,6 @@ class TypesController < ApplicationController
   # POST /types.json
   def create
     @type = Type.new(type_params)
-    setComponents(@type, component_params)
     respond_to do |format|
       if @type.save
         format.html { redirect_to @type, notice: 'Type was successfully created.' }
@@ -73,14 +72,4 @@ class TypesController < ApplicationController
       params[:type].permit(:description, :initial_code)
     end
 
-    def component_params
-      params[:type].permit(components_attributes: [:id, :_destroy])
-    end
-
-    def setComponents(type, cParams)
-      type.components.clear
-      for key, value in cParams[:components_attributes]
-        type.components << Component.find(value[:id]) if value[:_destroy] == "false"
-      end
-    end
 end

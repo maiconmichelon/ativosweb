@@ -3,6 +3,7 @@ class Person < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_many :fixtures
+  belongs_to :group
 
   scope :activated, -> {where(active: true)}
 

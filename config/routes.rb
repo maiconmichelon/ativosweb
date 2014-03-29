@@ -14,4 +14,6 @@ Ativos::Application.routes.draw do
 
   get "type/new_component" => 'type#new_component', :as => :new_componente
 
+  root 'fixtures#index'
+
 end
