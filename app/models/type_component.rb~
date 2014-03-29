@@ -1,2 +1,0 @@
-class TypeComponent < ActiveRecord::Base
-end

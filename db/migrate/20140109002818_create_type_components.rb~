@@ -1,7 +1,0 @@
-class CreateTypeComponents < ActiveRecord::Migration
-  def change
-    create_table :type_components, :id => false do |t|
-      t.belongs_to :assembly
-      t.belongs_to :part
-  end
-end
