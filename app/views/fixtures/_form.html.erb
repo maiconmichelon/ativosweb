@@ -1,10 +1,10 @@
 <%= simple_form_for @fixture, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :number %>
   <%= f.input :warranty %>
-  <%= f.input :provider_id %>
-  <%= f.input :acquisition %>
-  <%= f.input :type_id %>
-  <%= f.input :person_id %>
+  <%= f.association :provider %>
+  <%= f.input :acquisition, as: :bootstrap_datepicker %>
+  <%= f.association :type %>
+  <%= f.association :person %>
   <%= f.input :purchaseValue %>
   <%= f.button :submit %>
   <%= back_button fixtures_path %>

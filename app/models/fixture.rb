@@ -1,6 +1,6 @@
 class Fixture < ActiveRecord::Base
-  validates_presence_of :number, :type_id
-  validates_uniqueness_of :number, scope: :type_id
+  validates_presence_of :number, :type
+  validates_uniqueness_of :number, scope: :type
 
   has_many :component_fixtures
   belongs_to :person

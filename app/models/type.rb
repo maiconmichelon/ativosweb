@@ -7,4 +7,8 @@ class Type < ActiveRecord::Base
   scope :activated, -> { where(active: true)}
   accepts_nested_attributes_for :components
 
+  def to_s
+    description
+  end
+
 end

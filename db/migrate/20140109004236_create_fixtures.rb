@@ -4,7 +4,7 @@ class CreateFixtures < ActiveRecord::Migration
       t.integer :number, null: false, default: 1
       t.string :warranty
       t.references :provider
-      t.datetime :acquisition
+      t.date :acquisition
       t.references :type, null: false
       t.references :person
       t.decimal :purchaseValue, :precision => 10, :scale => 2

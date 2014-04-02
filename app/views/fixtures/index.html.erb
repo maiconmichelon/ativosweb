@@ -20,11 +20,11 @@
       <tr>
         <td><%= link_to fixture.number, fixture_path(fixture) %></td>
         <td><%= fixture.warranty %></td>
-        <td><%= fixture.provider_id %></td>
-        <td><%= fixture.acquisition %></td>
-        <td><%= fixture.type_id %></td>
-        <td><%= fixture.person_id %></td>
-        <td><%= fixture.purchaseValue %></td>
+        <td><%= fixture.provider %></td>
+        <td><%= fixture.acquisition.to_s(:date) %></td>
+        <td><%= fixture.type %></td>
+        <td><%= fixture.person %></td>
+        <td><%= number_to_currency(fixture.purchaseValue) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_fixture_path(fixture), :class => 'btn btn-mini' %>
