@@ -6,8 +6,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 
 gem 'twitter-bootstrap-rails'
-gem 'bootstrap-datepicker-rails'
-gem 'bootstrap-sass'
 gem 'therubyracer'
 gem 'less-rails'
 
