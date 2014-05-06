@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,8 +38,8 @@
   </head>
   <body>
 
-    <div class="navbar .navbar-inverse">
-      <div class="navbar-inner">
+    <div class="navbar">
+      <div class="navbar-inner" style="background: rgb(93, 122, 153); border: none;">
         <div class="container">
  
           <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -48,15 +49,15 @@
                 <span class="icon-bar"></span>
               </a>
      
-          <a class="brand" href="#"> <%= t 'application_name' %> </a>
+          <a class="brand" href="#" style="color: white; font-family: 'Lobster', cursive;font-size: 55px"> CA </a>
               <div class="nav-collapse">
                 <ul class="nav">
-                  <li><%= link_to t('layout.fixtures'), fixtures_path %></li>
-                  <li><%= link_to t('layout.people'), people_path %></li>
-                  <li><%= link_to t('layout.components'), components_path %></li>
-                  <li><%= link_to t('layout.groups'), groups_path %></li>
-                  <li><%= link_to t('layout.providers'), providers_path %></li>
-                  <li><%= link_to t('layout.types'), types_path %></li>
+                  <li><%= link_to t('layout.fixtures'), fixtures_path , :style => 'color: white;'%></li>
+                  <li><%= link_to t('layout.people'), people_path, :style => 'color: white;' %></li>
+                  <li><%= link_to t('layout.components'), components_path, :style => 'color: white;' %></li>
+                  <li><%= link_to t('layout.groups'), groups_path, :style => 'color: white;' %></li>
+                  <li><%= link_to t('layout.providers'), providers_path, :style => 'color: white;' %></li>
+                  <li><%= link_to t('layout.types'), types_path, :style => 'color: white;' %></li>
                 </ul>
               </div>
           </div>
