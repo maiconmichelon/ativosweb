@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'therubyracer'
+gem 'bootstrap-datepicker-rails'
 
 group :doc do
   gem 'sdoc', require: false

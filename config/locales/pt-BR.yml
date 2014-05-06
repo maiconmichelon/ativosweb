@@ -68,7 +68,13 @@ pt-BR:
 
 
 
-
+  date:
+    datepicker:
+      default: "dd/mm/yyyy"
+      long: "dd MM, yyyy"
+    formats:
+      default: "dd/mm/yyyy"
+      long: ! '%B %d, %Y'
 
 
 
