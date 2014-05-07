@@ -9,6 +9,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'flatstrap-rails'
 gem 'therubyracer'
 gem 'bootstrap-datepicker-rails'
+gem 'cocoon' # For build forms with nested attributes
 
 group :doc do
   gem 'sdoc', require: false

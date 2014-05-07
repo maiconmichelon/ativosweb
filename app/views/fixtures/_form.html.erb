@@ -6,6 +6,19 @@
   <%= f.association :type %>
   <%= f.association :person %>
   <%= f.input :purchaseValue %>
+
+  <div>
+    <h3><%= t 'Components' %></h3>
+    <%= f.simple_fields_for :component_fixtures, :html => { :class => 'form-horizontal' } do |comp_form| %>
+      <%= render 'component_fixture_fields', f: comp_form %>
+    <% end %>
+    
+    <div>
+      <%= link_to_add_association t('add'), f, :component_fixtures, :class => "btn btn-default" %>
+    </div>
+  </div>
+  <br/>
+  
   <%= f.submit class: 'btn btn-primary' %>
   <%= back_button fixtures_path %>
 <% end %>

@@ -69,6 +69,7 @@ class FixturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fixture_params
-      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue)
+      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue,
+        component_fixtures_attributes: [:description, :component_id])
     end
 end

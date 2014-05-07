@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap-datepicker
+//= require cocoon
 
 @import "bootstrap-datepicker";
 
