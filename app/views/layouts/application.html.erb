@@ -41,26 +41,31 @@
     <div class="navbar">
       <div class="navbar-inner" style="background: rgb(93, 122, 153); border: none;">
         <div class="container">
- 
-          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+   
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </a>
-     
-          <a class="brand" href="#" style="color: white; font-family: 'Lobster', cursive;font-size: 55px"> CA </a>
-              <div class="nav-collapse">
-                <ul class="nav">
-                  <li><%= link_to t('layout.fixtures'), fixtures_path , :style => 'color: white;'%></li>
-                  <li><%= link_to t('layout.people'), people_path, :style => 'color: white;' %></li>
-                  <li><%= link_to t('layout.components'), components_path, :style => 'color: white;' %></li>
-                  <li><%= link_to t('layout.groups'), groups_path, :style => 'color: white;' %></li>
-                  <li><%= link_to t('layout.providers'), providers_path, :style => 'color: white;' %></li>
-                  <li><%= link_to t('layout.types'), types_path, :style => 'color: white;' %></li>
-                </ul>
-              </div>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+       
+          <a class="brand" href="/" style="color: white; font-family: 'Lobster', cursive;font-size: 55px">CA</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+            <li><%= link_to t('layout.fixtures'), fixtures_path , :style => 'color: white;'%></li>
+            <li><%= link_to t('layout.people'), people_path, :style => 'color: white;' %></li>
+            <li><%= link_to t('layout.components'), components_path, :style => 'color: white;' %></li>
+            <li><%= link_to t('layout.groups'), groups_path, :style => 'color: white;' %></li>
+            <li><%= link_to t('layout.providers'), providers_path, :style => 'color: white;' %></li>
+            <li><%= link_to t('layout.types'), types_path, :style => 'color: white;' %></li>
+            </ul>
           </div>
+          
+          <ul class="nav pull-right">
+            <li><a href="/" style="color: white;">Sobre</a></li>
+          </ul>
+          
+        </div>
        </div>
     </div>
     
