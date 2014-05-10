@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140119002818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "component_fixtures", id: false, force: true do |t|
+  create_table "component_fixtures", force: true do |t|
     t.integer "component_id"
     t.integer "fixture_id"
     t.integer "quantity"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140119002818) do
     t.integer "type_id"
   end
 
-  add_index "components_types", ["component_id", "type_id"], name: "index_components_types_on_component_id_and_type_id", using: :btree
+  add_index "components_types", ["component_id", "type_id"], name: "index_components_types_on_component_id_and_type_id", unique: true, using: :btree
 
   create_table "fixtures", force: true do |t|
     t.integer  "number",                                 default: 1,    null: false

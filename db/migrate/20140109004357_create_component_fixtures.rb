@@ -1,6 +1,6 @@
 class CreateComponentFixtures < ActiveRecord::Migration
   def change
-    create_table :component_fixtures, :id => false do |t|
+    create_table :component_fixtures do |t|
       t.references :component
       t.references :fixture
     end

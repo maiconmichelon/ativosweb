@@ -8,6 +8,6 @@ class CreateComponentsTypes < ActiveRecord::Migration
       t.integer :type_id
     end
 
-    add_index :components_types, [:component_id, :type_id]
+    add_index :components_types, [:component_id, :type_id], unique: true
   end
 end
