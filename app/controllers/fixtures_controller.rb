@@ -1,31 +1,28 @@
 class FixturesController < ApplicationController
   before_action :set_fixture, only: [:show, :edit, :update, :destroy]
 
-  # GET /fixtures
-  # GET /fixtures.json
   def index
     @fixtures = Fixture.all
   end
 
-  # GET /fixtures/1
-  # GET /fixtures/1.json
   def show
   end
 
-  # GET /fixtures/new
   def new
     @fixture = Fixture.new
   end
 
-  # GET /fixtures/1/edit
   def edit
   end
 
-  # POST /fixtures
-  # POST /fixtures.json
   def create
     @fixture = Fixture.new(fixture_params)
-
+    
+    gets
+    puts @fixture.inspect
+    puts @fixture.component_fixtures.first.fixture.inspect
+    gets
+    
     respond_to do |format|
       if @fixture.save
         format.html { redirect_to @fixture, notice: 'Fixture was successfully created.' }
@@ -37,8 +34,6 @@ class FixturesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /fixtures/1
-  # PATCH/PUT /fixtures/1.json
   def update
     respond_to do |format|
       if @fixture.update(fixture_params)
@@ -51,8 +46,6 @@ class FixturesController < ApplicationController
     end
   end
 
-  # DELETE /fixtures/1
-  # DELETE /fixtures/1.json
   def destroy
     @fixture.destroy
     respond_to do |format|
@@ -62,14 +55,12 @@ class FixturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_fixture
       @fixture = Fixture.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def fixture_params
       params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue,
-        component_fixtures_attributes: [:description, :component_id])
+        component_fixtures_attributes: [:description, :component_id, :quantity])
     end
 end

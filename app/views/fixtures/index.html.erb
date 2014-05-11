@@ -21,7 +21,7 @@
         <td><%= link_to fixture.number, fixture_path(fixture) %></td>
         <td><%= fixture.warranty %></td>
         <td><%= fixture.provider %></td>
-        <td><%= fixture.acquisition.to_s(:date) %></td>
+        <td><%= fixture.acquisition.to_s(:date) if fixture.acquisition %></td>
         <td><%= fixture.type %></td>
         <td><%= fixture.person %></td>
         <td><%= number_to_currency(fixture.purchaseValue) %></td>
