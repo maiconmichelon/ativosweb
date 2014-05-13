@@ -18,11 +18,6 @@ class FixturesController < ApplicationController
   def create
     @fixture = Fixture.new(fixture_params)
     
-    gets
-    puts @fixture.inspect
-    puts @fixture.component_fixtures.first.fixture.inspect
-    gets
-    
     respond_to do |format|
       if @fixture.save
         format.html { redirect_to @fixture, notice: 'Fixture was successfully created.' }

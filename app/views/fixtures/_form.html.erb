@@ -10,15 +10,19 @@
   <div>
     <h5><%= t('activerecord.models.component').pluralize %></h5>
     
-    <div id="component_fixtures">
-      <%= f.simple_fields_for :component_fixtures, :html => { :class => 'form-horizontal' } do |comp_form| %>
+    <table>
+      <%= f.simple_fields_for :component_fixtures, html: { :class => 'form-horizontal' }, :wrapper => false do |comp_form| %>
         <%= render 'component_fixture_fields', f: comp_form %>
       <% end %>
-    </div>
-    
-    <div>
-      <%= link_to_add_association t('helpers.links.add'), f, :component_fixtures, :class => "btn btn-mini btn-default" %>
-    </div>
+
+       <tr> <td>
+        <%= link_to_add_association t('helpers.links.add'), 
+              f, :component_fixtures,
+              class: "btn btn-mini btn-default",
+              'data-association-insertion-node' => ".fields", 
+              'data-association-insertion-method' => "append" %>
+         </td> </tr>
+    </table>
   </div>
   <br/>
   

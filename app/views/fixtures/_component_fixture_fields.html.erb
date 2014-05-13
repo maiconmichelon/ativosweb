@@ -1,7 +1,7 @@
-<div class="nested-fields">
-  <%= f.input :description %>
-  <%= f.input :quantity %>
-  <%= f.association :component %>
+<tr class="fields">
+  <td> <%= f.input :description, label: false, wrapper: :nested %> </td>
+  <td> <%= f.input :quantity, label: false, wrapper: :nested %> </td>
+  <td> <%= f.association :component, label: false, wrapper: :nested %> </td>
   
-  <%= link_to_remove_association t('helpers.links.destroy'), f, :class => "btn btn-mini btn-danger" %>
-</div>
+  <td> <%= link_to_remove_association t('helpers.links.destroy'), f, :class => "btn btn-mini btn-danger" %> </td>
+</tr>    
