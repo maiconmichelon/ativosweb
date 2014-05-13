@@ -15,13 +15,16 @@
         <%= render 'component_fixture_fields', f: comp_form %>
       <% end %>
 
-       <tr> <td>
-        <%= link_to_add_association t('helpers.links.add'), 
-              f, :component_fixtures,
-              class: "btn btn-mini btn-default",
-              'data-association-insertion-node' => ".fields", 
-              'data-association-insertion-method' => "append" %>
-         </td> </tr>
+       <tr class ="nedtedaction"> 
+         <td>
+           <%= link_to_add_association t('helpers.links.add'), 
+                f, :component_fixtures,
+                class: "btn btn-mini btn-default",
+                'data-association-insertion-node' => ".nedtedaction",
+                 partial: "component_fixture_fields",
+                'data-association-insertion-method' => "before" %>
+         </td> 
+       </tr>
     </table>
   </div>
   <br/>
