@@ -8,15 +8,24 @@
   <%= f.input :purchaseValue %>
 
   <div>
-    <h5><%= t('activerecord.models.component').pluralize %></h5>
+    <h4><%= t('activerecord.models.component').pluralize %></h4>
     
-    <table>
+    <table class="table">
+      
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Quantidade</th>
+          <th>Componente</th>
+        </tr>
+      </thead>
+      
       <%= f.simple_fields_for :component_fixtures, html: { :class => 'form-horizontal' }, :wrapper => false do |comp_form| %>
         <%= render 'component_fixture_fields', f: comp_form %>
       <% end %>
 
        <tr class ="nedtedaction"> 
-         <td>
+         <td colspan="4">
            <%= link_to_add_association t('helpers.links.add'), 
                 f, :component_fixtures,
                 class: "btn btn-mini btn-default",
