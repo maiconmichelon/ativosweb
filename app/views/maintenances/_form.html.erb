@@ -1,0 +1,6 @@
+<%= simple_form_for @maintenance do |f| %>
+  <%= f.input :description %>
+  <%= f.input :date %>
+  <%= f.submit class: 'btn btn-primary' %>
+  <%= back_button maintenances_path %>
+<% end %>

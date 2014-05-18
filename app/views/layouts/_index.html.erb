@@ -1,0 +1,40 @@
+<% path_name = model_class.name.downcase + '_path' %>
+
+<div class="page-header">
+  <h1 style="font-family: 'Lobster', cursive;"><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <% attributes.each do |attr| %>
+        <th><%= model_class.human_attribute_name(attr) %></th>
+      <% end %>
+
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% elements.each do |element| %>
+      <tr>
+        <% attributes.each do |attr| %>
+          <td><%= element.send(attr) %></td>
+        <% end %>
+        <td>
+          <%= link_to t('.edit',
+                      :default => t("helpers.links.edit")),
+                      send('edit_' + path_name, element),
+                      :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      send(path_name, element),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            send('new_' + path_name),
+            :class => 'btn btn-primary' %>

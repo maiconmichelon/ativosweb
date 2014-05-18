@@ -10,6 +10,7 @@ Ativos::Application.routes.draw do
     resources :groups
     resources :components
     resources :types
+    resources :maintenances
   end
 
   get "type/new_component" => 'type#new_component', :as => :new_componente
