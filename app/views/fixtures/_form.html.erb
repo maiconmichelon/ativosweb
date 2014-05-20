@@ -7,37 +7,11 @@
   <%= f.association :person %>
   <%= f.input :purchaseValue %>
 
-  <div>
-    <h4><%= t('activerecord.models.component').pluralize %></h4>
-    
-    <table class="table">
-      
-      <thead>
-        <tr>
-          <th>Descrição</th>
-          <th>Quantidade</th>
-          <th>Componente</th>
-        </tr>
-      </thead>
-      
-      <%= f.simple_fields_for :component_fixtures, html: { :class => 'form-horizontal' }, :wrapper => false do |comp_form| %>
-        <%= render 'component_fixture_fields', f: comp_form %>
-      <% end %>
+  <%= render 'layouts/nested_form',
+      f: f,
+      association: :component_fixtures,
+      attributes: [:description, :quantity, :component] %>
 
-       <tr class ="nedtedaction"> 
-         <td colspan="4">
-           <%= link_to_add_association t('helpers.links.add'), 
-                f, :component_fixtures,
-                class: "btn btn-mini btn-default",
-                'data-association-insertion-node' => ".nedtedaction",
-                 partial: "component_fixture_fields",
-                'data-association-insertion-method' => "before" %>
-         </td> 
-       </tr>
-    </table>
-  </div>
-  <br/>
-  
   <%= f.submit class: 'btn btn-primary' %>
   <%= back_button fixtures_path %>
 <% end %>

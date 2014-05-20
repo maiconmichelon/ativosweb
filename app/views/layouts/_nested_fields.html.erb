@@ -1,0 +1,12 @@
+<tr class="fields">
+  <% attributes.each do |attr| %>
+    <%= f.input attr, label: false, wrapper: :nested %>
+  <% end %>
+
+  <td>
+    <%= link_to_remove_association t('helpers.links.destroy'),
+          f,
+          class: "btn btn-mini btn-danger",
+          wrapper_class: 'fields' %>
+  </td>
+</tr>

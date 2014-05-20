@@ -1,0 +1,37 @@
+<div>
+  <h4><%= t('activerecord.models.component').pluralize %></h4>
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <% attributes.each do |attribute| %>
+          <th>
+            <%= f.object.send(association).klass.human_attribute_name(attribute) %>
+          </th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <%= f.simple_fields_for association, html: { :class => 'form-horizontal' }, :wrapper => false do |association_form| %>
+      <%= render 'layouts/nested_fields',
+            attributes: attributes,
+            f: association_form %>
+            <td>
+    <% end %>
+
+     <tr class ="nedtedaction">
+       <td colspan="4">
+         <%= link_to_add_association t('helpers.links.add'),
+              f,
+              association,
+              class: "btn btn-mini btn-default",
+              'data-association-insertion-node' => ".nedtedaction",
+               partial: "layouts/nested_fields",
+              'data-association-insertion-method' => "before",
+              render_options: {locals: {attributes: attributes}} %>
+       </td>
+     </tr>
+  </table>
+</div>
+<br/>
