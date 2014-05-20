@@ -3,45 +3,35 @@ class ComponentsController < ApplicationController
 
   def index
     @components = Component.all
+    respond_with(@components)
   end
 
   def show
+    respond_with(@component)
   end
 
   def new
     @component = Component.new
+    respond_with(@component)
   end
 
   def edit
+    respond_with(@component)
   end
 
   def create
     @component = Component.new(component_params)
-
-    respond_to do |format|
-      if @component.save
-        format.html { redirect_to @component, notice: 'Component was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
+    respond_with(@component, location: @component)
   end
 
   def update
-    respond_to do |format|
-      if @component.update(component_params)
-        format.html { redirect_to @component, notice: 'Component was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
+    @component.update(component_params)
+    respond_with(@component, :location => @component)
   end
 
   def destroy
     @component.destroy
-    respond_to do |format|
-      format.html { redirect_to components_url }
-    end
+    respond_with(nil, location: components_path)
   end
 
   private
