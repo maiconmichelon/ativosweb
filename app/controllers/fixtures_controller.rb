@@ -3,16 +3,20 @@ class FixturesController < ApplicationController
 
   def index
     @fixtures = Fixture.all
+    respond_with(@fixtures)
   end
 
   def show
+    respond_with(@fixture)
   end
 
   def new
     @fixture = Fixture.new
+    respond_with(@fixture)
   end
 
   def edit
+    respond_with(@fixture)
   end
 
   def create
@@ -30,23 +34,13 @@ class FixturesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @fixture.update(fixture_params)
-        format.html { redirect_to @fixture, notice: 'Fixture was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @fixture.errors, status: :unprocessable_entity }
-      end
-    end
+    @fixture.update(fixture_params)
+    respond_to(@fixture, location: @fixture)
   end
 
   def destroy
     @fixture.destroy
-    respond_to do |format|
-      format.html { redirect_to fixtures_url }
-      format.json { head :no_content }
-    end
+    respond_to(nil, location: fixtures_path)
   end
 
   private
