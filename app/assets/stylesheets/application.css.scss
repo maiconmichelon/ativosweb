@@ -11,6 +11,6 @@
  * file per style scope.
  *
  *= require flatstrap/bootstrap
+ *= require_tree .
+ *= require_self
  */
-
-

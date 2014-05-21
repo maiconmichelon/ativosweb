@@ -1,24 +1,28 @@
-<%- model_class = Maintenance -%>
+<%- model_class = Budget -%>
 <div class="page-header">
   <h1 style="font-family: 'Lobster', cursive;"><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @maintenance.description %></dd>
+  <dd><%= @budget.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:value) %>:</strong></dt>
-  <dd><%= @maintenance.value %></dd>
+  <dd><%= @budget.value %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fixture) %>:</strong></dt>
+  <dd><%= @budget.fixture.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
+  <dd><%= @budget.person.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= @maintenance.date %></dd>
+  <dd><%= @budget.date %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              maintenances_path, :class => 'btn'  %>
+              budgets_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_maintenance_path(@maintenance), :class => 'btn' %>
+              edit_budget_path(@budget), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              fixture_path(@maintenance),
+              fixture_path(@budget),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
