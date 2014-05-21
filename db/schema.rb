@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520024715) do
+ActiveRecord::Schema.define(version: 20140520030204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budgets", force: true do |t|
+    t.string   "description"
+    t.decimal  "value",       precision: 8, scale: 2
+    t.integer  "fixture_id"
+    t.integer  "person_id"
+    t.datetime "date"
+  end
+
+  add_index "budgets", ["fixture_id"], name: "index_budgets_on_fixture_id", using: :btree
+  add_index "budgets", ["person_id"], name: "index_budgets_on_person_id", using: :btree
 
   create_table "component_fixtures", force: true do |t|
     t.integer "component_id"

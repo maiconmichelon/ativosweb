@@ -6,7 +6,6 @@ class MaintenancesController < ApplicationController
   end
 
   def edit
-    @maintenance = Maintenance.find(params[:id])
   end
 
   def update
