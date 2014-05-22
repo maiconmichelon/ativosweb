@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def link_to_remove_fields(name, f, options = {})
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)", options)
   end
@@ -19,9 +20,23 @@ module ApplicationHelper
     content_tag(:div, h1.html_safe, class: "page-header")
   end
 
-  def form_actions(model, only = {})
-    all = only.keys.empty?
-    
+  def form_actions(model, params = {})
+      all = params[:only].nil? || params[:only].empty?
+
+      html = '';
+      if (all || params[:only].include?(:back))
+        html += back_button(send((model.class.model_name.name.downcase.pluralize + '_path').to_sym)).html_safe
+      end
+
+      if (all || params[:only].include?(:edit))
+        html += edit_button(send(('edit_' + model.class.model_name.name.downcase + '_path').to_sym, model)).html_safe
+      end
+
+      if (all || params[:only].include?(:destroy))
+        html += destroy_button(send((model.class.model_name.name.downcase + '_path').to_sym, model)).html_safe
+      end
+
+      content_tag(:div, html.html_safe, class: "form-actions")
   end
 
   def back_button(path)

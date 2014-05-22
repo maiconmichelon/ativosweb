@@ -7,8 +7,4 @@
   <%= b.attributes :description, :value, :fixture, :person, :date %>
 <% end %>
 
-<div class="form-actions">
-  <%= back_button budgets_path %>
-  <%= edit_button edit_budget_path(@budget) %>
-  <%= destroy_button fixture_path(@budget) %>
-</div>
+<%= form_actions(@budget, only: [:back, :edit, :destroy]) %>
