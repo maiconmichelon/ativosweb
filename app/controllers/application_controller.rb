@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  respond_to :html, :json
+  respond_to :html
   responders :flash
-  
+
   before_action do
     I18n.locale = params[:locale]
   end

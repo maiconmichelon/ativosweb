@@ -15,4 +15,10 @@ module ApplicationHelper
     link_to t('.cancel', :default => t("helpers.links.cancel")), components_path, :class => 'btn'
   end
 
+  def title_area(model_class, type)
+    h1 = content_tag(:h1, t('.title', :default => [:'helpers.titles.edit',
+      "#{type} #{model_class.model_name}"], :model => model_class.model_name.human.titleize), class: "new-edit-header");
+    content_tag(:div, h1.html_safe, class: "page-header")
+  end
+
 end
