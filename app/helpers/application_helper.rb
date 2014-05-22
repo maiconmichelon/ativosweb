@@ -11,14 +11,31 @@ module ApplicationHelper
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", options)
   end
 
-  def back_button components_path
-    link_to t('.cancel', :default => t("helpers.links.cancel")), components_path, :class => 'btn'
+  def title_area(model_class, type)
+    h1 = content_tag(:h1, t('.title',
+      :default => [('helpers.titles.' + type).to_sym.downcase, "#{type} #{model_class.model_name}"],
+      :model => model_class.model_name.human.titleize),
+      class: "new-edit-header");
+    content_tag(:div, h1.html_safe, class: "page-header")
   end
 
-  def title_area(model_class, type)
-    h1 = content_tag(:h1, t('.title', :default => [:'helpers.titles.edit',
-      "#{type} #{model_class.model_name}"], :model => model_class.model_name.human.titleize), class: "new-edit-header");
-    content_tag(:div, h1.html_safe, class: "page-header")
+  def form_actions(model, only = {})
+    all = only.keys.empty?
+    
+  end
+
+  def back_button(path)
+    link_to t('.cancel', :default => t("helpers.links.cancel")), path, :class => 'btn'
+  end
+
+  def edit_button(path)
+    link_to t('.edit', :default => t("helpers.links.edit")), path, :class => 'btn'
+  end
+
+  def destroy_button(path)
+    link_to t('.destroy', :default => t("helpers.links.destroy")), path, :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger'
   end
 
 end

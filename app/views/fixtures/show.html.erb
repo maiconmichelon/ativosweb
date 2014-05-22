@@ -3,22 +3,9 @@
   <h1 style="font-family: 'Lobster', cursive;"><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
-  <dd><%= @fixture.number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:warranty) %>:</strong></dt>
-  <dd><%= @fixture.warranty %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:provider) %>:</strong></dt>
-  <dd><%= @fixture.provider %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:acquisition) %>:</strong></dt>
-  <dd><%= @fixture.acquisition %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
-  <dd><%= @fixture.type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
-  <dd><%= @fixture.person %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:purchaseValue) %>:</strong></dt>
-  <dd><%= @fixture.purchaseValue %></dd>
-</dl>
+<%= show_for @fixture do |f| %>
+  <%= f.attributes :number, :warranty, :provider, :acquisition, :type, :person, :purchaseValue %>
+<% end %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

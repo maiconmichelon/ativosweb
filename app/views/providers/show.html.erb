@@ -3,16 +3,9 @@
   <h1 style="font-family: 'Lobster', cursive;"><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @provider.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cpfCnpj) %>:</strong></dt>
-  <dd><%= @provider.cpfCnpj %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @provider.phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:localization) %>:</strong></dt>
-  <dd><%= @provider.localization %></dd>
-</dl>
+<%= show_for @provider do |f| %>
+  <%= f.attributes :name, :cpfCnpj, :phone, :localization %>
+<% end %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
