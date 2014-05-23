@@ -3,44 +3,35 @@ class BudgetsController < ApplicationController
 
   def index
     @budgets = Budget.all
+    respond_with(@budgets)
   end
 
   def new
     @budget = Budget.new
+    respond_with(@budget)
   end
 
   def create
-    @budget = Budget.new(budget_params)
-
-    respond_to do |format|
-      if @budget.save
-        format.html { redirect_to @budget, notice: 'Budget was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
+    @budget = Budget.create(budget_params)
+    respond_with(@budget)
   end
 
   def edit
+    respond_with(@budget)
   end
 
   def update
-    respond_to do |format|
-      if @budget.save
-        format.html { redirect_to @budget, notice: 'Budget was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
+    @budget.update(budget_params)
+    respond_with(@budget, location: @budget)
   end
 
-
   def show
+    respond_with(@budget)
   end
 
   def destroy
     @budget.destroy
-    redirect_to budgets_url
+    respond_with(nil, location: budgets_path)
   end
 
   private

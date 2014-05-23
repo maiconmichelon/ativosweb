@@ -20,17 +20,8 @@ class FixturesController < ApplicationController
   end
 
   def create
-    @fixture = Fixture.new(fixture_params)
-    
-    respond_to do |format|
-      if @fixture.save
-        format.html { redirect_to @fixture, notice: 'Fixture was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @fixture }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @fixture.errors, status: :unprocessable_entity }
-      end
-    end
+    @fixture = Fixture.create(fixture_params)
+    respond_with(@fixture, location: @fixture)
   end
 
   def update

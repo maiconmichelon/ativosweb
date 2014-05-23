@@ -16,8 +16,16 @@
   <tbody>
     <% elements.each do |element| %>
       <tr>
+        <% first = true %> <!-- Para criar um link para a view do item -->
         <% attributes.each do |attr| %>
-          <td><%= element.send(attr) %></td>
+          <td>
+            <% if first %>
+              <%= link_to element.send(attr), send(path_name, element) %>
+              <% first = false %>
+            <% else %>
+              <%= element.send(attr) %>
+            <% end %>
+          </td>
         <% end %>
         <td>
           <%= link_to t('.edit',

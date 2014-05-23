@@ -1,20 +1,7 @@
-<%- model_class = Person -%>
-<div class="page-header">
-  <h1 style="font-family: 'Lobster', cursive;"><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<%= title_area(Person, :show) %>
 
 <%= show_for @person do |f| %>
   <%= f.attributes :name, :group %>
 <% end %>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              people_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_person_path(@person), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              person_path(@person),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
+<%= form_actions @person %>

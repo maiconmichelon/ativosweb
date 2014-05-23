@@ -13,10 +13,12 @@ module ApplicationHelper
   end
 
   def title_area(model_class, type)
-    h1 = content_tag(:h1, t('.title',
-      :default => [('helpers.titles.' + type).to_sym.downcase, "#{type} #{model_class.model_name}"],
-      :model => model_class.model_name.human.titleize),
-      class: "new-edit-header");
+    h1 = content_tag(:h1,
+      t('.title',
+          :default => [('helpers.titles.' + type.to_s).to_sym.downcase,
+          type.equal?(:show) ? "#{type} #{model_class.model_name}" : "#{model_class.model_name}"],
+          :model => model_class.model_name.human.titleize),
+      class: "title-page-header");
     content_tag(:div, h1.html_safe, class: "page-header")
   end
 
@@ -26,21 +28,24 @@ module ApplicationHelper
       html = '';
       if (all || params[:only].include?(:back))
         html += back_button(send((model.class.model_name.name.downcase.pluralize + '_path').to_sym)).html_safe
+        html += ' '
       end
 
       if (all || params[:only].include?(:edit))
         html += edit_button(send(('edit_' + model.class.model_name.name.downcase + '_path').to_sym, model)).html_safe
+        html += ' '
       end
 
       if (all || params[:only].include?(:destroy))
         html += destroy_button(send((model.class.model_name.name.downcase + '_path').to_sym, model)).html_safe
+        html += ' '
       end
 
       content_tag(:div, html.html_safe, class: "form-actions")
   end
 
   def back_button(path)
-    link_to t('.cancel', :default => t("helpers.links.cancel")), path, :class => 'btn'
+    link_to t('.back', :default => t("helpers.links.back")), path, :class => 'btn'
   end
 
   def edit_button(path)

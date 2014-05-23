@@ -20,7 +20,7 @@ class ComponentsController < ApplicationController
   end
 
   def create
-    @component = Component.new(component_params)
+    @component = Component.create(component_params)
     respond_with(@component, location: @component)
   end
 

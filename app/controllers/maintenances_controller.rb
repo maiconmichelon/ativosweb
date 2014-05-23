@@ -3,43 +3,35 @@ class MaintenancesController < ApplicationController
 
   def index
     @maintenances = Maintenance.all
+    respond_with(@maintenances)
   end
 
   def edit
+    respond_with(@maintenance)
   end
 
   def update
-    respond_to do |format|
-      if @maintenance.update(maintenance_params)
-        format.html { redirect_to @maintenance, notice: 'Maintenance was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
+    @maintenance.update(maintenance_params)
+    respond_with(@maintenance, location: @maintenance)
   end
 
   def new
     @maintenance = Maintenance.new
+    respond_with(@maintenance)
   end
 
   def create
-    @maintenance = Maintenance.new(maintenance_params)
-
-    respond_to do |format|
-      if @maintenance.save
-        format.html { redirect_to @maintenance, notice: 'Maintenance was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
+    @maintenance = Maintenance.create(maintenance_params)
+    respond_with(@maintenance, location: @maintenance)
   end
 
   def show
+    respond_with(@maintenance)
   end
 
   def destroy
     @maintenance.destroy
-    redirect_to maintenances_url
+    respond_with(nil, location: maintenances_path)
   end
 
   private

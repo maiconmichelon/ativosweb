@@ -1,46 +1,37 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @groups = Group.all
-    respond_to(@groups)
+    respond_with(@groups)
   end
 
   def show
-    respond_to(@group)
+    respond_with(@group)
   end
 
   def new
     @group = Group.new
-    respond_to(@group)
+    respond_with(@group)
   end
 
   def edit
-    respond_to(@group)
+    respond_with(@group)
   end
 
   def create
-    @group = Group.new(group_params)
-
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @group }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
-    end
+    @group = Group.create(group_params)
+    respond_with(@group, location: @group)
   end
 
   def update
     @group.update(group_params)
-    respond_to(@group, location: @group)
+    respond_with(@group, location: @group)
   end
 
   def destroy
     @group.destroy
-    respond_to(nil, location: groups_path)
+    respond_with(nil, location: groups_path)
   end
 
   private

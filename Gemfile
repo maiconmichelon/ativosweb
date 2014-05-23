@@ -21,3 +21,7 @@ gem 'simple_form'
 gem 'show_for'
 
 gem 'responders'
+
+group :development do
+  gem "better_errors"
+end
