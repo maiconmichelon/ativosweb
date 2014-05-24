@@ -3,4 +3,9 @@ class Maintenance < ActiveRecord::Base
   accepts_nested_attributes_for :budget_maintenances
 
   validates_presence_of :description, :value, :date
+
+  def to_s
+    description
+  end
+  
 end

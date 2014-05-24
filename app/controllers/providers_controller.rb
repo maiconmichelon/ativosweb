@@ -22,9 +22,9 @@ class ProvidersController < ApplicationController
   def create
     @provider = Provider.create(provider_params)
     respond_with(@provider, location: @provider)
-  def update
   end
 
+  def update
     @provider.update(provider_params)
     respond_with(@provider, location: @provider)
   end

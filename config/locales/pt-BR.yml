@@ -34,14 +34,14 @@ pt-BR:
       fixture:
         number: Número
         warranty: Garantia
-        provider_id: Fornecedor
+        provider: Fornecedor
         acquisition: Aquisição
-        type_id: Tipo
-        person_id: Pessoa
+        type: Tipo
+        person: Pessoa
         purchaseValue: Valor
       person:
         name: Nome
-        group_id: Grupo
+        group: Grupo
       component:
         name: Nome
       group:
@@ -53,7 +53,7 @@ pt-BR:
         localization: Localização
       budget:
         description: Descrição
-        date: Date
+        date: Data
         value: Valor
         person: Pessoa
         fixture: Ativo
@@ -62,6 +62,10 @@ pt-BR:
         description: Descrição
         date: Date
         value: Valor
+      component_fixture:
+        component: Componente
+        quantity: Quantidade
+        description: Descrição
 
   helpers:
     actions: "Ações"

@@ -6,4 +6,8 @@ class Group < ActiveRecord::Base
 
   scope :activated, -> {where(active: true)}
 
+  def to_s
+    name
+  end
+
 end

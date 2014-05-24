@@ -26,12 +26,12 @@ class FixturesController < ApplicationController
 
   def update
     @fixture.update(fixture_params)
-    respond_to(@fixture, location: @fixture)
+    respond_with(@fixture, location: @fixture)
   end
 
   def destroy
     @fixture.destroy
-    respond_to(nil, location: fixtures_path)
+    respond_with(nil, location: fixtures_path)
   end
 
   private
