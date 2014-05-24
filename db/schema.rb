@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520030204) do
+ActiveRecord::Schema.define(version: 20140523034648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budget_maintenances", force: true do |t|
+    t.integer "maintenance_id"
+    t.integer "budget_id"
+  end
+
+  add_index "budget_maintenances", ["budget_id"], name: "index_budget_maintenances_on_budget_id", using: :btree
+  add_index "budget_maintenances", ["maintenance_id"], name: "index_budget_maintenances_on_maintenance_id", using: :btree
 
   create_table "budgets", force: true do |t|
     t.string   "description"
@@ -22,10 +30,12 @@ ActiveRecord::Schema.define(version: 20140520030204) do
     t.integer  "fixture_id"
     t.integer  "person_id"
     t.datetime "date"
+    t.integer  "provider_id"
   end
 
   add_index "budgets", ["fixture_id"], name: "index_budgets_on_fixture_id", using: :btree
   add_index "budgets", ["person_id"], name: "index_budgets_on_person_id", using: :btree
+  add_index "budgets", ["provider_id"], name: "index_budgets_on_provider_id", using: :btree
 
   create_table "component_fixtures", force: true do |t|
     t.integer "component_id"

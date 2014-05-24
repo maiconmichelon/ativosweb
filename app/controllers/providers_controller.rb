@@ -3,50 +3,35 @@ class ProvidersController < ApplicationController
 
   def index
     @providers = Provider.all
+    respond_with(@providers)
   end
 
   def show
+    respond_with(@provider)
   end
 
   def new
     @provider = Provider.new
+    respond_with(@provider)
   end
 
   def edit
+    respond_with(@provider)
   end
 
   def create
-    @provider = Provider.new(provider_params)
-
-    respond_to do |format|
-      if @provider.save
-        format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @provider }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
-    end
+    @provider = Provider.create(provider_params)
+    respond_with(@provider, location: @provider)
+  def update
   end
 
-  def update
-    respond_to do |format|
-      if @provider.update(provider_params)
-        format.html { redirect_to @provider, notice: 'Provider was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
-    end
+    @provider.update(provider_params)
+    respond_with(@provider, location: @provider)
   end
 
   def destroy
     @provider.destroy
-    respond_to do |format|
-      format.html { redirect_to providers_url }
-      format.json { head :no_content }
-    end
+    respond_with(nil, providers_path)
   end
 
   private

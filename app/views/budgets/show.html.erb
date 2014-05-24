@@ -1,7 +1,7 @@
 <%= title_area(Budget, :show) %>
 
 <%= show_for @budget do |b| %>
-  <%= b.attributes :description, :value, :fixture, :person, :date %>
+  <%= b.attributes :description, :value, :fixture, :person, :date, :provider %>
 <% end %>
 
 <%= form_actions @budget %>

@@ -2,6 +2,12 @@
   <%= f.input :description %>
   <%= f.input :date, as: :bootstrap_datepicker %>
   <%= f.input :value %>
+
+  <%= render 'layouts/nested_form',
+      f: f,
+      association: :budget_maintenances,
+      attributes: [:budget] %>
+
   <%= f.submit class: 'btn btn-primary' %>
   <%= back_button maintenances_path %>
 <% end %>

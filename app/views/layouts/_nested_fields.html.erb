@@ -1,6 +1,7 @@
 <tr class="fields">
   <% attributes.each do |attr| %>
-    <%= f.input attr, label: false, wrapper: :nested %>
+    <% type = f.object.reflections[attr].nil? ? :input : :association %>
+    <%= f.send type, attr, label: false, wrapper: :nested %>
   <% end %>
 
   <td>

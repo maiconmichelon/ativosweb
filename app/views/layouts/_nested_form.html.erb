@@ -1,6 +1,4 @@
 <div>
-  <h4><%= t('activerecord.models.component').pluralize %></h4>
-
   <table class="table">
 
     <thead>
@@ -17,11 +15,10 @@
       <%= render 'layouts/nested_fields',
             attributes: attributes,
             f: association_form %>
-            <td>
     <% end %>
 
      <tr class ="nedtedaction">
-       <td colspan="4">
+       <td colspan = <%= attributes.size + 1 %>>
          <%= link_to_add_association t('helpers.links.add'),
               f,
               association,

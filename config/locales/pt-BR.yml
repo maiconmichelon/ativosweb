@@ -57,6 +57,7 @@ pt-BR:
         value: Valor
         person: Pessoa
         fixture: Ativo
+        provider: Fornecedor
       maintenance:
         description: Descrição
         date: Date

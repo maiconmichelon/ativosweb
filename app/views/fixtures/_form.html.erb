@@ -7,6 +7,8 @@
   <%= f.association :person %>
   <%= f.input :purchaseValue %>
 
+  <h4><%= t('activerecord.models.component').pluralize %></h4>
+  
   <%= render 'layouts/nested_form',
       f: f,
       association: :component_fixtures,
