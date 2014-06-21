@@ -1,7 +1,5 @@
 Ativos::Application.routes.draw do
 
-  resources :components
-
   LOCALES = /en|pt\-BR/
   scope "(:locale)", locale: LOCALES do
     resources :fixtures
@@ -12,9 +10,8 @@ Ativos::Application.routes.draw do
     resources :types
     resources :maintenances
     resources :budgets
+    resources :components
   end
-
-  get "type/new_component" => 'type#new_component', :as => :new_componente
 
   root 'fixtures#index'
 

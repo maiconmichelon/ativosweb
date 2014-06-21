@@ -5,6 +5,6 @@ class CreateBudgetMaintenance < ActiveRecord::Migration
       t.references :budget
     end
 
-    add_index :component_fixtures, [:component_id, :fixture_id], unique: true
+    add_index :budget_maintenances, [:maintenance_id, :budget_id], unique: true
   end
 end

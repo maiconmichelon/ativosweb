@@ -2,6 +2,7 @@
   <%= f.input :description %>
   <%= f.input :date, as: :bootstrap_datepicker %>
   <%= f.input :value %>
+  <%= f.association :person %>
 
   <%= render 'layouts/nested_form',
       f: f,

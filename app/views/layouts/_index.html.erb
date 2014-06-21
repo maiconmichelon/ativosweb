@@ -19,11 +19,12 @@
         <% first = true %> <!-- Para criar um link para a view do item -->
         <% attributes.each do |attr| %>
           <td>
+            <% cell_value = element.send(attr) %>
             <% if first %>
-              <%= link_to element.send(attr), send(path_name, element) %>
+              <%= link_to cell_value, send(path_name, element) %>
               <% first = false %>
             <% else %>
-              <%= element.send(attr) %>
+              <%= cell_value %>
             <% end %>
           </td>
         <% end %>

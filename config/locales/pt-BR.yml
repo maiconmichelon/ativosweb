@@ -60,12 +60,14 @@ pt-BR:
         provider: Fornecedor
       maintenance:
         description: Descrição
-        date: Date
+        date: Data
         value: Valor
       component_fixture:
         component: Componente
         quantity: Quantidade
         description: Descrição
+      budget_maintenance:
+        budget: Orçamento
 
   helpers:
     actions: "Ações"

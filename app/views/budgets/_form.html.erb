@@ -2,7 +2,7 @@
   <%= f.input :description %>
   <%= f.input :date, as: :bootstrap_datepicker %>
   <%= f.input :value %>
-  <%= f.association :person %>
+  <%= f.association :person, label: 'Responsável'  %>
   <%= f.association :fixture %>
   <%= f.association :provider %>
 
