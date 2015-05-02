@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Softimob', "/", class: "navbar-brand"%>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <% if current_user %>
+        <% if current_company %>
+          <%= render 'layouts/navbar_left_with_login_and_empresa' %>
+        <% else %>
+          <%= render 'layouts/navbar_left_with_login_without_empresa' %>
+        <% end %>
+      <% end %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <%= render 'layouts/navbar_right_with_login' %>
+        <% else %>
+          <li><%= link_to "Sign up", sign_up_path %></li>
+          <li><%= link_to "log in", log_in_path %></li>
+        <% end %>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

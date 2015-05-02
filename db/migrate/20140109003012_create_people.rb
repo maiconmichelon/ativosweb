@@ -4,6 +4,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :name, null: false, default: ""
       t.references :group, index: true
       t.boolean :active, null: false, default: true
+      t.references :company, index: true
 
       t.timestamps
     end

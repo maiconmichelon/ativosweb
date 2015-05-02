@@ -2,8 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    @groups = Group.all
-    respond_with(@groups)
+    respond_with(current_company.groups)
   end
 
   def show

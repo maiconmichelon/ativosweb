@@ -2,7 +2,7 @@ class FixturesController < ApplicationController
   before_action :set_fixture, only: [:show, :edit, :update, :destroy]
 
   def index
-    @fixtures = Fixture.all
+    @fixtures = current_company.fixtures
     respond_with(@fixtures)
   end
 
@@ -36,11 +36,12 @@ class FixturesController < ApplicationController
 
   private
     def set_fixture
-      @fixture = Fixture.find(params[:id])
+      @company = find(params[:company_id])
+      @fixture = @company.fixtures.find(params[:id])
     end
 
     def fixture_params
-      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue,
+      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue, :company_id,
         component_fixtures_attributes: [:description, :component_id, :quantity])
     end
 end

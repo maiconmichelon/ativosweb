@@ -2,8 +2,7 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
   def index
-    @providers = Provider.all
-    respond_with(@providers)
+    respond_with(current_company.providers)
   end
 
   def show

@@ -2,8 +2,7 @@ class ComponentsController < ApplicationController
   before_action :set_component, only: [:show, :edit, :update, :destroy]
 
   def index
-    @components = Component.all
-    respond_with(@components)
+    respond_with(current_company.components)
   end
 
   def show
@@ -16,17 +15,16 @@ class ComponentsController < ApplicationController
   end
 
   def edit
-    respond_with(@component)
   end
 
   def create
     @component = Component.create(component_params)
-    respond_with(@component, location: @component)
+    respond_with(@component)
   end
 
   def update
     @component.update(component_params)
-    respond_with(@component, :location => @component)
+    respond_with(@component)
   end
 
   def destroy

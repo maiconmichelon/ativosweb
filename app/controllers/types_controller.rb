@@ -2,8 +2,7 @@ class TypesController < ApplicationController
   before_action :set_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    @types = Type.all
-    respond_with(@types)
+    respond_with(current_company.types)
   end
 
   def show

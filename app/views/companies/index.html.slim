@@ -1,0 +1,19 @@
+- if current_user
+  h1
+    = t('Companies')
+
+  table class="table"
+    thead
+      tr
+        th Razão Social
+        th
+        th
+        th
+
+    tbody
+      - @companies.each do |company|
+        tr
+          td = company.name
+          td = link_to 'Entrar', company
+          td = link_to 'Editar', edit_company_path(company)
+          td = link_to 'Excluir', company, data: {:confirm => 'Você tem certeza ?'}, :method => :delete

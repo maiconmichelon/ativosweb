@@ -6,7 +6,7 @@ class CreateBudgets < ActiveRecord::Migration
       t.references :fixture, index: true
       t.references :person, index: true, null: false
       t.datetime :date, null: false
-      
+
       t.timestamps
     end
   end

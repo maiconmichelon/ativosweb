@@ -2,8 +2,7 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    @people = Person.all
-    respond_with(@people)
+    respond_with(current_company.people)
   end
 
   def show

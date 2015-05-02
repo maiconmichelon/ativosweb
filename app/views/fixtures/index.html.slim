@@ -1,0 +1,19 @@
+h1 Listing fixtures
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @fixtures.each do |fixture|
+      tr
+        td = link_to 'Show', fixture
+        td = link_to 'Edit', edit_fixture_path(fixture)
+        td = link_to 'Destroy', fixture, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Fixture', new_company_fixture_path
