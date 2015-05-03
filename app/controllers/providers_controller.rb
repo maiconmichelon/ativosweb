@@ -2,7 +2,8 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with(current_company.providers)
+    @providers = @company.providers
+    respond_with(@providers)
   end
 
   def show
@@ -10,7 +11,7 @@ class ProvidersController < ApplicationController
   end
 
   def new
-    @provider = Provider.new
+    @provider = @company.providers.new
     respond_with(@provider)
   end
 
@@ -19,13 +20,13 @@ class ProvidersController < ApplicationController
   end
 
   def create
-    @provider = Provider.create(provider_params)
-    respond_with(@provider, location: @provider)
+    @provider = @company.providers.create(provider_params)
+    respond_with(@company, @provider)
   end
 
   def update
     @provider.update(provider_params)
-    respond_with(@provider, location: @provider)
+    respond_with(@company, @provider)
   end
 
   def destroy
@@ -39,6 +40,6 @@ class ProvidersController < ApplicationController
     end
 
     def provider_params
-      params.require(:provider).permit(:name, :cpfCnpj, :phone, :localization)
+      params.require(:provider).permit(:name, :cpfCnpj, :phone, :localization, :company_id)
     end
 end

@@ -1,8 +1,9 @@
 class Group < ActiveRecord::Base
-  validates_presence_of :name
-  validates_uniqueness_of :name
+  belongs_to :company
+  has_many :people
 
-  has_many :fixtures
+  validates_presence_of :name
+  validates_uniqueness_of :name, scope: :company
 
   scope :activated, -> {where(active: true)}
 

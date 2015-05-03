@@ -1,0 +1,23 @@
+h1 = t 'layout.types'
+
+table
+  thead
+    tr
+      th = t_attribute 'type.description'
+      th = t_attribute 'type.initial_code'
+      th
+      th
+      th
+
+  tbody
+    - @types.each do |type|
+      tr
+        td = type.description
+        td = type.initial_code
+        td = link_to t('helpers.links.show'), [@company, type]
+        td = link_to t('helpers.links.edit'), edit_company_type_path(@company, type)
+        td = link_to t('helpers.links.destroy'), [@company, type], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+
+br
+
+= link_to 'New Type', new_company_type_path

@@ -14,6 +14,8 @@ pt-BR:
     types: Tipos de Ativo
     maintenances: Manutenções
     budgets: Orçamentos
+    companies: Empresas
+    create_a_new_company: Criar uma nova empresa
 
   activerecord:
     models:
@@ -62,12 +64,15 @@ pt-BR:
         description: Descrição
         date: Data
         value: Valor
+        person: Pessoa
       component_fixture:
         component: Componente
         quantity: Quantidade
         description: Descrição
       budget_maintenance:
         budget: Orçamento
+      company:
+        name: Nome
 
   helpers:
     actions: "Ações"
@@ -79,6 +84,7 @@ pt-BR:
       new: "Novo"
       edit: "Editar"
       add: "Adicionar"
+      show: "Mostrar"
     titles:
       edit: "Editar %{model}"
       save: "Salvar %{model}"

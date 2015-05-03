@@ -2,7 +2,8 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with(current_company.people)
+    @people = @company.people
+    respond_with(@people)
   end
 
   def show
@@ -10,7 +11,7 @@ class PeopleController < ApplicationController
   end
 
   def new
-    @person = Person.new
+    @person = @company.people.new
     respond_with(@person)
   end
 
@@ -20,12 +21,12 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.create(person_params)
-    respond_with(@person, location: @person)
+    respond_with(@company, @person)
   end
 
   def update
     @person.update(person_params)
-    respond_with(@person, location: @person)
+    respond_with(@company, @person)
   end
 
   def destroy

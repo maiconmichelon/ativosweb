@@ -1,0 +1,8 @@
+p#notice = notice
+
+= show_for @provider do |f|
+  = f.attributes :name, :cpfCnpj, :phone, :localization
+
+= link_to t('helpers.links.edit'), edit_company_provider_path(@company, @provider)
+'|
+= link_to 'Back', company_providers_path

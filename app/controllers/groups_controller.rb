@@ -2,7 +2,8 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with(current_company.groups)
+    @groups = @company.groups
+    respond_with(@groups)
   end
 
   def show
@@ -10,7 +11,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @group = Group.new
+    @group = @company.groups.new
     respond_with(@group)
   end
 
@@ -19,13 +20,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.create(group_params)
-    respond_with(@group, location: @group)
+    @group = @company.groups.create(group_params)
+    respond_with(@company, @group)
   end
 
   def update
     @group.update(group_params)
-    respond_with(@group, location: @group)
+    respond_with(@company, @group)
   end
 
   def destroy
@@ -39,6 +40,6 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :company_id)
     end
 end

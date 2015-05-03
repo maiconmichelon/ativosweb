@@ -6,10 +6,6 @@ class CompaniesController < ApplicationController
     respond_with(@companies)
   end
 
-  def show
-    respond_with(@company)
-  end
-
   def new
     @company = Company.new
     respond_with(@company)
@@ -22,12 +18,12 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.owner = current_user
     @company.save
-    respond_with(@company)
+    redirect_to action: :index
   end
 
   def update
     @company.update(company_params)
-    respond_with(@company)
+    redirect_to action: :index
   end
 
   def destroy

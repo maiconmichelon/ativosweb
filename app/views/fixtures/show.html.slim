@@ -1,6 +1,8 @@
 p#notice = notice
 
+= show_for @fixture do |f|
+  = f.attributes :number, :type, :person, :acquisition, :provider, :warranty, :purchaseValue
 
-= link_to 'Edit', edit_company_fixture_path(@fixture)
+= link_to t('helpers.links.edit'), edit_company_fixture_path(@company, @fixture)
 '|
 = link_to 'Back', company_fixtures_path

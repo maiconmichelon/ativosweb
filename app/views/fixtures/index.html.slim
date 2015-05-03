@@ -1,8 +1,15 @@
-h1 Listing fixtures
+h1 = t 'layout.fixtures'
 
 table
   thead
     tr
+      th = t_attribute 'fixture.number'
+      th = t_attribute 'fixture.type'
+      th = t_attribute 'fixture.person'
+      th = t_attribute 'fixture.acquisition'
+      th = t_attribute 'fixture.provider'
+      th = t_attribute 'fixture.warranty'
+      th = t_attribute 'fixture.purchaseValue'
       th
       th
       th
@@ -10,9 +17,17 @@ table
   tbody
     - @fixtures.each do |fixture|
       tr
-        td = link_to 'Show', fixture
-        td = link_to 'Edit', edit_fixture_path(fixture)
-        td = link_to 'Destroy', fixture, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = fixture.number
+        td = fixture.type
+        td = fixture.person
+        td = fixture.acquisition
+        td = fixture.provider
+        td = fixture.warranty
+        td = fixture.purchaseValue
+
+        td = link_to t('helpers.links.show'), [@company, fixture]
+        td = link_to t('helpers.links.edit'), edit_company_fixture_path(@company, fixture)
+        td = link_to t('helpers.links.destroy'), [@company, fixture], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
 
 br
 

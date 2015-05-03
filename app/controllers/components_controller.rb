@@ -2,7 +2,8 @@ class ComponentsController < ApplicationController
   before_action :set_component, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with(current_company.components)
+    @components = @company.components
+    respond_with(@components)
   end
 
   def show
@@ -10,7 +11,7 @@ class ComponentsController < ApplicationController
   end
 
   def new
-    @component = Component.new
+    @component = @company.components.new
     respond_with(@component)
   end
 
@@ -18,13 +19,13 @@ class ComponentsController < ApplicationController
   end
 
   def create
-    @component = Component.create(component_params)
-    respond_with(@component)
+    @component = @company.components.create(component_params)
+    respond_with(@company, @component)
   end
 
   def update
     @component.update(component_params)
-    respond_with(@component)
+    respond_with(@company, @component)
   end
 
   def destroy
@@ -38,6 +39,6 @@ class ComponentsController < ApplicationController
     end
 
     def component_params
-      params.require(:component).permit(:name)
+      params.require(:component).permit(:name, :company_id)
     end
 end

@@ -1,0 +1,8 @@
+p#notice = notice
+
+= show_for @budget do |f|
+  = f.attributes :date, :description, :provider, :value
+
+= link_to t('helpers.links.edit'), edit_company_budget_path(@company, @budget)
+'|
+= link_to 'Back', company_budgets_path

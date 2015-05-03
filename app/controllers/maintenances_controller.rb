@@ -2,7 +2,7 @@ class MaintenancesController < ApplicationController
   before_action :set_maintenance, only: [:show, :edit, :update, :destroy]
 
   def index
-    @maintenances = Maintenance.all
+    @maintenances = @company.maintenances
     respond_with(@maintenances)
   end
 
@@ -12,17 +12,17 @@ class MaintenancesController < ApplicationController
 
   def update
     @maintenance.update(maintenance_params)
-    respond_with(@maintenance, location: @maintenance)
+    respond_with(@company, @maintenance)
   end
 
   def new
-    @maintenance = Maintenance.new
+    @maintenance = @company.maintenances.new
     respond_with(@maintenance)
   end
 
   def create
     @maintenance = Maintenance.create(maintenance_params)
-    respond_with(@maintenance, location: @maintenance)
+    respond_with(@company, @maintenance)
   end
 
   def show

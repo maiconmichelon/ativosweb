@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_company
   respond_to :html
   protect_from_forgery with: :exception
 
@@ -19,7 +20,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_company
-    Company.find(params[:company_id]) if params[:company_id]
+    company_id = params[:company_id] ? params[:company_id] : params[:id]
+    Company.find(company_id) if company_id
   end
 
+  private
+    def set_company
+      @company = current_company
+    end
 end

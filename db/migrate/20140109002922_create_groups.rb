@@ -3,11 +3,11 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
       t.string :name, null: false, default: ''
       t.boolean :active, null: false, default: true
-      t.references :company, index: true
+      t.references :company, index: true, null: false
 
       t.timestamps
     end
 
-    add_index :groups, :name, unique: true
+    add_index :groups, [:name, :company_id], unique: true
   end
 end

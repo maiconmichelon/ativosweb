@@ -1,0 +1,8 @@
+p#notice = notice
+
+= show_for @group do |f|
+  = f.attributes :name
+
+= link_to t('helpers.links.edit'), edit_company_group_path(@company, @group)
+'|
+= link_to 'Back', company_groups_path

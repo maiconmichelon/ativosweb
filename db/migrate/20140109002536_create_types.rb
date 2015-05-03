@@ -4,11 +4,11 @@ class CreateTypes < ActiveRecord::Migration
       t.string :description, null: false, default: ""
       t.boolean :active, null: false, default: true
       t.integer :initial_code, null: false, default: 1
-      t.references :company, index: true
+      t.references :company, index: true, null: false
 
       t.timestamps
     end
 
-    add_index :types, :description, unique: true
+    add_index :types, [:description, :company_id], unique: true
   end
 end

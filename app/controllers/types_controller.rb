@@ -2,7 +2,8 @@ class TypesController < ApplicationController
   before_action :set_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with(current_company.types)
+    @types = @company.types
+    respond_with(@types)
   end
 
   def show
@@ -10,7 +11,7 @@ class TypesController < ApplicationController
   end
 
   def new
-    @type = Type.new
+    @type = @company.types.new
     respond_with(@type)
   end
 
@@ -19,13 +20,13 @@ class TypesController < ApplicationController
   end
 
   def create
-    @type = Type.create(type_params)
-    respond_with(@type, location: @type)
+    @type = @company.types.create(type_params)
+    respond_with(@company, @type)
   end
 
   def update
     @type.update(type_params)
-    respond_with(@type, location: @type)
+    respond_with(@company, @type)
   end
 
   def destroy
@@ -39,7 +40,7 @@ class TypesController < ApplicationController
     end
 
     def type_params
-      params[:type].permit(:description, :initial_code)
+      params[:type].permit(:description, :initial_code, :company_id)
     end
 
 end

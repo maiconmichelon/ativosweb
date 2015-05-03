@@ -1,0 +1,27 @@
+h1 = t 'layout.providers'
+
+table
+  thead
+    tr
+      th = t_attribute 'provider.name'
+      th = t_attribute 'provider.cpfCnpj'
+      th = t_attribute 'provider.phone'
+      th = t_attribute 'provider.localization'
+      th
+      th
+      th
+
+  tbody
+    - @providers.each do |provider|
+      tr
+        td = provider.name
+        td = provider.cpfCnpj
+        td = provider.phone
+        td = provider.localization
+        td = link_to t('helpers.links.show'), [@company, provider]
+        td = link_to t('helpers.links.edit'), edit_company_provider_path(@company, provider)
+        td = link_to t('helpers.links.destroy'), [@company, provider], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+
+br
+
+= link_to 'New Provider', new_company_provider_path

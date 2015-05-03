@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def t_attribute(name)
+    t('activerecord.attributes.' + name)
+  end
+
   def link_to_remove_fields(name, f, options = {})
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)", options)
   end

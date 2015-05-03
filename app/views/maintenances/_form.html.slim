@@ -1,0 +1,16 @@
+= simple_form_for [@company, @maintenance] do |f|
+  - if @maintenance.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@maintenance.errors.count, "error")} prohibited this maintenance from being saved:"
+      ul
+        - @maintenance.errors.full_messages.each do |message|
+          li = message
+
+  = f.input :description
+  = f.input :date, as: :bootstrap_datepicker
+  = f.input :value
+  = f.association :person
+
+  = render 'layouts/nested_form', f: f, association: :budget_maintenances, attributes: [:budget]
+
+  .actions = f.submit

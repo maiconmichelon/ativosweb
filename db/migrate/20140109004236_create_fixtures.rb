@@ -9,7 +9,7 @@ class CreateFixtures < ActiveRecord::Migration
       t.references :person, index: true
       t.decimal :purchaseValue, :precision => 10, :scale => 2
       t.boolean :active, null: false, default: true
-      t.references :company, index: true
+      t.references :company, index: true, null: false
 
       t.timestamps
     end

@@ -2,18 +2,18 @@ class BudgetsController < ApplicationController
   before_action :set_budget, only: [:show, :edit, :update, :destroy]
 
   def index
-    @budgets = Budget.all
+    @budgets = @company.budgets
     respond_with(@budgets)
   end
 
   def new
-    @budget = Budget.new
+    @budget = @company.budgets.new
     respond_with(@budget)
   end
 
   def create
-    @budget = Budget.create(budget_params)
-    respond_with(@budget)
+    @budget = @company.budgets.create(budget_params)
+    respond_with(@company, @budget)
   end
 
   def edit
@@ -22,7 +22,7 @@ class BudgetsController < ApplicationController
 
   def update
     @budget.update(budget_params)
-    respond_with(@budget, location: @budget)
+    respond_with(@company, @budget)
   end
 
   def show
@@ -40,7 +40,7 @@ class BudgetsController < ApplicationController
     end
 
     def budget_params
-      params.require(:budget).permit(:person_id, :value, :fixture_id, :description, :date, :provider_id)
+      params.require(:budget).permit(:person_id, :value, :company_id, :fixture_id, :description, :date, :provider_id)
     end
 
 end

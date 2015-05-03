@@ -1,0 +1,23 @@
+h1 = t 'layout.people'
+
+table
+  thead
+    tr
+      th = t_attribute 'person.name'
+      th = t_attribute 'person.group'
+      th
+      th
+      th
+
+  tbody
+    - @people.each do |person|
+      tr
+        td = person.name
+        td = person.group
+        td = link_to t('helpers.links.show'), [@company, person]
+        td = link_to t('helpers.links.edit'), edit_company_person_path(@company, person)
+        td = link_to t('helpers.links.destroy'), [@company, person], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+
+br
+
+= link_to 'New Person', new_company_person_path

@@ -4,11 +4,10 @@ class CreatePeople < ActiveRecord::Migration
       t.string :name, null: false, default: ""
       t.references :group, index: true
       t.boolean :active, null: false, default: true
-      t.references :company, index: true
 
       t.timestamps
     end
 
-    add_index :people, :name, unique: true
+    add_index :people, [:name, :group_id], unique: true
   end
 end

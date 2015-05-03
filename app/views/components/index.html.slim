@@ -1,0 +1,21 @@
+h1 = t 'layout.components'
+
+table
+  thead
+    tr
+      th = t_attribute 'component.name'
+      th
+      th
+      th
+
+  tbody
+    - @components.each do |component|
+      tr
+        td = component.name
+        td = link_to t('helpers.links.show'), [@company, component]
+        td = link_to t('helpers.links.edit'), edit_company_component_path(@company, component)
+        td = link_to t('helpers.links.destroy'), [@company, component], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+
+br
+
+= link_to 'New Component', new_company_component_path

@@ -1,0 +1,8 @@
+p#notice = notice
+
+= show_for @type do |f|
+  = f.attributes :description, :initial_code
+
+= link_to t('helpers.links.edit'), edit_company_type_path(@company, @type)
+'|
+= link_to 'Back', company_types_path

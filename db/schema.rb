@@ -26,16 +26,14 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   create_table "budgets", force: true do |t|
     t.string   "description",                         null: false
     t.decimal  "value",       precision: 8, scale: 2, null: false
-    t.integer  "fixture_id"
-    t.integer  "person_id",                           null: false
     t.datetime "date",                                null: false
+    t.integer  "company_id",                          null: false
+    t.integer  "provider_id",                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "provider_id",                         null: false
   end
 
-  add_index "budgets", ["fixture_id"], name: "index_budgets_on_fixture_id", using: :btree
-  add_index "budgets", ["person_id"], name: "index_budgets_on_person_id", using: :btree
+  add_index "budgets", ["company_id"], name: "index_budgets_on_company_id", using: :btree
   add_index "budgets", ["provider_id"], name: "index_budgets_on_provider_id", using: :btree
 
   create_table "companies", force: true do |t|
@@ -44,6 +42,8 @@ ActiveRecord::Schema.define(version: 20150501234527) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "companies", ["name", "owner_id"], name: "index_companies_on_name_and_owner_id", unique: true, using: :btree
 
   create_table "component_fixtures", force: true do |t|
     t.integer "component_id"
@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   create_table "components", force: true do |t|
     t.string   "name",       default: "",   null: false
     t.boolean  "active",     default: true, null: false
-    t.integer  "company_id"
+    t.integer  "company_id",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "components", ["company_id"], name: "index_components_on_company_id", using: :btree
-  add_index "components", ["name"], name: "index_components_on_name", unique: true, using: :btree
+  add_index "components", ["name", "company_id"], name: "index_components_on_name_and_company_id", unique: true, using: :btree
 
   create_table "components_types", force: true do |t|
     t.integer "component_id"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20150501234527) do
     t.integer  "person_id"
     t.decimal  "purchaseValue", precision: 10, scale: 2
     t.boolean  "active",                                 default: true, null: false
-    t.integer  "company_id"
+    t.integer  "company_id",                                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,38 +95,38 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   create_table "groups", force: true do |t|
     t.string   "name",       default: "",   null: false
     t.boolean  "active",     default: true, null: false
-    t.integer  "company_id"
+    t.integer  "company_id",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "groups", ["company_id"], name: "index_groups_on_company_id", using: :btree
-  add_index "groups", ["name"], name: "index_groups_on_name", unique: true, using: :btree
+  add_index "groups", ["name", "company_id"], name: "index_groups_on_name_and_company_id", unique: true, using: :btree
 
   create_table "maintenances", force: true do |t|
     t.date     "date",                                               null: false
     t.string   "description",                                        null: false
     t.decimal  "value",       precision: 8, scale: 2, default: 0.0,  null: false
     t.boolean  "activate",                            default: true, null: false
+    t.integer  "person_id",                                          null: false
+    t.integer  "fixture_id",                                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id",                                          null: false
   end
 
+  add_index "maintenances", ["fixture_id"], name: "index_maintenances_on_fixture_id", using: :btree
   add_index "maintenances", ["person_id"], name: "index_maintenances_on_person_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "name",       default: "",   null: false
     t.integer  "group_id"
     t.boolean  "active",     default: true, null: false
-    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "people", ["company_id"], name: "index_people_on_company_id", using: :btree
   add_index "people", ["group_id"], name: "index_people_on_group_id", using: :btree
-  add_index "people", ["name"], name: "index_people_on_name", unique: true, using: :btree
+  add_index "people", ["name", "group_id"], name: "index_people_on_name_and_group_id", unique: true, using: :btree
 
   create_table "providers", force: true do |t|
     t.string   "name",         default: "",   null: false
@@ -134,25 +134,25 @@ ActiveRecord::Schema.define(version: 20150501234527) do
     t.string   "phone"
     t.string   "localization"
     t.boolean  "active",       default: true, null: false
-    t.integer  "company_id"
+    t.integer  "company_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "providers", ["company_id"], name: "index_providers_on_company_id", using: :btree
-  add_index "providers", ["cpfCnpj"], name: "index_providers_on_cpfCnpj", unique: true, using: :btree
+  add_index "providers", ["cpfCnpj", "company_id"], name: "index_providers_on_cpfCnpj_and_company_id", unique: true, using: :btree
 
   create_table "types", force: true do |t|
     t.string   "description",  default: "",   null: false
     t.boolean  "active",       default: true, null: false
     t.integer  "initial_code", default: 1,    null: false
-    t.integer  "company_id"
+    t.integer  "company_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "types", ["company_id"], name: "index_types_on_company_id", using: :btree
-  add_index "types", ["description"], name: "index_types_on_description", unique: true, using: :btree
+  add_index "types", ["description", "company_id"], name: "index_types_on_description_and_company_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"

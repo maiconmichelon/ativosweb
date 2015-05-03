@@ -2,7 +2,7 @@ class FixturesController < ApplicationController
   before_action :set_fixture, only: [:show, :edit, :update, :destroy]
 
   def index
-    @fixtures = current_company.fixtures
+    @fixtures = @company.fixtures
     respond_with(@fixtures)
   end
 
@@ -11,7 +11,7 @@ class FixturesController < ApplicationController
   end
 
   def new
-    @fixture = Fixture.new
+    @fixture = @company.fixtures.new
     respond_with(@fixture)
   end
 
@@ -20,13 +20,13 @@ class FixturesController < ApplicationController
   end
 
   def create
-    @fixture = Fixture.create(fixture_params)
-    respond_with(@fixture, location: @fixture)
+    @fixture = @company.fixtures.create(fixture_params)
+    respond_with(@company, @fixture)
   end
 
   def update
     @fixture.update(fixture_params)
-    respond_with(@fixture, location: @fixture)
+    respond_with(@company, @fixture)
   end
 
   def destroy
@@ -36,7 +36,7 @@ class FixturesController < ApplicationController
 
   private
     def set_fixture
-      @company = find(params[:company_id])
+      @company = Company.find(params[:company_id])
       @fixture = @company.fixtures.find(params[:id])
     end
 
