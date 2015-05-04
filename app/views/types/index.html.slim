@@ -1,6 +1,6 @@
 h1 = t 'layout.types'
 
-table
+table class = "table"
   thead
     tr
       th = t_attribute 'type.description'
@@ -20,4 +20,4 @@ table
 
 br
 
-= link_to 'New Type', new_company_type_path
+= link_to t_title_new('type'), new_company_type_path, class: 'btn btn-primary btn-sm'

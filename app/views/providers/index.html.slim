@@ -1,6 +1,6 @@
 h1 = t 'layout.providers'
 
-table
+table class = "table"
   thead
     tr
       th = t_attribute 'provider.name'
@@ -24,4 +24,4 @@ table
 
 br
 
-= link_to 'New Provider', new_company_provider_path
+= link_to t_title_new('provider'), new_company_provider_path, class: 'btn btn-primary btn-sm'

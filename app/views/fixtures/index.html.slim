@@ -1,6 +1,6 @@
 h1 = t 'layout.fixtures'
 
-table
+table class = "table"
   thead
     tr
       th = t_attribute 'fixture.number'
@@ -20,7 +20,7 @@ table
         td = fixture.number
         td = fixture.type
         td = fixture.person
-        td = fixture.acquisition
+        td = l(fixture.acquisition)
         td = fixture.provider
         td = fixture.warranty
         td = fixture.purchaseValue
@@ -31,4 +31,4 @@ table
 
 br
 
-= link_to 'New Fixture', new_company_fixture_path
+= link_to t_title_new('fixture'), new_company_fixture_path, class: 'btn btn-primary btn-sm'

@@ -1,6 +1,6 @@
 h1 = t 'layout.maintenances'
 
-table
+table class = "table"
   thead
     tr
       th = t_attribute 'maintenance.date'
@@ -14,7 +14,7 @@ table
   tbody
     - @maintenances.each do |maintenance|
       tr
-        td = maintenance.date
+        td = l(maintenance.date)
         td = maintenance.person
         td = maintenance.description
         td = maintenance.value
@@ -24,4 +24,4 @@ table
 
 br
 
-= link_to 'New Maintenance', new_company_maintenance_path
+= link_to t_title_new('maintenance'), new_company_maintenance_path, class: 'btn btn-primary btn-sm'

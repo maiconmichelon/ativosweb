@@ -1,6 +1,6 @@
 h1 = t 'layout.budgets'
 
-table
+table class = "table"
   thead
     tr
       th = t_attribute 'budget.date'
@@ -18,10 +18,10 @@ table
         td = budget.description
         td = budget.provider
         td = budget.value
-        td = link_to t('helpers.links.show'), [@company, budget]
-        td = link_to t('helpers.links.edit'), edit_company_budget_path(@company, budget)
-        td = link_to t('helpers.links.destroy'), [@company, budget], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+        td = link_to t('helpers.links.show'), [@company, budget], class: 'btn btn-primary btn-sm'
+        td = link_to t('helpers.links.edit'), edit_company_budget_path(@company, budget), class: 'btn btn-primary btn-sm'
+        td = link_to t('helpers.links.destroy'), [@company, budget], class: 'btn btn-danger btn-sm', data: {:confirm => t('helpers.links.confirm')}, :method => :delete
 
 br
 
-= link_to 'New Budget', new_company_budget_path
+= link_to t_title_new('budget'), new_company_budget_path, class: 'btn btn-primary btn-sm'

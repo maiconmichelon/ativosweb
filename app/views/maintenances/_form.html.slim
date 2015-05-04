@@ -11,6 +11,7 @@
   = f.input :value
   = f.association :person
 
-  = render 'layouts/nested_form', f: f, association: :budget_maintenances, attributes: [:budget]
-
-  .actions = f.submit
+  fieldset
+    legend = t ('layout.components')
+    = render('budget_maintenances_table', :f => f)
+    = link_to_add_fields("  Add a Pilot", f, :budget_maintenances, :class => "btn btn-primary", :title => "Add a new Pilot to the list of Pilots that fly this Ship.")

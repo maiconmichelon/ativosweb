@@ -65,13 +65,6 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   add_index "components", ["company_id"], name: "index_components_on_company_id", using: :btree
   add_index "components", ["name", "company_id"], name: "index_components_on_name_and_company_id", unique: true, using: :btree
 
-  create_table "components_types", force: true do |t|
-    t.integer "component_id"
-    t.integer "type_id"
-  end
-
-  add_index "components_types", ["component_id", "type_id"], name: "index_components_types_on_component_id_and_type_id", unique: true, using: :btree
-
   create_table "fixtures", force: true do |t|
     t.integer  "number",                                 default: 1,    null: false
     t.string   "warranty"
@@ -141,6 +134,13 @@ ActiveRecord::Schema.define(version: 20150501234527) do
 
   add_index "providers", ["company_id"], name: "index_providers_on_company_id", using: :btree
   add_index "providers", ["cpfCnpj", "company_id"], name: "index_providers_on_cpfCnpj_and_company_id", unique: true, using: :btree
+
+  create_table "type_components", force: true do |t|
+    t.integer "component_id"
+    t.integer "type_id"
+  end
+
+  add_index "type_components", ["component_id", "type_id"], name: "index_type_components_on_component_id_and_type_id", unique: true, using: :btree
 
   create_table "types", force: true do |t|
     t.string   "description",  default: "",   null: false

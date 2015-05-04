@@ -40,7 +40,7 @@ class TypesController < ApplicationController
     end
 
     def type_params
-      params[:type].permit(:description, :initial_code, :company_id)
+      params[:type].permit(:description, :initial_code, :company_id, type_components_attributes: [:type_id, :component_id])
     end
 
 end

@@ -1,6 +1,6 @@
 h1 = t 'layout.groups'
 
-table
+table class = "table"
   thead
     tr
       th = t_attribute 'group.name'
@@ -18,4 +18,4 @@ table
 
 br
 
-= link_to 'New Group', new_company_group_path
+= link_to t_title_new('group'), new_company_group_path, class: 'btn btn-primary btn-sm'

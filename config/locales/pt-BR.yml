@@ -16,6 +16,11 @@ pt-BR:
     budgets: Orçamentos
     companies: Empresas
     create_a_new_company: Criar uma nova empresa
+    signup: Cadastro
+    signin: Entrar
+    login: Login
+    signout: Sair
+    logged_in_as: "Logado como"
 
   activerecord:
     models:
@@ -28,6 +33,7 @@ pt-BR:
       type: Tipo de Ativos
       maintenance: Manutenção
       budget: Orçamento
+      user: Usuário
 
     attributes:
       type:
@@ -73,6 +79,10 @@ pt-BR:
         budget: Orçamento
       company:
         name: Nome
+      user:
+        password: Senha
+        password_confirmation: Senha de confirmação
+        email: 'Email'
 
   helpers:
     actions: "Ações"
@@ -95,6 +105,10 @@ pt-BR:
 
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
+
+  login:
+    user_registered: "Usuário cadastrado com sucesso"
+    invalid: "Senha ou email inválidos"
 
   date:
     datepicker:
