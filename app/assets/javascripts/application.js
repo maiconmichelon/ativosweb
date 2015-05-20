@@ -14,7 +14,7 @@ function add_fields(link, association, content) {
     var new_id = new Date().getTime();
     var regex = new RegExp("new_" + association, "g");
     $(link).parent().after(content.replace(regex, new_id));
-    $('#new_pilot_fields').modal('show');
+    $('#new-pilot-fields').modal('show');
 }
 
 // Set up the UI/UX for the ships screens.  This object sets up all the functionality we need to:
