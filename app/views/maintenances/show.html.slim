@@ -3,6 +3,6 @@ p#notice = notice
 = show_for @maintenance do |f|
   = f.attributes :date, :person, :description, :value
 
-= link_to t('helpers.links.edit'), edit_company_maintenance_path(@company, @maintenance)
-'|
-= link_to t('helpers.links.back'), company_maintenances_path
+.btn-toolbar
+  = link_to t('helpers.links.edit'), edit_company_maintenance_path(@company, @maintenance), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), company_maintenances_path, class: 'btn btn-success btn-sm'

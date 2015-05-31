@@ -3,6 +3,6 @@ p#notice = notice
 = show_for @type do |f|
   = f.attributes :description, :initial_code
 
-= link_to t('helpers.links.edit'), edit_company_type_path(@company, @type)
-'|
-= link_to t('helpers.links.back'), company_types_path
+.btn-toolbar
+  = link_to t('helpers.links.edit'), edit_company_type_path(@company, @type), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), company_types_path, class: 'btn btn-success btn-sm'

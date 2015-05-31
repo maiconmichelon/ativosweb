@@ -3,6 +3,6 @@ p#notice = notice
 = show_for @provider do |f|
   = f.attributes :name, :cpfCnpj, :phone, :localization
 
-= link_to t('helpers.links.edit'), edit_company_provider_path(@company, @provider)
-'|
-= link_to t('helpers.links.back'), company_providers_path
+.btn-toolbar
+  = link_to t('helpers.links.edit'), edit_company_provider_path(@company, @provider), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), company_providers_path, class: 'btn btn-success btn-sm'

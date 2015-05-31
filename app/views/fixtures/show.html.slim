@@ -3,6 +3,6 @@ p#notice = notice
 = show_for @fixture do |f|
   = f.attributes :number, :type, :person, :acquisition, :provider, :warranty, :purchaseValue
 
-= link_to t('helpers.links.edit'), edit_company_fixture_path(@company, @fixture)
-'|
-= link_to t('helpers.links.back'), company_fixtures_path
+.btn-toolbar
+  = link_to t('helpers.links.edit'), edit_company_fixture_path(@company, @fixture), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), company_fixtures_path, class: 'btn btn-success btn-sm'

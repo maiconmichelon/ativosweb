@@ -3,6 +3,6 @@ p#notice = notice
 = show_for @budget do |f|
   = f.attributes :date, :description, :provider, :value
 
-= link_to t('helpers.links.edit'), edit_company_budget_path(@company, @budget)
-'|
-= link_to t('helpers.links.back'), company_budgets_path
+.btn-toolbar
+  = link_to t('helpers.links.edit'), edit_company_budget_path(@company, @budget), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), company_budgets_path, class: 'btn btn-success btn-sm'

@@ -3,6 +3,6 @@ p#notice = notice
 = show_for @group do |f|
   = f.attributes :name
 
-= link_to t('helpers.links.edit'), edit_company_group_path(@company, @group)
-'|
-= link_to t('helpers.links.back'), company_groups_path
+.btn-toolbar
+  = link_to t('helpers.links.edit'), edit_company_group_path(@company, @group), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), company_groups_path, class: 'btn btn-success btn-sm'

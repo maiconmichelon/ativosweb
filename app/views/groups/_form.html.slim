@@ -1,3 +1,5 @@
 = simple_form_for [current_company, @group] do |f|
+  = f.error_notification
+
   = f.input :name
-  .actions = f.submit
+  = f.submit class: 'btn btn-success'

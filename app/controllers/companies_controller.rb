@@ -17,8 +17,11 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     @company.owner = current_user
-    @company.save
-    redirect_to action: :index
+    if @company.save
+      redirect_to action: :index
+    else
+      respond_with(@company)
+    end
   end
 
   def update

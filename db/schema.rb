@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   add_index "budgets", ["provider_id"], name: "index_budgets_on_provider_id", using: :btree
 
   create_table "companies", force: true do |t|
-    t.string   "name"
-    t.integer  "owner_id"
+    t.string   "name",       null: false
+    t.integer  "owner_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

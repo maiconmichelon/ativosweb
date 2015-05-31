@@ -1,4 +1,6 @@
 = simple_form_for [current_company, @component] do |f|
+  = f.error_notification
+
   = f.input :name
 
-  = f.submit class: 'btn btn-primary btn-sm'
+  = f.submit class: 'btn btn-success'

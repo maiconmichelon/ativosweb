@@ -20,7 +20,7 @@ table class = "table"
         td = fixture.number
         td = fixture.type
         td = fixture.person
-        td = l(fixture.acquisition)
+        td = fixture.acquisition.nil? ? '' : l(fixture.acquisition)
         td = fixture.provider
         td = fixture.warranty
         td = fixture.purchaseValue
@@ -31,4 +31,4 @@ table class = "table"
 
 br
 
-= link_to t_title_new('fixture'), new_company_fixture_path, class: 'btn btn-primary btn-sm'
+= link_to t_title_new('fixture'), new_company_fixture_path, class: 'btn btn-primary'

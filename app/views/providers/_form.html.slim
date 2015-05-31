@@ -1,7 +1,9 @@
 = simple_form_for [@company, @provider] do |f|
+  = f.error_notification
+
   = f.input :name
   = f.input :cpfCnpj
   = f.input :phone
   = f.input :localization
 
-  .actions = f.submit
+  = f.submit class: 'btn btn-success'

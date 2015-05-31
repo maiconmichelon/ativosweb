@@ -1,10 +1,10 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
+<nav class = "navbar navbar-default navbar-fixed-top">
+  <div class="container">
     <div class="navbar-header">
       <%= link_to 'Controle de Ativos', "/", class: "navbar-brand"%>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div id="navbar" class="collapse navbar-collapse">
       <% if current_user %>
         <% if current_company %>
           <%= render 'layouts/navbar_left_with_login_and_empresa' %>
@@ -21,7 +21,6 @@
           <li><%= link_to t('layout.login'), log_in_path %></li>
         <% end %>
       </ul>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>

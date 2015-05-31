@@ -1,6 +1,8 @@
 = simple_form_for [@company, @maintenance] do |f|
+  = f.error_notification
+
   = f.input :description
-  = f.input :date, as: :bootstrap_datepicker
+  = f.input :date, html5: true
   = f.input :value
   = f.association :person
 
@@ -8,3 +10,5 @@
     legend = t ('layout.components')
     = render('budget_maintenances_table', :f => f)
     = link_to_add_fields("  Add a Pilot", f, :budget_maintenances, :class => "btn btn-primary", :title => "Add a new Pilot to the list of Pilots that fly this Ship.")
+
+  = f.submit class: 'btn btn-success'
