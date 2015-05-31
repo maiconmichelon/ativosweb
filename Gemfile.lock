@@ -203,7 +203,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
-  bootstrap-sass (~> 3.3.3)
+  bootstrap-sass (~> 3.3.4)
   cocoon
   date_validator
   email_validator
@@ -216,7 +216,7 @@ DEPENDENCIES
   rails_12factor
   rails_layout
   responders
-  sass-rails (~> 4.0.3)
+  sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   show_for
   simple_form
