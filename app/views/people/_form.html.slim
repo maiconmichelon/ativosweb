@@ -1,4 +1,4 @@
-= simple_form_for [@company, @person] do |f|
+= simple_form_for [@company, @person], html: { class: 'form-horizontal' }, wrapper: :horizontal_form  do |f|
   = f.error_notification
 
   = f.input :name

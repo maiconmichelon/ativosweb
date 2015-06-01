@@ -1,4 +1,4 @@
-= simple_form_for [@company, @budget] do |f|
+= simple_form_for [@company, @budget], html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
   = f.error_notification
 
   = f.input :description
@@ -6,4 +6,4 @@
   = f.input :value
   = f.association :provider
 
-  .actions = f.submit, class: 'btn btn-default'
+  = f.submit class: 'btn btn-default'
