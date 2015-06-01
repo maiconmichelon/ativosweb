@@ -1,0 +1,4 @@
+.nested-fields.col-sm-12
+  = f.label :component, class: 'col-sm-2'
+  = f.association :component, wrapper_html: { class: 'col-sm-8' }
+  = link_to_remove_association "", f, :class => 'glyphicon glyphicon-remove col-sm-2'
