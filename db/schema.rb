@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   add_index "companies", ["name", "owner_id"], name: "index_companies_on_name_and_owner_id", unique: true, using: :btree
 
   create_table "component_fixtures", force: true do |t|
-    t.integer "component_id"
-    t.integer "fixture_id"
+    t.integer "component_id",              null: false
+    t.integer "fixture_id",                null: false
     t.integer "quantity",     default: 1,  null: false
     t.string  "description",  default: "", null: false
   end

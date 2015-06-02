@@ -9,7 +9,7 @@ class Fixture < ActiveRecord::Base
   validates_presence_of :number, :type
   validates_uniqueness_of :number, scope: :type
 
-  accepts_nested_attributes_for :component_fixtures
+  accepts_nested_attributes_for :component_fixtures, allow_destroy: true
 
   def description
     type.nil? ? "#{number}" : "#{number} - #{type.description}"

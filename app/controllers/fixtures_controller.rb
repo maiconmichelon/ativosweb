@@ -26,6 +26,7 @@ class FixturesController < ApplicationController
 
   def update
     @fixture.update(fixture_params)
+    raise
     respond_with(@company, @fixture)
   end
 
@@ -42,6 +43,6 @@ class FixturesController < ApplicationController
 
     def fixture_params
       params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue, :company_id,
-        component_fixtures_attributes: [:description, :component_id, :quantity])
+        component_fixtures_attributes: [:id, :_destroy, :description, :component_id, :quantity])
     end
 end

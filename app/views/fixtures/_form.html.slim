@@ -1,4 +1,4 @@
-= simple_form_for([current_company, @fixture], html: { class: 'form-horizontal' }) do |f|
+= simple_form_for([current_company, @fixture]) do |f|
   = f.error_notification
 
   = f.input :number
@@ -10,11 +10,16 @@
   = f.input :purchaseValue
 
   h3 = t ('layout.components')
-  #component_fixtures
-    = f.simple_fields_for :component_fixtures do |component_fixture|
-      = render 'component_fixture_fields', :f => component_fixture
-    .links
-      = link_to_add_association t('helpers.links.add'), f, :component_fixtures, class: "btn btn-sm btn-success", :render_options => {:wrapper => 'inline_form' }
-  br
+  table class = 'table'
+    thead
+      th = t_attribute('component_fixture.component')
+      th = t_attribute('component_fixture.quantity')
+      th = t_attribute('component_fixture.description')
+      th
+    tbody id = "body"
+      = f.simple_fields_for :component_fixtures do |component_fixture|
+         = render 'component_fixture_fields', :f => component_fixture
+  .links
+    = link_to_add_association t('helpers.links.add'), f, :component_fixtures, class: 'btn btn-sm btn-success', 'data-association-insertion-node' => '#body', 'data-association-insertion-method' => :append
 
   = f.submit class: 'btn btn-success'

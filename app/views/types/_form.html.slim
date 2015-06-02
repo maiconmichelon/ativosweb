@@ -4,6 +4,4 @@
   = f.input :description
   = f.input :initial_code
 
-  = render 'layouts/nested_form', f: f, association: :type_components, attributes: [:component]
-
   = f.submit class: 'btn btn-success'
