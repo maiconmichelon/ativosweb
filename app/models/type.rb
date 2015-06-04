@@ -6,7 +6,7 @@ class Type < ActiveRecord::Base
   belongs_to :company
 
   scope :activated, -> {where(active: true)}
-  accepts_nested_attributes_for :component_types
+  accepts_nested_attributes_for :component_types, allow_destroy: true
 
   def to_s
     description

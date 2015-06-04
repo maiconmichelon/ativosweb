@@ -5,4 +5,8 @@ class FixtureDecorator < Draper::Decorator
   	h.number_to_currency purchase_value
   end
 
+  def description
+    type.nil? ? "#{number}" : "#{number} - #{type.description}"
+  end
+
 end

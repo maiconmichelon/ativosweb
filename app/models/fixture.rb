@@ -11,12 +11,8 @@ class Fixture < ActiveRecord::Base
 
   accepts_nested_attributes_for :component_fixtures, allow_destroy: true
 
-  def description
-    type.nil? ? "#{number}" : "#{number} - #{type.description}"
-  end
-
   def to_s
-    description
+    decorate.description
   end
 
 end
