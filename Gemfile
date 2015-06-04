@@ -46,3 +46,4 @@ gem 'cocoon' # For build forms with nested attributes
 gem "bcrypt-ruby", :require => "bcrypt" # For login
 
 gem 'simple-navigation-bootstrap' 
+gem 'devise'

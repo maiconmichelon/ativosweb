@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
       @companies = current_user.companies
       respond_with(@companies)
     else
-      redirect_to new_session_path
+      redirect_to new_user_session_path
     end
   end
 

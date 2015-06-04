@@ -5,21 +5,23 @@
     </a>
   </div>
   <ul class="nav navbar-nav pull-right hidden-xs">
-    <% if current_user %>
+    <% if user_signed_in? %>
       <%= render 'layouts/navbar_right_with_login' %>
     <% else %>
-      <li><%= link_to t('layout.signup'), sign_up_path %></li>
-      <li><%= link_to t('layout.login'), log_in_path %></li>
+      <li><%= link_to t('layout.signup'), new_user_registration_path %></li>
+      <li><%= link_to t('layout.login'), new_user_session_path %></li>
     <% end %>
   </ul>
 </nav>
 
+
+
 <div id = "sidebar-nav">
-<% if current_user %>
-  <% if current_company %>
-    <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user_company, expand_all: true %>
-  <% else %> 
-    <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user, expand_all: true %>
+  <% if current_user %>
+    <% if current_company %>
+      <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user_company, expand_all: true %>
+    <% else %> 
+      <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user, expand_all: true %>
+    <% end %>
   <% end %>
-<% end %>
 </div>
