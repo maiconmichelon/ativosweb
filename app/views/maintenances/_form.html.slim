@@ -6,9 +6,16 @@
   = f.input :value
   = f.association :person
 
-  fieldset
-    legend = t ('layout.components')
-    = render('budget_maintenances_table', :f => f)
-    = link_to_add_fields("  Add a Pilot", f, :budget_maintenances, :class => "btn btn-primary", :title => "Add a new Pilot to the list of Pilots that fly this Ship.")
+  
+  table class = 'table'
+    thead
+      th = t_model('budget')
+      th
+    tbody id = "body"
+      = f.simple_fields_for :budget_maintenances, wrapper: 'inline_form' do |fields_for|
+         = render 'budget_maintenance_fields', :f => fields_for
+  .links
+    = link_to_add_association t('helpers.links.add'), f, :budget_maintenances, class: 'btn btn-sm btn-success', render_options: {wrapper: 'inline_form'}, 'data-association-insertion-node' => '#body', 'data-association-insertion-method' => :append
 
+  br
   = f.submit class: 'btn btn-success'

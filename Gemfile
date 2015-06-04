@@ -39,6 +39,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'therubyracer', :platform=>:ruby
 gem 'sprockets-rails'
+gem 'draper' # Gems to help with Presenters
 
 gem 'cocoon' # For build forms with nested attributes
 

@@ -84,6 +84,9 @@ pt-BR:
         password: Senha
         password_confirmation: Senha de confirmação
         email: 'Email'
+      component_type:
+        component: Componente
+        pre_selected: Pré-selecionado
 
   helpers:
     actions: "Ações"

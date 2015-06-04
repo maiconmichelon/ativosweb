@@ -20,10 +20,10 @@ table class = "table"
         td = fixture.number
         td = fixture.type
         td = fixture.person
-        td = fixture.acquisition.nil? ? '' : l(fixture.acquisition)
+        td = l(fixture.acquisition) if fixture.acquisition
         td = fixture.provider
         td = fixture.warranty
-        td = fixture.purchaseValue
+        td = number_to_currency(fixture.purchaseValue) if fixture.purchaseValue 
 
         td = link_to t('helpers.links.show'), [@company, fixture]
         td = link_to t('helpers.links.edit'), edit_company_fixture_path(@company, fixture)

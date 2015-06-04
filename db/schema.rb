@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   create_table "budgets", force: true do |t|
     t.string   "description",                         null: false
     t.decimal  "value",       precision: 8, scale: 2, null: false
-    t.datetime "date",                                null: false
+    t.date     "date",                                null: false
     t.integer  "company_id",                          null: false
     t.integer  "provider_id",                         null: false
     t.datetime "created_at"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   end
 
   add_index "component_fixtures", ["component_id", "fixture_id"], name: "index_component_fixtures_on_component_id_and_fixture_id", unique: true, using: :btree
+
+  create_table "component_types", force: true do |t|
+    t.integer "component_id"
+    t.integer "type_id"
+    t.boolean "pre_selected", default: true, null: false
+  end
+
+  add_index "component_types", ["component_id", "type_id"], name: "index_component_types_on_component_id_and_type_id", unique: true, using: :btree
 
   create_table "components", force: true do |t|
     t.string   "name",       default: "",   null: false
@@ -134,13 +142,6 @@ ActiveRecord::Schema.define(version: 20150501234527) do
 
   add_index "providers", ["company_id"], name: "index_providers_on_company_id", using: :btree
   add_index "providers", ["cpfCnpj", "company_id"], name: "index_providers_on_cpfCnpj_and_company_id", unique: true, using: :btree
-
-  create_table "type_components", force: true do |t|
-    t.integer "component_id"
-    t.integer "type_id"
-  end
-
-  add_index "type_components", ["component_id", "type_id"], name: "index_type_components_on_component_id_and_type_id", unique: true, using: :btree
 
   create_table "types", force: true do |t|
     t.string   "description",  default: "",   null: false

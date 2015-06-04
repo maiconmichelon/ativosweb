@@ -4,4 +4,16 @@
   = f.input :description
   = f.input :initial_code
 
+  table class = 'table'
+    thead
+      th = t_attribute('component_type.component')
+      th
+      th
+    tbody id = "body"
+      = f.simple_fields_for :component_types, wrapper: 'inline_form' do |component_type|
+         = render 'component_type_fields', :f => component_type
+  .links
+    = link_to_add_association t('helpers.links.add'), f, :component_types, class: 'btn btn-sm btn-success', render_options: {wrapper: 'inline_form'}, 'data-association-insertion-node' => '#body', 'data-association-insertion-method' => :append
+
+  br
   = f.submit class: 'btn btn-success'

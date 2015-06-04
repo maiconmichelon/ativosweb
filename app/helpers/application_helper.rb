@@ -1,7 +1,15 @@
 module ApplicationHelper
 
   def t_attribute(attribute)
-    t('activerecord.attributes.' + attribute)
+    t("activerecord.attributes.#{attribute}")
+  end
+
+  def t_model(model)
+    t("activerecord.models.#{model}")
+  end
+
+  def t_and_pluralize_model(model)
+    t_model(model).pluralize
   end
 
   def t_title_new(model_name)

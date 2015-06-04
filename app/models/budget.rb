@@ -6,7 +6,7 @@ class Budget < ActiveRecord::Base
   validates_presence_of :value, :description, :date, :provider
 
   def to_s
-    "#{date} - #{description} - #{value}"
+  	decorate.format
   end
 
 end
