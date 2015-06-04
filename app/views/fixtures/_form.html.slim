@@ -9,7 +9,7 @@
   = f.input :warranty
   = f.input :purchaseValue
 
-  h3 = t ('layout.components')
+  legend = t ('layout.components')
   table class = 'table'
     thead
       th = t_attribute('component_fixture.component')
@@ -17,9 +17,10 @@
       th = t_attribute('component_fixture.description')
       th
     tbody id = "body"
-      = f.simple_fields_for :component_fixtures do |component_fixture|
+      = f.simple_fields_for :component_fixtures, wrapper: 'inline_form' do |component_fixture|
          = render 'component_fixture_fields', :f => component_fixture
   .links
-    = link_to_add_association t('helpers.links.add'), f, :component_fixtures, class: 'btn btn-sm btn-success', 'data-association-insertion-node' => '#body', 'data-association-insertion-method' => :append
+    = link_to_add_association t('helpers.links.add'), f, :component_fixtures, class: 'btn btn-sm btn-success', render_options: {wrapper: 'inline_form'}, 'data-association-insertion-node' => '#body', 'data-association-insertion-method' => :append
 
+  br
   = f.submit class: 'btn btn-success'

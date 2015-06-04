@@ -26,7 +26,6 @@ class FixturesController < ApplicationController
 
   def update
     @fixture.update(fixture_params)
-    raise
     respond_with(@company, @fixture)
   end
 
