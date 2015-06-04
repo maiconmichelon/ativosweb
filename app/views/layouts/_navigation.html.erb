@@ -8,13 +8,11 @@
     <% if user_signed_in? %>
       <%= render 'layouts/navbar_right_with_login' %>
     <% else %>
-      <li><%= link_to t('layout.signup'), new_user_registration_path %></li>
-      <li><%= link_to t('layout.login'), new_user_session_path %></li>
+      <li><%= link_to t('devise.signup'), new_user_registration_path %></li>
+      <li><%= link_to t('devise.login'), new_user_session_path %></li>
     <% end %>
   </ul>
 </nav>
-
-
 
 <div id = "sidebar-nav">
   <% if current_user %>

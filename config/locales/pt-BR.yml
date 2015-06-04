@@ -2,9 +2,6 @@ pt-BR:
 
   application_name: Controle de Ativos
 
-  link:
-    back: Voltar
-
   layout:
     people: Pessoas
     fixtures: Ativos
@@ -16,11 +13,6 @@ pt-BR:
     budgets: Orçamentos
     companies: Empresas
     new_company: Nova empresa
-    signup: Cadastro
-    signin: Entrar
-    login: Login
-    signout: Sair
-    logged_in_as: "Logado como"
 
   activerecord:
     models:
@@ -84,7 +76,8 @@ pt-BR:
       user:
         password: Senha
         password_confirmation: Senha de confirmação
-        email: 'Email'
+        email: Email
+        current_password: Senha atual
       component_type:
         component: Componente
         pre_selected: Pré-selecionado
@@ -108,12 +101,27 @@ pt-BR:
       add: "Adicionar %{model}"
       show: "%{model}"
 
+  companies:
+    index:
+      signin: Entrar
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
 
-  login:
-    user_registered: "Usuário cadastrado com sucesso"
-    invalid: "Senha ou email inválidos"
+  devise:
+    signup: Cadastro
+    login: Entrar
+    signout: Sair
+    logged_in_as: "Logado como %{user}"
+    edit_profile: Editar perfil
+    forgot_password: Esqueceu a senha?
+    send_me_reset_password_instructions: Enviar instruções de troca de senha
+    logged_in_as: Logado como
+    edit_profile: Editar perfil
+    registrations:
+      edit:
+        form_hints:
+          password: Deixe em branco se você não quiser alterar a senha
+          current_password: Nós precisamos de sua senha atual para confirmar as mudanças
 
   date:
     datepicker:

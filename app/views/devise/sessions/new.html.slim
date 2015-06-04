@@ -1,12 +1,12 @@
-h2 = t('layout.login')
+h2 = t('devise.login')
 
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
   = f.error_notification
 
   = f.input :email, required: false, autofocus: true
   = f.input :password, required: false
-  = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+  / = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
 
-  = f.button :submit, "Log in"
+  = f.button :submit, t('devise.login')
   
 = render "devise/shared/links"
