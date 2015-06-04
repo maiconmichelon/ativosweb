@@ -1,26 +1,42 @@
-<nav class = "navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <%= link_to 'Controle de Ativos', "/", class: "navbar-brand"%>
-    </div>
+<% if false %>
+  <nav class = "navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          Controle de Ativos
+        </div>
+      </div>
 
-    <div id="navbar" class="collapse navbar-collapse">
-      <% if current_user %>
-        <% if current_company %>
-          <%= render 'layouts/navbar_left_with_login_and_empresa' %>
-        <% else %>
-          <%= render 'layouts/navbar_left_with_login_without_empresa' %>
-        <% end %>
-      <% end %>
-
-      <ul class="nav navbar-nav navbar-right">
+      <div id="navbar" class="collapse navbar-collapse">
         <% if current_user %>
-          <%= render 'layouts/navbar_right_with_login' %>
-        <% else %>
-          <li><%= link_to t('layout.signup'), sign_up_path %></li>
-          <li><%= link_to t('layout.login'), log_in_path %></li>
+          <% if current_company %>
+            <%= render 'layouts/navbar_left_with_login_and_empresa' %>
+          <% else %>
+            <%= render 'layouts/navbar_left_with_login_without_empresa' %>
+          <% end %>
         <% end %>
-      </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <%= render 'layouts/navbar_right_with_login' %>
+          <% else %>
+            <li><%= link_to t('layout.signup'), sign_up_path %></li>
+            <li><%= link_to t('layout.login'), log_in_path %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+<% end %>
+
+ <div id = "sidebar-nav">
+  <% if current_user %>
+    <% if current_company %>
+      <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user_company, expand_all: true %>
+    <% else %> 
+      <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user, expand_all: true %>
+    <% end %>
+  <% else %>
+    <%= render_navigation expand_all: true, renderer: :bootstrap, context: :no_user, expand_all: true %>
+  <% end %>
+ </div>
