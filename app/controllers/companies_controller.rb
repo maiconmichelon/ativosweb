@@ -2,8 +2,12 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index
-    @companies = Company.all
-    respond_with(@companies)
+    if (current_user)
+      @companies = current_user.companies
+      respond_with(@companies)
+    else
+      redirect_to new_session_path
+    end
   end
 
   def new

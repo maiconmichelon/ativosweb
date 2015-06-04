@@ -13,5 +13,4 @@ class Company < ActiveRecord::Base
   has_many :maintenances, through: :fixtures
   has_many :people, through: :groups
 
-
 end
