@@ -12,8 +12,8 @@ component = Component.create({name: 'Placa mãe', company: company})
 hd = Component.create({name: 'HD', company: company})
 ram = Component.create({name: 'Memória Ram', company: company})
 
-fixture = Fixture.create({number: 1, warranty: 24, provider: provider, acquisition: Date.new,
-  type: type, purchaseValue: 1300, company: company, person: person})
+fixture = Fixture.create({number: 1, warranty: 24, provider: provider, acquisition: Date.strptime('03-02-2012', '%d-%m-%Y'),
+  type: type, purchase_value: 1300, company: company, person: person})
 fixture.component_fixtures << ComponentFixture.new(component: component, fixture: fixture, quantity: 1)
 fixture.component_fixtures << ComponentFixture.new(component: hd, fixture: fixture, quantity: 1)
 fixture.component_fixtures << ComponentFixture.new(component: ram, fixture: fixture, quantity: 1)

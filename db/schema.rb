@@ -74,15 +74,15 @@ ActiveRecord::Schema.define(version: 20150501234527) do
   add_index "components", ["name", "company_id"], name: "index_components_on_name_and_company_id", unique: true, using: :btree
 
   create_table "fixtures", force: true do |t|
-    t.integer  "number",                                 default: 1,    null: false
+    t.integer  "number",                                  default: 1,    null: false
     t.string   "warranty"
     t.integer  "provider_id"
     t.date     "acquisition"
-    t.integer  "type_id",                                               null: false
+    t.integer  "type_id",                                                null: false
     t.integer  "person_id"
-    t.decimal  "purchaseValue", precision: 10, scale: 2
-    t.boolean  "active",                                 default: true, null: false
-    t.integer  "company_id",                                            null: false
+    t.decimal  "purchase_value", precision: 10, scale: 2
+    t.boolean  "active",                                  default: true, null: false
+    t.integer  "company_id",                                             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

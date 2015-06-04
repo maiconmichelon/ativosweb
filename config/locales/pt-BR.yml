@@ -47,7 +47,8 @@ pt-BR:
         acquisition: Aquisição
         type: Tipo
         person: Pessoa
-        purchaseValue: Valor
+        purchase_value: Valor
+        purchase_value_to_currency: Valor
       person:
         name: Nome
         group: Grupo

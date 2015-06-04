@@ -1,7 +1,7 @@
 p#notice = notice
 
-= show_for @fixture do |f|
-  = f.attributes :number, :type, :person, :acquisition, :provider, :warranty, :purchaseValue
+= show_for @fixture.decorate do |f|
+  = f.attributes :number, :type, :person, :acquisition, :provider, :warranty, :purchase_value_to_currency
 
 .btn-toolbar
   = link_to t('helpers.links.edit'), edit_company_fixture_path(@company, @fixture), class: 'btn btn-primary'
