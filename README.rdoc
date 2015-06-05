@@ -8,4 +8,4 @@ Contributors:
 =====
 Live example: 
 
-http://controleativos.herokuapp.com
+http://controle-ativos.herokuapp.com/
