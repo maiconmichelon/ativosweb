@@ -1,0 +1,3 @@
+module SimpleNavigationHelper
+
+end
