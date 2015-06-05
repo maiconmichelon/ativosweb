@@ -1,7 +1,7 @@
 - if current_user
   #sidebar-nav
-    - if current_company
-      ul#dashboard-menu
+    ul#dashboard-menu
+      - if current_company
         li
           = awesome_link 'desktop', t('layout.fixtures'), company_fixtures_path(current_company), class: 'dropdown-toggle'
           ul.submenu
@@ -16,5 +16,6 @@
             li = link_to t('layout.people'), company_people_path(current_company)
             li = link_to t('layout.groups'), company_groups_path(current_company)
             li = link_to t('layout.providers'), company_providers_path(current_company)
-    - else
-      = render_navigation expand_all: true, renderer: :bootstrap, context: :side_bar, expand_all: true
+      - else
+        li = awesome_link 'building-o', t('layout.companies'), companies_path, class: 'dropdown-toggle'
+        li = awesome_link 'plus', t('layout.new_company'), new_company_path, class: 'dropdown-toggle'

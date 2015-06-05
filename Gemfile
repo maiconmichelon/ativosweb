@@ -42,6 +42,5 @@ gem 'sprockets-rails'
 gem 'draper' # Gems to help with Presenters
 gem 'cocoon' # For build forms with nested attributes
 gem "bcrypt-ruby", :require => "bcrypt" # For login
-gem 'simple-navigation-bootstrap' 
 gem 'devise'
 gem "font-awesome-rails"
