@@ -1,25 +1,24 @@
 <nav class = "navbar navbar-inverse">
   <div class="navbar-header">
     <a class="navbar-brand" href="/">
-      <strong>Controle de Ativos</strong>
+      <i class="fa fa-laptop"></i>
+      &nbspControle de Ativos
     </a>
   </div>
   <ul class="nav navbar-nav pull-right hidden-xs">
     <% if user_signed_in? %>
-      <%= render 'layouts/navbar_right_with_login' %>
+      <li>
+        <p class="navbar-text">
+          <%= t('devise.logged_in_as')%> <strong><%= current_user.email %></strong>.
+        </p>
+      </li>
+      <li><%= awesome_link 'pencil', t('devise.edit_profile'), edit_user_registration_path, :class => 'navbar-link' %> </li>
+      <li><%= awesome_link 'sign-out', t('devise.signout'), destroy_user_session_path, method: :delete %></li>
     <% else %>
-      <li><%= link_to t('devise.signup'), new_user_registration_path %></li>
-      <li><%= link_to t('devise.login'), new_user_session_path %></li>
+      <li><%= awesome_link 'user-plus', t('devise.signup'), new_user_registration_path %></li>
+      <li><%= awesome_link 'sign-in', t('devise.login'), new_user_session_path %></li>
     <% end %>
   </ul>
 </nav>
 
-<div id = "sidebar-nav">
-  <% if current_user %>
-    <% if current_company %>
-      <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user_company, expand_all: true %>
-    <% else %> 
-      <%= render_navigation expand_all: true, renderer: :bootstrap, context: :user, expand_all: true %>
-    <% end %>
-  <% end %>
-</div>
+<%= render 'layouts/sidebar' %>

@@ -43,4 +43,10 @@ module ApplicationHelper
      content_tag(:a, name, html_options.merge(:href => href, :onclick => onclick))
   end
 
+  def awesome_link(awesome_image, link_name, link, html_options = {})
+    link_to(link, html_options) do 
+      fa_icon(awesome_image) + ("<span> " + link_name + "</span>").html_safe
+    end
+  end
+
 end
