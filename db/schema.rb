@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604204917) do
+ActiveRecord::Schema.define(version: 20150606025621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20150604204917) do
   end
 
   add_index "companies", ["name", "owner_id"], name: "index_companies_on_name_and_owner_id", unique: true, using: :btree
+
+  create_table "company_users", force: true do |t|
+    t.integer  "user_id",                    null: false
+    t.integer  "company_id",                 null: false
+    t.boolean  "admin",      default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "component_fixtures", force: true do |t|
     t.integer "component_id",              null: false
@@ -168,6 +176,7 @@ ActiveRecord::Schema.define(version: 20150604204917) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "full_name",              default: "", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

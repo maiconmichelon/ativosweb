@@ -13,6 +13,9 @@ pt-BR:
     budgets: Orçamentos
     companies: Empresas
     new_company: Nova empresa
+    users: Usuários
+    management: Gerencial
+    permissions: Permissões
 
   activerecord:
     models:
@@ -81,6 +84,8 @@ pt-BR:
       component_type:
         component: Componente
         pre_selected: Pré-selecionado
+      user:
+        full_name: Nome
 
   helpers:
     actions: "Ações"
@@ -122,6 +127,12 @@ pt-BR:
         form_hints:
           password: Deixe em branco se você não quiser alterar a senha
           current_password: Nós precisamos de sua senha atual para confirmar as mudanças
+  
+  permissions_company:
+    index:
+      admins: Administradores
+      users_with_permission: Usuários com permissão
+      users_without_permission: Usuários sem permissão
 
   date:
     datepicker:

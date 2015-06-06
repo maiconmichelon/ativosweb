@@ -1,0 +1,9 @@
+table.table.table-striped
+  /!thead
+  /!  th = t_attribute('user.full_name')
+  /!  th Email
+  tbody
+  	tr
+  	  - for user in users do
+    		td = user.full_name 
+    		td = user.email

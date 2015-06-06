@@ -12,6 +12,8 @@ Ativos::Application.routes.draw do
       resources :maintenances
       resources :budgets
       resources :components
+
+      get 'permissions' => 'permissions_company#index'
     end
 
     devise_for :users

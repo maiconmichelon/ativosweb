@@ -1,4 +1,4 @@
-user = User.create({email: 'maicon.f.michelon@gmail.com', password: '12345678'})
+user = User.create({full_name: 'Maicon Michelon', email: 'maicon.f.michelon@gmail.com', password: '12345678'})
 company = Company.create({owner: user, name: 'Gruber'})
 
 type = Type.create({description: 'Computador', initial_code: 1, company: company})

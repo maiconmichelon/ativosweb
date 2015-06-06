@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_company
   respond_to :html
   protect_from_forgery with: :exception
@@ -13,14 +14,20 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-  private
+private
   def current_company
     company_id = params[:company_id] ? params[:company_id] : params[:id]
     Company.find(company_id) if company_id
   end
 
-  private
-    def set_company
-      @company = current_company
-    end
+  def set_company
+    @company = current_company
+  end
+
+protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :full_name
+    devise_parameter_sanitizer.for(:account_update) << :full_name
+  end
+  
 end

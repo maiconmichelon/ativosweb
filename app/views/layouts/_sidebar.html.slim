@@ -1,6 +1,6 @@
-- if current_user
-  #sidebar-nav
-    ul#dashboard-menu
+#sidebar-nav
+  ul#dashboard-menu
+    - if current_user
       - if current_company
         li
           = awesome_link 'desktop', t('layout.fixtures'), company_fixtures_path(current_company), class: 'dropdown-toggle'
@@ -11,11 +11,11 @@
             li= link_to t('layout.types'), company_types_path(current_company)
             li= link_to t('layout.budgets'), company_budgets_path(current_company)
         li
-          = awesome_link 'users', t('layout.people'), company_people_path(current_company), class: 'dropdown-toggle'
+          = awesome_link 'th-list', t('layout.management'), company_people_path(current_company), class: 'dropdown-toggle'
           ul.submenu
             li = link_to t('layout.people'), company_people_path(current_company)
             li = link_to t('layout.groups'), company_groups_path(current_company)
             li = link_to t('layout.providers'), company_providers_path(current_company)
-      - else
-        li = awesome_link 'building-o', t('layout.companies'), companies_path, class: 'dropdown-toggle'
-        li = awesome_link 'plus', t('layout.new_company'), new_company_path, class: 'dropdown-toggle'
+        - if current_company.admin?(current_user)
+          li = awesome_link 'users', t('layout.permissions'), company_permissions_path(current_company)
+      li = awesome_link 'building-o', t('layout.companies'), companies_path

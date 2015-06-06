@@ -1,0 +1,8 @@
+h3 = t('.admins')
+= render 'users', users: current_company.owners
+
+h3 = t('.users_with_permission')
+= render 'users', users: current_company.not_admin_users
+
+h3 = t('.users_without_permission')
+= render 'users', users: current_company.without_permission_users
