@@ -1,4 +1,9 @@
 user = User.create({full_name: 'Maicon Michelon', email: 'maicon.f.michelon@gmail.com', password: '12345678'})
+user = User.create({full_name: 'Joao', email: 'joao@gmail.com', password: '12345678'})
+user = User.create({full_name: 'Jose', email: 'jose@gmail.com', password: '12345678'})
+user = User.create({full_name: 'Josias', email: 'josias@gmail.com', password: '12345678'})
+user = User.create({full_name: 'Maria', email: 'maria@gmail.com', password: '12345678'})
+
 company = Company.create({owner: user, name: 'Gruber'})
 
 type = Type.create({description: 'Computador', initial_code: 1, company: company})

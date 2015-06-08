@@ -14,23 +14,5 @@ class Company < ActiveRecord::Base
   has_many :people, through: :groups
 
   has_many :company_users
-
-  def owners
-    owners = company_users.select {|company_user| company_user.admin? }
-    owners << owner
-  end
-
-  def not_admin_users
-    owners = company_users.select {|company_user| !company_user.admin? }
-  end
-
-  def without_permission_users
-    own = owners
-    User.all.select {|user| !own.include?(user)}
-  end
-
-  def admin?(user)
-    owners.include?(user)
-  end
-
+  
 end
