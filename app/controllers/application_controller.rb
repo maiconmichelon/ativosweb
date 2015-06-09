@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :set_locale
 
   before_action :set_company
   respond_to :html
@@ -19,13 +18,10 @@ protected
   end
 
 private
-  def set_locale
-    I18n.locale = params[:locale] || "pt-BR"
-  end
-
   def current_company
+    return nil if params[:controller].eql? 'users'
     company_id = params[:company_id] ? params[:company_id] : params[:id]
-    company_id ? Company.find(company_id).decorate : nil
+    company = company_id ? Company.find(company_id).decorate : nil
   end
 
   def set_company

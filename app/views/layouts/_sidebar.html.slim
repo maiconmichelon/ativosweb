@@ -18,4 +18,6 @@
             li = link_to t('layout.providers'), company_providers_path(current_company)
         - if current_company.admin?(current_user)
           li = awesome_link 'users', t('layout.permissions'), permissions_company_path(current_company)
+      - else
+        li = awesome_link 'plus', t('layout.new_company'), new_company_path
       li = awesome_link 'building-o', t('layout.companies'), companies_path

@@ -23,6 +23,7 @@ Ativos::Application.routes.draw do
     end
 
     devise_for :users
+    get 'users/:id' => 'users#show', as: :user
   end
 
   root 'companies#index'

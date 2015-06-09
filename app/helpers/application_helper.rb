@@ -1,5 +1,15 @@
 module ApplicationHelper
 
+  def avatar_url(user, options = {})  
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    url = "http://gravatar.com/avatar/#{gravatar_id}.png" 
+    if options[:size]
+      url += "?s=" + options[:size].to_s
+    end
+    
+    return url
+  end 
+
   def t_attribute(attribute)
     t("activerecord.attributes.#{attribute}")
   end

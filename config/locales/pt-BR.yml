@@ -81,11 +81,11 @@ pt-BR:
         password_confirmation: Senha de confirmação
         email: Email
         current_password: Senha atual
+        member_since: Membro desde
+        full_name: Nome
       component_type:
         component: Componente
         pre_selected: Pré-selecionado
-      user:
-        full_name: Nome
 
   helpers:
     actions: "Ações"
@@ -113,6 +113,11 @@ pt-BR:
       admins: Administradores
       users_with_permission: Usuários com permissão
       users_without_permission: Usuários sem permissão
+    users:
+      remove_admin_permission: Remover permissão de administrador
+      define_as_admin: Definir como administrador
+      remove_permission: Remover permissão
+      add_permission: Adicionar permissão
   
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
