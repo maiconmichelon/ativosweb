@@ -1,0 +1,8 @@
+h3 = t('.admins')
+= render 'users', context: :admin
+
+h3 = t('.users_with_permission')
+= render 'users', context: :not_admin
+
+h3 = t('.users_without_permission')
+= render 'users', context: :without_permission

@@ -1,0 +1,14 @@
+#profile
+  = image_tag avatar_url(@user, size: 160), class: 'avatar'
+  br
+  br
+  h3 = @user.full_name
+  br
+  dl
+    dt = t_attribute('user.email')
+    dd = @user.email
+    br
+    dt = t_attribute('user.member_since')
+    dd = @user.created_at
+  </dl>
+</div>

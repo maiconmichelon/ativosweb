@@ -1,0 +1,23 @@
+table.table.table-striped
+  tbody
+    - current_company.users(context).each do |user|
+      - unless current_user.eql?(user)
+        tr
+          td = link_to(image_tag(avatar_url(user, size: 48), class: 'img-circle'), user_path(user))
+          td = user.full_name 
+          td = user.email 
+
+          - if context == :admin
+            - if current_company.owner?(current_user)
+              td = awesome_link 'chevron-down', t('.remove_admin_permission'), define_permission_company_path(current_company, user), method: :put
+
+          - elsif context == :not_admin
+            - if current_company.owner?(current_user)
+              td = awesome_link 'chevron-up', t('.define_as_admin'), define_admin_permission_company_path(current_company, user), method: :put
+
+            - if current_company.admin?(current_user)
+              td = awesome_link 'chevron-down', t('.remove_permission'), remove_permission_company_path(current_company, user), method: :put
+
+          - else
+            - if current_company.admin?(current_user)
+              td = awesome_link 'chevron-up', t('.add_permission'), define_permission_company_path(current_company, user.id), method: :put
