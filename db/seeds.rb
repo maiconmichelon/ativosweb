@@ -1,10 +1,12 @@
 user = User.create({full_name: 'Maicon Michelon', email: 'maicon.f.michelon@gmail.com', password: '12345678'})
-user = User.create({full_name: 'Joao', email: 'joao@gmail.com', password: '12345678'})
-user = User.create({full_name: 'Jose', email: 'jose@gmail.com', password: '12345678'})
-user = User.create({full_name: 'Josias', email: 'josias@gmail.com', password: '12345678'})
-user = User.create({full_name: 'Maria', email: 'maria@gmail.com', password: '12345678'})
+user2 = User.create({full_name: 'Joao', email: 'joao@gmail.com', password: '12345678'})
+user3 = User.create({full_name: 'Jose', email: 'jose@gmail.com', password: '12345678'})
+user4 = User.create({full_name: 'Josias', email: 'josias@gmail.com', password: '12345678'})
+user5 = User.create({full_name: 'Maria', email: 'maria@gmail.com', password: '12345678'})
 
 company = Company.create({owner: user, name: 'Gruber'})
+CompanyUser.create({user: user2, company: company, admin: false})
+CompanyUser.create({user: user3, company: company, admin: true})
 
 type = Type.create({description: 'Computador', initial_code: 1, company: company})
 group = Group.create({name: 'TI',company: company})
