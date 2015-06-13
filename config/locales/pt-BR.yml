@@ -16,6 +16,8 @@ pt-BR:
     users: Usuários
     management: Gerencial
     permissions: Permissões
+    maintenance_requests: Requisições de Manutenção
+    purchase_requests: Requisições de Compra
 
   activerecord:
     models:
@@ -30,6 +32,8 @@ pt-BR:
       budget: Orçamento
       user: Usuário
       company: Empresa
+      maintenance_request: Requisição de Manutenção
+      purchase_request: Requisição de Compra
 
     attributes:
       type:
@@ -86,6 +90,14 @@ pt-BR:
       component_type:
         component: Componente
         pre_selected: Pré-selecionado
+      request:
+        title: Título
+        date: Data
+        description: Descrição
+        responsible: Responsável
+        fixture: Ativo
+        status: Status
+        approval_responsible: Responsável pela aprovação
 
   helpers:
     actions: "Ações"

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  responsible_id: 
+  status: 1
+  approval_responsible_id: 
+
+two:
+  title: MyString
+  description: MyString
+  responsible_id: 
+  status: 1
+  approval_responsible_id: 

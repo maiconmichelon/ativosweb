@@ -1,0 +1,8 @@
+p#notice = notice
+
+= show_for @maintenance_request do |f|
+  = f.attributes :title, :date, :description, :fixture, :status, :approval_responsible
+
+.btn-toolbar
+  = link_to t('helpers.links.edit'), edit_company_maintenance_request_path(@company, @maintenance_request), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), company_maintenance_requests_path, class: 'btn btn-success btn-sm'

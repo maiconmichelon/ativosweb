@@ -11,7 +11,9 @@ Ativos::Application.routes.draw do
       resources :maintenances
       resources :budgets
       resources :components
-      
+      resources :purchase_requests
+      resources :maintenance_requests
+
       member do
         get 'permissions', as: :permissions
         
@@ -19,7 +21,6 @@ Ativos::Application.routes.draw do
         put 'remove_permission/:user_id', action: :remove_permission, as: :remove_permission
         put 'define_admin_permission/:user_id', action: :define_admin_permission, as: :define_admin_permission
       end
-
     end
 
     devise_for :users

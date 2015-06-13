@@ -29,11 +29,11 @@ fixture.save
 maintenance = Maintenance.create({date: Date.strptime('03-02-2012', '%d-%m-%Y'), description: 'Troca de memória Ram', value: 10,
   person: person, fixture: fixture})
 
-budget = Budget.create({date: Date.strptime('03-02-2012', '%d-%m-%Y'), description: 'Memória Ram', provider: provider,
-	value: 200, company: company})
+# budget = Budget.create({date: Date.strptime('03-02-2012', '%d-%m-%Y'), description: 'Memória Ram', provider: provider,
+# 	value: 200, company: company})
 
-maintenance.budgets << budget
-maintenance.save
+# maintenance.budgets << budget
+# maintenance.save
 
 type.component_types.new(component: placa_mae)
 type.component_types.new(component: hd, pre_selected: false)

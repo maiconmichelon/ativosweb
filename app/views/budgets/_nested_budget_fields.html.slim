@@ -1,0 +1,12 @@
+table class = 'table'
+  thead
+    th = t_attribute('budget.date')
+    th = t_attribute('budget.value')
+    th = t_attribute('budget.provider')
+    th
+  tbody id = "body"
+    = f.simple_fields_for :budgets, wrapper: 'inline_form' do |fields_for|
+       = render '/budgets/budget_fields', :f => fields_for
+.links
+  = link_to_add_association t('helpers.links.add'), f, :budgets, class: 'btn btn-sm btn-success', render_options: {wrapper: 'inline_form'}, 'data-association-insertion-node' => '#body', 'data-association-insertion-method' => :append, partial: '/budgets/budget_fields'
+br

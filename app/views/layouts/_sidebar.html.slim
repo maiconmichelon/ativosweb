@@ -9,7 +9,8 @@
             li= link_to t('layout.components'), company_components_path(current_company)
             li= link_to t('layout.maintenances'), company_maintenances_path(current_company)
             li= link_to t('layout.types'), company_types_path(current_company)
-            li= link_to t('layout.budgets'), company_budgets_path(current_company)
+            li= link_to t('layout.maintenance_requests'), company_maintenance_requests_path(current_company)
+            li= link_to t('layout.purchase_requests'), company_purchase_requests_path(current_company)
         li
           = awesome_link 'th-list', t('layout.management'), company_people_path(current_company), class: 'dropdown-toggle'
           ul.submenu

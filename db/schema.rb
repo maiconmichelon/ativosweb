@@ -11,29 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606025621) do
+ActiveRecord::Schema.define(version: 20150610023524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "budget_maintenances", force: true do |t|
-    t.integer "maintenance_id"
-    t.integer "budget_id"
-  end
-
-  add_index "budget_maintenances", ["maintenance_id", "budget_id"], name: "index_budget_maintenances_on_maintenance_id_and_budget_id", unique: true, using: :btree
-
   create_table "budgets", force: true do |t|
-    t.string   "description",                         null: false
     t.decimal  "value",       precision: 8, scale: 2, null: false
     t.date     "date",                                null: false
-    t.integer  "company_id",                          null: false
     t.integer  "provider_id",                         null: false
+    t.integer  "request_id",                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "budgets", ["company_id"], name: "index_budgets_on_company_id", using: :btree
   add_index "budgets", ["provider_id"], name: "index_budgets_on_provider_id", using: :btree
 
   create_table "companies", force: true do |t|
@@ -150,6 +141,25 @@ ActiveRecord::Schema.define(version: 20150606025621) do
 
   add_index "providers", ["company_id"], name: "index_providers_on_company_id", using: :btree
   add_index "providers", ["cpfCnpj", "company_id"], name: "index_providers_on_cpfCnpj_and_company_id", unique: true, using: :btree
+
+  create_table "requests", force: true do |t|
+    t.date     "date",                    null: false
+    t.string   "title",                   null: false
+    t.string   "description"
+    t.integer  "responsible_id",          null: false
+    t.integer  "fixture_id"
+    t.integer  "status",                  null: false
+    t.integer  "approval_responsible_id", null: false
+    t.string   "type",                    null: false
+    t.integer  "company_id",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requests", ["approval_responsible_id"], name: "index_requests_on_approval_responsible_id", using: :btree
+  add_index "requests", ["company_id"], name: "index_requests_on_company_id", using: :btree
+  add_index "requests", ["fixture_id"], name: "index_requests_on_fixture_id", using: :btree
+  add_index "requests", ["responsible_id"], name: "index_requests_on_responsible_id", using: :btree
 
   create_table "types", force: true do |t|
     t.string   "description",  default: "",   null: false

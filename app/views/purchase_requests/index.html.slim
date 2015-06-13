@@ -1,0 +1,31 @@
+h1 = t 'layout.purchase_requests'
+
+table.table
+  thead
+    tr
+      th = t_attribute 'request.title'
+      th = t_attribute 'request.date'
+      th = t_attribute 'request.description'
+      th = t_attribute 'request.responsible'
+      th = t_attribute 'request.status'
+      th = t_attribute 'request.approval_responsible'
+      th
+      th
+      th
+
+  tbody
+    - @purchase_requests.each do |purchase_request|
+      tr
+        td = purchase_request.title
+        td = purchase_request.date
+        td = purchase_request.description
+        td = purchase_request.responsible
+        td = purchase_request.status
+        td = purchase_request.approval_responsible
+        td = link_to t('helpers.links.show'), [@company, purchase_request]
+        td = link_to t('helpers.links.edit'), edit_company_purchase_request_path(@company, purchase_request)
+        td = link_to t('helpers.links.destroy'), [@company, purchase_request], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to t_title_new('purchase_request'), new_company_purchase_request_path, class: 'btn btn-primary'
