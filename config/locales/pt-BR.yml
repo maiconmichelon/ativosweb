@@ -18,6 +18,8 @@ pt-BR:
     permissions: Permissões
     maintenance_requests: Requisições de Manutenção
     purchase_requests: Requisições de Compra
+    approve_request: Aprovar Requisição
+    reject_request: Rejeitar Requisição
 
   activerecord:
     models:
@@ -99,6 +101,7 @@ pt-BR:
         fixture: Ativo
         status: Status
         approval_responsible: Responsável pela aprovação
+        status_i18n: Status
   
   enumerize:
     request:

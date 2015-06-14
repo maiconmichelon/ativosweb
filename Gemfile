@@ -41,8 +41,7 @@ gem 'therubyracer', :platform=>:ruby
 gem 'sprockets-rails'
 gem 'draper' # Gems to help with Presenters
 gem 'cocoon' # For build forms with nested attributes
-gem "bcrypt-ruby", :require => "bcrypt" # For login
+gem "bcrypt-ruby", :require => 'bcrypt' # For login
 gem 'devise'
 gem 'gravtastic'
 gem 'font-awesome-rails'
-gem 'enumerize'

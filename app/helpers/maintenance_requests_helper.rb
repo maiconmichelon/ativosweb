@@ -1,2 +1,4 @@
-module MaintenanceRequestsHelper
+module MaintenanceRequestsHelper 
+  include RequestsHelper
+
 end

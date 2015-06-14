@@ -1,0 +1,15 @@
+p#notice = notice
+
+= show_for request do |f|
+  = f.attributes :title, :date, :description, :status_i18n, :approval_responsible
+  - if maintenance_request? request
+    = f.attribute :fixture
+  
+.btn-toolbar
+  - if(request.pending? && current_user.eql?(request.approval_responsible))
+    = link_to t('layout.approve_request'), approve_request_company_path(@company, request), class: 'btn btn-primary', method: :put
+
+    = link_to t('layout.reject_request'), reprove_request_company_path(@company, request), class: 'btn btn-primary', method: :put
+
+  = link_to t('helpers.links.edit'), edit_path(@company, request), class: 'btn btn-primary'
+  = link_to t('helpers.links.back'), path(request), class: 'btn btn-success btn-sm'

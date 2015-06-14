@@ -11,7 +11,8 @@ class Company < ActiveRecord::Base
   has_many :budgets
   has_many :purchase_requests
   has_many :maintenance_requests
-
+  has_many :requests
+  
   has_many :maintenances, through: :fixtures
   has_many :people, through: :groups
 

@@ -1,0 +1,34 @@
+table.table
+  thead
+    tr
+      th = t_attribute 'request.title'
+      th = t_attribute 'request.date'
+      th = t_attribute 'request.description'
+      th = t_attribute 'request.responsible'
+      - if maintenance_request
+        th = t_attribute 'request.fixture'
+      th = t_attribute 'request.status'
+      th = t_attribute 'request.approval_responsible'
+      th
+      th
+      th
+
+  tbody
+    - requests.each do |request|
+      tr
+        td = request.title
+        td = request.date
+        td = request.description
+        td = request.responsible
+        
+        - if maintenance_request
+          td = request.fixture
+        
+        td = request.status_i18n
+        td = request.approval_responsible
+
+        td = link_to t('helpers.links.show'), [@company, request]
+        td = link_to t('helpers.links.edit'), edit_path(@company, request)
+        td = link_to t('helpers.links.destroy'), [@company, request], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br

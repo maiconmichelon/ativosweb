@@ -1,7 +1,5 @@
 class Request < ActiveRecord::Base
-  extend Enumerize
-
-  enumerize :status, in: {pending: 0, approved: 1, rejected: 2}
+  enum status: [ :pending, :approved, :rejected ]
   
   belongs_to :responsible, class_name: 'User'
   belongs_to :approval_responsible, class_name: 'User'
@@ -13,6 +11,10 @@ class Request < ActiveRecord::Base
   validates_presence_of :title, :responsible, :status, :approval_responsible, :date
 
   after_initialize :default_values
+
+  def status_i18n
+    I18n.translate('enumerize.request.status.' + status)
+  end
 
 private
   def default_values

@@ -1,8 +1,3 @@
 p#notice = notice
 
-= show_for @purchase_request do |f|
-  = f.attributes :title, :date, :description, :status, :approval_responsible
-
-.btn-toolbar
-  = link_to t('helpers.links.edit'), edit_company_purchase_request_path(@company, @purchase_request), class: 'btn btn-primary'
-  = link_to t('helpers.links.back'), company_purchase_requests_path, class: 'btn btn-success btn-sm'
+== render 'requests/show', request: @purchase_request

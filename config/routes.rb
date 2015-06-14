@@ -20,6 +20,9 @@ Ativos::Application.routes.draw do
         put 'define_permission/:user_id', action: :define_permission, as: :define_permission 
         put 'remove_permission/:user_id', action: :remove_permission, as: :remove_permission
         put 'define_admin_permission/:user_id', action: :define_admin_permission, as: :define_admin_permission
+        
+        put 'approve_request/:request_id', to: 'requests#approve_request', as: :approve_request 
+        put 'reprove_request/:request_id', to: 'requests#reprove_request', as: :reprove_request
       end
     end
 

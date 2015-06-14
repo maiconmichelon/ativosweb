@@ -1,34 +1,5 @@
 h1 = t 'layout.maintenance_requests'
 
-table.table
-  thead
-    tr
-      th = t_attribute 'request.title'
-      th = t_attribute 'request.date'
-      th = t_attribute 'request.description'
-      th = t_attribute 'request.responsible'
-      th = t_attribute 'request.fixture'
-      th = t_attribute 'request.status'
-      th = t_attribute 'request.approval_responsible'
-      th
-      th
-      th
-
-  tbody
-    - @maintenance_requests.each do |maintenance_request|
-      tr
-        td = maintenance_request.title
-        td = maintenance_request.date
-        td = maintenance_request.description
-        td = maintenance_request.responsible
-        td = maintenance_request.fixture
-        td = maintenance_request.status
-        td = maintenance_request.approval_responsible
-
-        td = link_to t('helpers.links.show'), [@company, maintenance_request]
-        td = link_to t('helpers.links.edit'), edit_company_maintenance_request_path(@company, maintenance_request)
-        td = link_to t('helpers.links.destroy'), [@company, maintenance_request], data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
+== render 'requests/index', requests: @maintenance_requests, maintenance_request: true
 
 = link_to t_title_new('maintenance_request'), new_company_maintenance_request_path, class: 'btn btn-primary'
