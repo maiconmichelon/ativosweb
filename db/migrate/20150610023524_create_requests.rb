@@ -6,7 +6,7 @@ class CreateRequests < ActiveRecord::Migration
       t.string :description
       t.references :responsible, index: true, null: false
       t.references :fixture, index: true
-      t.integer :status, null: false
+      t.integer :status, null: false, default: 0
       t.references :approval_responsible, index: true, null: false
       t.string :type, null: false
       t.references :company, index: true, null: false

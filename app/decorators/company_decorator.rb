@@ -1,6 +1,10 @@
 class CompanyDecorator < Draper::Decorator
   delegate_all
 
+  def all_with_permission
+    admins + not_admin_users
+  end
+
   def users(context)
     return admins if context == :admin
     return not_admin_users if context == :not_admin

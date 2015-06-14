@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150610023524) do
     t.decimal  "purchase_value", precision: 10, scale: 2
     t.boolean  "active",                                  default: true, null: false
     t.integer  "company_id",                                             null: false
+    t.integer  "request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 20150610023524) do
   add_index "fixtures", ["number", "type_id"], name: "index_fixtures_on_number_and_type_id", unique: true, using: :btree
   add_index "fixtures", ["person_id"], name: "index_fixtures_on_person_id", using: :btree
   add_index "fixtures", ["provider_id"], name: "index_fixtures_on_provider_id", using: :btree
+  add_index "fixtures", ["request_id"], name: "index_fixtures_on_request_id", using: :btree
   add_index "fixtures", ["type_id"], name: "index_fixtures_on_type_id", using: :btree
 
   create_table "groups", force: true do |t|
@@ -110,12 +112,14 @@ ActiveRecord::Schema.define(version: 20150610023524) do
     t.boolean  "activate",                            default: true, null: false
     t.integer  "person_id",                                          null: false
     t.integer  "fixture_id",                                         null: false
+    t.integer  "request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "maintenances", ["fixture_id"], name: "index_maintenances_on_fixture_id", using: :btree
   add_index "maintenances", ["person_id"], name: "index_maintenances_on_person_id", using: :btree
+  add_index "maintenances", ["request_id"], name: "index_maintenances_on_request_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "name",       default: "",   null: false
@@ -143,15 +147,15 @@ ActiveRecord::Schema.define(version: 20150610023524) do
   add_index "providers", ["cpfCnpj", "company_id"], name: "index_providers_on_cpfCnpj_and_company_id", unique: true, using: :btree
 
   create_table "requests", force: true do |t|
-    t.date     "date",                    null: false
-    t.string   "title",                   null: false
+    t.date     "date",                                null: false
+    t.string   "title",                               null: false
     t.string   "description"
-    t.integer  "responsible_id",          null: false
+    t.integer  "responsible_id",                      null: false
     t.integer  "fixture_id"
-    t.integer  "status",                  null: false
-    t.integer  "approval_responsible_id", null: false
-    t.string   "type",                    null: false
-    t.integer  "company_id",              null: false
+    t.integer  "status",                  default: 0, null: false
+    t.integer  "approval_responsible_id",             null: false
+    t.string   "type",                                null: false
+    t.integer  "company_id",                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

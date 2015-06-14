@@ -72,6 +72,7 @@ pt-BR:
         date: Data
         value: Valor
         person: Pessoa
+        maintenance_request: Requisição
       component_fixture:
         component: Componente
         quantity: Quantidade
@@ -98,7 +99,14 @@ pt-BR:
         fixture: Ativo
         status: Status
         approval_responsible: Responsável pela aprovação
-
+  
+  enumerize:
+    request:
+      status:
+        pending: Pendente
+        approved: Aprovada
+        rejected: Rejeitada
+  
   helpers:
     actions: "Ações"
     links:

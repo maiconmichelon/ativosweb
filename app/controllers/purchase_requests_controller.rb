@@ -4,7 +4,7 @@ class PurchaseRequestsController < RequestsController
   respond_to :html
 
   def index
-    @purchase_requests = PurchaseRequest.all
+    @purchase_requests = @company.purchase_requests
     respond_with(@purchase_requests)
   end
 
@@ -13,7 +13,7 @@ class PurchaseRequestsController < RequestsController
   end
 
   def new
-    @purchase_request = PurchaseRequest.new
+    @purchase_request = @company.purchase_requests.new(responsible: current_user)
     respond_with(@purchase_request)
   end
 
@@ -22,6 +22,7 @@ class PurchaseRequestsController < RequestsController
 
   def create
     @purchase_request = @company.purchase_requests.create(purchase_request_params)
+    @purchase_request.responsible = current_user
     @purchase_request.save
     respond_with(@company, @purchase_request)
   end
@@ -38,7 +39,7 @@ class PurchaseRequestsController < RequestsController
 
   private
     def set_purchase_request
-      @purchase_request = PurchaseRequest.find(params[:id])
+      @purchase_request = @company.purchase_requests.find(params[:id])
     end
 
     def purchase_request_params

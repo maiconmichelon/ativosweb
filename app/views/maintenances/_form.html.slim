@@ -4,7 +4,8 @@
   = f.input :description
   = f.input :date, html5: true
   = f.input :value
-  = f.association :person
+  = f.association :person, collection: @company.people
+  = f.association :maintenance_request, collection: @company.maintenance_requests.where(status: 1)
 
   br
   = f.submit class: 'btn btn-success'

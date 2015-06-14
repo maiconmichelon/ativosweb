@@ -41,7 +41,7 @@ class FixturesController < ApplicationController
     end
 
     def fixture_params
-      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue, :company_id,
+      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue, :company_id, :request_id, 
         component_fixtures_attributes: [:id, :_destroy, :description, :component_id, :quantity])
     end
 end

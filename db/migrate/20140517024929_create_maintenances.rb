@@ -7,6 +7,7 @@ class CreateMaintenances < ActiveRecord::Migration
       t.boolean :activate, null: false, default: true
       t.references :person, index: true, null: false
       t.references :fixture, index: true, null: false
+      t.references :request, index: true
 
       t.timestamps
     end

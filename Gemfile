@@ -44,4 +44,5 @@ gem 'cocoon' # For build forms with nested attributes
 gem "bcrypt-ruby", :require => "bcrypt" # For login
 gem 'devise'
 gem 'gravtastic'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'enumerize'

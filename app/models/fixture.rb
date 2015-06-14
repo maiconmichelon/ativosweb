@@ -3,6 +3,7 @@ class Fixture < ActiveRecord::Base
   belongs_to :person
   belongs_to :provider
   belongs_to :type
+  belongs_to :purchase_request, foreign_key: 'request_id'
   has_many :component_fixtures
   has_many :maintenances
 

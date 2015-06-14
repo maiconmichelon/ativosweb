@@ -2,12 +2,13 @@
   = f.error_notification
 
   = f.input :number
-  = f.association :type
-  = f.association :person
+  = f.association :type, collection: @company.types
+  = f.association :person, collection: @company.people
   = f.input :acquisition, html5: true
-  = f.association :provider
+  = f.association :provider, collection: @company.providers
   = f.input :warranty
   = f.input :purchase_value
+  = f.association :purchase_request, collection: @company.purchase_requests.where(status: 1)
 
   table class = 'table'
     thead

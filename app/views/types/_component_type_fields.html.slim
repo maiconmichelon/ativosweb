@@ -1,4 +1,4 @@
 tr class = 'nested-fields'
-  td = f.association :component, label: false
+  td = f.association :component, label: false, collection: @company.components
   td = f.input :pre_selected
   td = link_to_remove_association "Remover", f, :class => 'btn btn-danger btn-sm'
