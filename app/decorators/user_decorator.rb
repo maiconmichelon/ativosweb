@@ -10,4 +10,9 @@ class UserDecorator < Draper::Decorator
 
     companies
   end
+
+  def pending_requests
+    Request.where(approval_responsible: user, status: 0)
+  end
+
 end

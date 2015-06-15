@@ -218,7 +218,6 @@ textarea::-webkit-input-placeholder {
 .navbar-inverse .nav > li > a {
 	padding: 13px 15px 8px;
 	border-left: 1px solid #101417;
-	color: rgb(214, 214, 214);
 	outline: 0px;
 	height: 46px;
 	transition: background .1s linear;
@@ -226,6 +225,11 @@ textarea::-webkit-input-placeholder {
 	-webkit-transition: background .1s linear; /* Safari and Chrome */
 	-o-transition: background .1s linear;  /* Opera */
 }
+
+#login-info, .navbar-inverse .nav > li > a {
+	color: rgb(214, 214, 214);
+}
+
 .navbar-inverse .nav > li > a:hover {
 	background: rgba(25, 31, 36,0.6);
 }

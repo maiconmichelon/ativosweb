@@ -139,7 +139,7 @@ input.search {
         border-top: 1px solid #e7e8ea;
         color: #363636;
         text-decoration: none;
-        padding-left: 50px;
+        /*padding-left: 50px;*/
         position: relative;
         transition: all .25s linear;
         -moz-transition: all .25s linear;
