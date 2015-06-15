@@ -9,7 +9,8 @@
     <% if user_signed_in? %>
       <li>
         <p class="navbar-text" id = "login-info">
-          <%= image_tag avatar_url(current_user, size: 24), class: 'img-circle' %>&nbsp&nbsp<span><%= current_user.full_name %></span>
+          <%= image_tag avatar_url(current_user, size: 24), class: 'img-circle' %>
+          &nbsp&nbsp<span><%= link_to(current_user.full_name, current_user, class: 'login-name-navigation') %></span>
         </p>
       </li>
       <%= render 'layouts/notifications' %>

@@ -226,8 +226,12 @@ textarea::-webkit-input-placeholder {
 	-o-transition: background .1s linear;  /* Opera */
 }
 
-#login-info, .navbar-inverse .nav > li > a {
+.login-name-navigation, #login-info, .navbar-inverse .nav > li > a {
 	color: rgb(214, 214, 214);
+}
+
+.login-name-navigation:hover, .login-name-navigation:visited, .login-name-navigation:link, .login-name-navigation:active {
+	text-decoration: none;	
 }
 
 .navbar-inverse .nav > li > a:hover {

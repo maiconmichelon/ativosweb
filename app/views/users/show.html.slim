@@ -1,14 +1,11 @@
-#profile
+.col-md-3.avatar-box
   = image_tag avatar_url(@user, size: 160), class: 'avatar'
+.col-md-8.personal-info
   br
-  br
-  h3 = @user.full_name
-  br
-  dl
-    dt = t_attribute('user.email')
-    dd = @user.email
-    br
-    dt = t_attribute('user.member_since')
-    dd = @user.created_at
-  </dl>
-</div>
+  h1.personal-title
+    = @user.full_name
+  
+  = show_for(@user) do |f|
+    = f.attribute :full_name
+    = f.attribute :email
+    = f.attribute :created_at

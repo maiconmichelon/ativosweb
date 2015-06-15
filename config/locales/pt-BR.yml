@@ -90,6 +90,7 @@ pt-BR:
         current_password: Senha atual
         member_since: Membro desde
         full_name: Nome
+        created_at: Membro desde
       component_type:
         component: Componente
         pre_selected: Pré-selecionado
