@@ -1,0 +1,21 @@
+- pending_requests = current_user.decorate.pending_requests
+- unless pending_requests.empty?
+  li.notification-dropdown.hidden-xs.hiddem-sm
+    a href = "#" class = "trigger"
+      i.fa.fa-exclamation-triangle.icon-warning-sign
+      span.count = pending_requests.size
+    .pop-dialog
+      .pointer.right
+        .arrow
+        .arrow_border
+      .body
+        a href = "#" class = "close-icon"
+          i.fa.fa-times-circle
+        .notifications
+          h3 = "You have #{pending_requests.size} notifications"
+          - pending_requests.each do |request| 
+            a.item href = url_for([request.company, request])
+              = request.title
+              span.time
+                i.fa.fa-calendar
+                  = "  " + l(request.date)
