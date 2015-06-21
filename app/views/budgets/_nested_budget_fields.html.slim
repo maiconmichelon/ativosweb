@@ -3,6 +3,7 @@ table class = 'table'
     th = t_attribute('budget.date')
     th = t_attribute('budget.value')
     th = t_attribute('budget.provider')
+    th = t_attribute('budget.observation')
     th
   tbody id = "body"
     = f.simple_fields_for :budgets, wrapper: 'inline_form' do |fields_for|

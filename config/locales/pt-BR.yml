@@ -71,6 +71,7 @@ pt-BR:
         person: Pessoa
         fixture: Ativo
         provider: Fornecedor
+        observation: Observações
       maintenance:
         description: Descrição
         date: Data

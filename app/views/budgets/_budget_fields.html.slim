@@ -2,4 +2,5 @@ tr.nested-fields
   td = f.input :date, html5: true, label: false
   td = f.input :value, label: false
   td = f.association :provider, label: false, collection: @company.providers
+  td = f.input :observation, label: false
   td = link_to_remove_association "Remover", f, :class => 'btn btn-danger btn-sm'
