@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   before_action :set_company
   respond_to :html
-  protect_from_forgery with: :exception
 
   helper_method :current_user, :current_company
 
@@ -21,7 +22,7 @@ private
   def current_company
     return nil if params[:controller].eql? 'users'
     company_id = params[:company_id] ? params[:company_id] : params[:id]
-    company = company_id ? Company.find(company_id).decorate : nil
+    company = company_id ? current_user.decorate.companies.find(company_id).decorate : nil
   end
 
   def set_company
