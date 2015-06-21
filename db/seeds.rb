@@ -23,9 +23,10 @@ hd = Component.create({name: 'HD', company: company})
 ram = Component.create({name: 'Memória Ram', company: company})
 
 pr = PurchaseRequest.create({title: 'Compra de Computador' , date: data, description: 'descricao qualquer',
-  responsible: user2, approval_responsible: user, company: company, status: 1})
-pr.budgets.build({date: data, value: 200, provider: provider})
-pr.save
+  responsible: user2, approval_responsible: user, company: company})
+b = pr.budgets.build({date: data, value: 200, provider: provider})
+pr.budget_approved = b
+pr.approved!
 
 fixture = Fixture.create({number: 1, warranty: 24, provider: provider, acquisition: Date.strptime('03-02-2012', '%d-%m-%Y'),
   type: type, purchase_value: 1300, company: company, person: person, purchase_request: pr})

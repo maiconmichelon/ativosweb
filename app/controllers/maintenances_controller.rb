@@ -40,7 +40,7 @@ class MaintenancesController < ApplicationController
     end
 
     def maintenance_params
-      params.require(:maintenance).permit(:description, :date, :value, :person_id, budget_maintenances_attributes: [:maintenance_id, :budget_id])
+      params.require(:maintenance).permit(:description, :date, :value, :person_id, :fixture_id, budget_maintenances_attributes: [:maintenance_id, :budget_id])
     end
 
 end

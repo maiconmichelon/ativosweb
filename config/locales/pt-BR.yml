@@ -20,6 +20,8 @@ pt-BR:
     purchase_requests: Requisições de Compra
     approve_request: Aprovar Requisição
     reject_request: Rejeitar Requisição
+    approve_the_budget: Aprovar o Orçamento
+    back_to_pending: Voltar para pendente
 
   activerecord:
     models:
@@ -75,6 +77,7 @@ pt-BR:
         value: Valor
         person: Pessoa
         maintenance_request: Requisição
+        fixture: Ativo
       component_fixture:
         component: Componente
         quantity: Quantidade
@@ -103,7 +106,12 @@ pt-BR:
         status: Status
         approval_responsible: Responsável pela aprovação
         status_i18n: Status
-  
+    
+  request:
+    approved_budget_cant_be_null: "Favor, informar o orçamento aprovado"
+    approved_budget_should_be_null: O orçamento aprovado deve ser null
+    select_the budget_approved: "Selecione o orçamento aprovado"
+
   enumerize:
     request:
       status:

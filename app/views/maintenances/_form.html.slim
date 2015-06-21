@@ -3,6 +3,7 @@
 
   = f.input :description
   = f.input :date, html5: true
+  = f.association :fixture
   = f.input :value
   = f.association :person, collection: @company.people
   = f.association :maintenance_request, collection: @company.maintenance_requests.where(status: 1)

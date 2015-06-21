@@ -1,5 +1,7 @@
 h1 = t 'layout.maintenances'
 
+= line_chart Maintenance.group_by_month(:date).count
+
 table class = "table"
   thead
     tr

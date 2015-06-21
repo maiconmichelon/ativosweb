@@ -45,3 +45,5 @@ gem "bcrypt-ruby", :require => 'bcrypt' # For login
 gem 'devise'
 gem 'gravtastic'
 gem 'font-awesome-rails'
+gem 'chartkick'
+gem 'groupdate'

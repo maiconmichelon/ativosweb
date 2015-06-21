@@ -1,0 +1,15 @@
+#approve-request-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      = form_tag approve_request_company_path(@company, request), method: :put do
+        .modal-header
+          button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+          h4 = t('request.select_the budget_approved')
+        .modal-body
+          dl
+            - request.budgets.each do |budget|
+              br
+              = radio_button_tag "budget_ids[]", budget.id
+              = budget.to_s
+        .modal-footer
+          = submit_tag t('layout.approve_the_budget'), class: 'btn btn-sm btn-success'

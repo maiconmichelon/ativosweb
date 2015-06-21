@@ -1,20 +1,25 @@
 class RequestsController < ApplicationController
   include RequestsHelper
 
-  before_action :set_request, only: [:approve_request, :reprove_request]
+  before_action :set_request, only: [:approve_request, :reprove_request, :back_to_pending]
 
   def approve_request
     if (able_to_approve_reprove? @request)
+      @request.budget_approved = @request.budgets.where(id: params[:budget_ids]).first
       @request.approved!
-      @request.save
     end
     respond_with(@company, location: company_fixtures_path(@company))
   end
 
   def reprove_request
-    if (able_to_approve_reprove? @request)
-      @request.rejected!
-      @request.save
+    @request.rejected! if (able_to_approve_reprove? @request)
+    respond_with(@company, location: company_fixtures_path(@company))
+  end
+
+  def back_to_pending
+    if @request.approval_responsible.eql?(current_user)
+      @request.budget_approved = nil
+      @request.pending!
     end
     respond_with(@company, location: company_fixtures_path(@company))
   end

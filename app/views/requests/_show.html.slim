@@ -7,9 +7,15 @@ p#notice = notice
   
 .btn-toolbar
   - if(request.pending? && current_user.eql?(request.approval_responsible))
-    = link_to t('layout.approve_request'), approve_request_company_path(@company, request), class: 'btn btn-primary', method: :put
+
+    a.btn.btn-primary href = '#approve-request-modal' data-toggle = 'modal' 
+      = t('layout.approve_request')
 
     = link_to t('layout.reject_request'), reprove_request_company_path(@company, request), class: 'btn btn-primary', method: :put
+  - else
+    = link_to t('layout.back_to_pending'), back_to_pending_company_path(@company, request), class: 'btn btn-primary', method: :put
 
   = link_to t('helpers.links.edit'), edit_path(@company, request), class: 'btn btn-primary'
   = link_to t('helpers.links.back'), path(request), class: 'btn btn-success btn-sm'
+
+  = render 'select_orcamento', request: request

@@ -23,6 +23,7 @@ Ativos::Application.routes.draw do
         
         put 'approve_request/:request_id', to: 'requests#approve_request', as: :approve_request 
         put 'reprove_request/:request_id', to: 'requests#reprove_request', as: :reprove_request
+        put 'back_to_pending/:request_id', to: 'requests#back_to_pending', as: :back_to_pending
       end
     end
 
