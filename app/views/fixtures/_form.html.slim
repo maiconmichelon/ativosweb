@@ -1,3 +1,4 @@
+br
 = simple_form_for([current_company, @fixture]) do |f|
   = f.error_notification
 
@@ -10,7 +11,7 @@
   = f.input :purchase_value
   = f.association :purchase_request, collection: @company.purchase_requests.where(status: 1)
 
-  table class = 'table'
+  table.table
     thead
       th = t_attribute('component_fixture.component')
       th = t_attribute('component_fixture.quantity')

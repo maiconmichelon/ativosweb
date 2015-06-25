@@ -1,3 +1,4 @@
+br
 = simple_form_for([@company, request]) do |f|
   = f.error_notification
 
@@ -13,4 +14,4 @@
     = render '/budgets/nested_budget_fields', f: f
     
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-primary'

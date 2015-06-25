@@ -16,12 +16,14 @@ pt-BR:
     users: Usuários
     management: Gerencial
     permissions: Permissões
-    maintenance_requests: Requisições de Manutenção
-    purchase_requests: Requisições de Compra
-    approve_request: Aprovar Requisição
-    reject_request: Rejeitar Requisição
-    approve_the_budget: Aprovar o Orçamento
+    maintenance_requests: Requisições de manutenção
+    purchase_requests: Requisições de compra
+    approve_request: Aprovar requisição
+    reject_request: Rejeitar requisição
+    approve_the_budget: Aprovar o orçamento
     back_to_pending: Voltar para pendente
+    reports: Relatórios
+    maintenance_per_period: Manutenções por período
 
   activerecord:
     models:

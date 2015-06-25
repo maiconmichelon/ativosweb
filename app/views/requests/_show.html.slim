@@ -4,7 +4,23 @@ p#notice = notice
   = f.attributes :title, :date, :description, :status_i18n, :approval_responsible
   - if maintenance_request? request
     = f.attribute :fixture
-  
+
+h5 = t('layout.budgets')
+
+table.table
+  thead
+    th = t_attribute('budget.date')
+    th = t_attribute('budget.value')
+    th = t_attribute('budget.provider')
+    th = t_attribute('budget.observation')
+  tbody
+    - request.budgets.each do |budget|
+      tr
+        td = l(budget.date)
+        td = number_to_currency(budget.value) if budget.value 
+        td = budget.provider.name
+        td = budget.observation
+
 .btn-toolbar
   - if(request.pending? && current_user.eql?(request.approval_responsible))
 

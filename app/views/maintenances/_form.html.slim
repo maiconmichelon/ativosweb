@@ -1,8 +1,9 @@
+br
 = simple_form_for [@company, @maintenance] do |f|
   = f.error_notification
 
   = f.input :description
-  = f.input :date, html5: true
+  = f.input :date, html5: true, :input_html => { :value => localize(f.object.date) }
   = f.association :fixture
   = f.input :value
   = f.association :person, collection: @company.people

@@ -19,7 +19,7 @@ table class = "table"
         td = l(maintenance.date)
         td = maintenance.person
         td = maintenance.description
-        td = maintenance.value
+        td = number_to_currency(maintenance.value) if maintenance.value 
         td = link_to t('helpers.links.show'), [@company, maintenance]
         td = link_to t('helpers.links.edit'), edit_company_maintenance_path(@company, maintenance)
         td = link_to t('helpers.links.destroy'), [@company, maintenance], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
