@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = @company.people.create(person_params)
+    @person = People.create(person_params)
     respond_with(@company, @person)
   end
 

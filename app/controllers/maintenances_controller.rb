@@ -21,7 +21,7 @@ class MaintenancesController < ApplicationController
   end
 
   def create
-    @maintenance = @company.maintenances.create(maintenance_params)
+    @maintenance = Maintenance.create(maintenance_params)
     respond_with(@company, @maintenance)
   end
 
@@ -35,7 +35,7 @@ class MaintenancesController < ApplicationController
   end
 
   def group_by_period
-    @maintenances = @company.maintenances.group(:date).count
+    @maintenances = @company.maintenances.group_by_day(:date, format: '%m %d %Y').count
   end
 
   private

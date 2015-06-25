@@ -3,7 +3,7 @@ br
   = f.error_notification
 
   = f.input :description
-  = f.input :date, html5: true, :input_html => { :value => localize(f.object.date) }
+  = f.input :date, html5: true, :input_html => { :value => f.object.date ? localize(f.object.date) : '' }
   = f.association :fixture
   = f.input :value
   = f.association :person, collection: @company.people
