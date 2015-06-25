@@ -35,7 +35,7 @@ class ComponentsController < ApplicationController
 
   private
     def set_component
-      @component = Component.find(params[:id])
+      @component = @company.components.find(params[:id])
     end
 
     def component_params

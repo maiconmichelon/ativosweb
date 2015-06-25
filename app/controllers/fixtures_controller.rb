@@ -36,7 +36,6 @@ class FixturesController < ApplicationController
 
   private
     def set_fixture
-      @company = Company.find(params[:company_id])
       @fixture = @company.fixtures.find(params[:id])
     end
 

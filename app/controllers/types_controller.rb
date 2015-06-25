@@ -36,7 +36,7 @@ class TypesController < ApplicationController
 
   private
     def set_type
-      @type = Type.find(params[:id])
+      @type = @company.types.find(params[:id])
     end
 
     def type_params

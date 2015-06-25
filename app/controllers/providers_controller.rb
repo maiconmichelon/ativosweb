@@ -36,7 +36,7 @@ class ProvidersController < ApplicationController
 
   private
     def set_provider
-      @provider = Provider.find(params[:id])
+      @provider = @company.providers.find(params[:id])
     end
 
     def provider_params

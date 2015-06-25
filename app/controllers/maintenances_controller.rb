@@ -21,7 +21,7 @@ class MaintenancesController < ApplicationController
   end
 
   def create
-    @maintenance = Maintenance.create(maintenance_params)
+    @maintenance = @company.maintenances.create(maintenance_params)
     respond_with(@company, @maintenance)
   end
 
@@ -31,12 +31,16 @@ class MaintenancesController < ApplicationController
 
   def destroy
     @maintenance.destroy
-    respond_with(nil, location: maintenances_path)
+    respond_with(nil, location: company_maintenances_path)
+  end
+
+  def group_by_period
+    @maintenances = @company.maintenances.group(:date).count
   end
 
   private
     def set_maintenance
-      @maintenance = Maintenance.find(params[:id])
+      @maintenance = @company.maintenances.find(params[:id])
     end
 
     def maintenance_params

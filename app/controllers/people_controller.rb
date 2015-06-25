@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.create(person_params)
+    @person = @company.people.create(person_params)
     respond_with(@company, @person)
   end
 
@@ -36,7 +36,7 @@ class PeopleController < ApplicationController
 
   private
     def set_person
-      @person = Person.find(params[:id])
+      @person = @company.people.find(params[:id])
     end
 
     def person_params

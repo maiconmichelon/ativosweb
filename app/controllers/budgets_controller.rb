@@ -31,12 +31,12 @@ class BudgetsController < ApplicationController
 
   def destroy
     @budget.destroy
-    respond_with(nil, location: budgets_path)
+    respond_with(nil, location: company_budgets_path)
   end
 
   private
     def set_budget
-      @budget = Budget.find(params[:id])
+      @budget = @company.budgets.find(params[:id])
     end
 
     def budget_params
