@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20150621165413) do
   add_index "component_fixtures", ["component_id", "fixture_id"], name: "index_component_fixtures_on_component_id_and_fixture_id", unique: true, using: :btree
 
   create_table "component_types", force: true do |t|
-    t.integer "component_id"
-    t.integer "type_id"
+    t.integer "component_id",                null: false
+    t.integer "type_id",                     null: false
     t.boolean "pre_selected", default: true, null: false
   end
 

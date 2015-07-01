@@ -75,6 +75,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
+    faker (1.4.3)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.3.0.0)
@@ -119,6 +121,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.1)
     polyglot (0.3.5)
+    populator (1.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -229,6 +232,7 @@ DEPENDENCIES
   devise
   draper
   email_validator
+  faker
   font-awesome-rails
   gravtastic
   groupdate
@@ -236,6 +240,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-google-oauth2
   pg
+  populator
   quiet_assets
   rails (= 4.1.0)
   rails_12factor
