@@ -35,7 +35,18 @@ class MaintenancesController < ApplicationController
   end
 
   def group_by_period
-    @maintenances = @company.maintenances.group_by_day(:date, format: '%m %d %Y').count
+    begin
+      commit = params[:commit]
+      @de = Date.parse(params[:de])
+      @ate = Date.parse(params[:ate])
+      
+      if commit.eql? I18n.t('maintenances.group_by_period.monthly')
+        @maintenances = @company.maintenances.where(date: @de..@ate).group_by_month(:date, format: '%m %d %Y').count
+      else
+        @maintenances = @company.maintenances.where(date: @de..@ate).group_by_day(:date, format: '%m %d %Y').count
+      end
+    rescue StandardError => error
+    end
   end
 
   private

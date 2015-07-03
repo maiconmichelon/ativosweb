@@ -4,13 +4,13 @@ namespace :db do
   task :populate => :environment do
     require 'faker'
 
-    populate 5, User do |user|
+    populate 1, User do |user|
       user.full_name = Faker::Name.name
       user.email = Faker::Internet.email
       user.password = '12345678'
       user.save!
 
-      populate 2, Company do |company|
+      populate 1, Company do |company|
         company.owner = user
         company.name = Faker::Company.name
         company.save!
@@ -68,8 +68,8 @@ namespace :db do
           pr.save!
         end
 
-        populate 30, Maintenance do |m|
-          m.date = Faker::Time.backward(700, :morning) 
+        populate 300, Maintenance do |m|
+          m.date = Faker::Time.backward(300, :morning) 
           m.description = Faker::Lorem.sentence
           m.value = random.rand(100..500)
           m.person = company.groups.sample.people.sample

@@ -114,6 +114,10 @@ pt-BR:
     approved_budget_cant_be_null: "Favor, informar o orçamento aprovado"
     approved_budget_should_be_null: O orçamento aprovado deve ser null
     select_the budget_approved: "Selecione o orçamento aprovado"
+  maintenances:
+    group_by_period:
+      daily: Diário
+      monthly: Mensal
 
   enumerize:
     request:

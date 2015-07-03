@@ -1,6 +1,11 @@
-= Groupdate.time_zone 
-= @maintenances
-= line_chart @maintenances
-= column_chart @maintenances
-= bar_chart @maintenances
-= area_chart @maintenances
+= form_tag maintenances_grouped_by_period_company_maintenances_path(@company), method: :get, class: 'search' do
+  = text_field_tag 'de', (@de ? l(@de) : nil), data: {provide: 'datepicker'}
+  |  até 
+  = text_field_tag 'ate', (@ate ? l(@ate) : nil), data: {provide: 'datepicker'}
+
+  .btn-group role="group" aria-label="..."
+    = submit_tag value = t('.daily'), class: 'btn btn-primary'
+    = submit_tag value = t('.monthly'), class: 'btn btn-primary'
+
+- if @maintenances
+  = line_chart @maintenances
