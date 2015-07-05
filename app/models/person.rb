@@ -5,8 +5,6 @@ class Person < ActiveRecord::Base
   has_many :fixtures
   belongs_to :group
 
-  scope :activated, -> {where(active: true)}
-
   def to_s
     name
   end

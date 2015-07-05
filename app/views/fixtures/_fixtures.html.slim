@@ -1,0 +1,34 @@
+h1 = t 'layout.fixtures'
+
+table.table
+  thead
+    tr
+      th = t_attribute 'fixture.number'
+      th = t_attribute 'fixture.type'
+      th = t_attribute 'fixture.person'
+      th = t_attribute 'fixture.acquisition'
+      th = t_attribute 'fixture.provider'
+      th = t_attribute 'fixture.warranty'
+      th = t_attribute 'fixture.purchase_value'
+      th
+      th
+      th
+
+  tbody
+    - @fixtures.each do |fixture|
+      tr
+        td = fixture.number
+        td = fixture.type
+        td = fixture.person
+        td = l(fixture.acquisition) if fixture.acquisition
+        td = fixture.provider
+        td = fixture.warranty
+        td = number_to_currency(fixture.purchase_value) if fixture.purchase_value 
+
+        td = link_to t('helpers.links.show'), [@company, fixture]
+        td = link_to t('helpers.links.edit'), edit_company_fixture_path(@company, fixture)
+        td = link_to t('helpers.links.destroy'), [@company, fixture], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+
+br
+
+= link_to t_title_new('fixture'), new_company_fixture_path, class: 'btn btn-primary'

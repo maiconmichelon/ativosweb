@@ -5,7 +5,6 @@ class Type < ActiveRecord::Base
   has_many :component_types, autosave: true
   belongs_to :company
 
-  scope :activated, -> {where(active: true)}
   accepts_nested_attributes_for :component_types, allow_destroy: true
 
   def to_s

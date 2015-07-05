@@ -5,8 +5,6 @@ class Provider < ActiveRecord::Base
   has_many :fixtures
   belongs_to :company
 
-  scope :activated, -> {where(active: true)}
-
   def to_s
     name
   end

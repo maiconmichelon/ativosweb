@@ -5,7 +5,6 @@ class CreateProviders < ActiveRecord::Migration
       t.string :cpfCnpj
       t.string :phone
       t.string :localization
-      t.boolean :active, null: false, default: true
       t.references :company, index: true, null: false
 
       t.timestamps

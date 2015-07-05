@@ -63,9 +63,8 @@ ActiveRecord::Schema.define(version: 20150621165413) do
   add_index "component_types", ["component_id", "type_id"], name: "index_component_types_on_component_id_and_type_id", unique: true, using: :btree
 
   create_table "components", force: true do |t|
-    t.string   "name",       default: "",   null: false
-    t.boolean  "active",     default: true, null: false
-    t.integer  "company_id",                null: false
+    t.string   "name",       default: "", null: false
+    t.integer  "company_id",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,15 +73,14 @@ ActiveRecord::Schema.define(version: 20150621165413) do
   add_index "components", ["name", "company_id"], name: "index_components_on_name_and_company_id", unique: true, using: :btree
 
   create_table "fixtures", force: true do |t|
-    t.integer  "number",                                  default: 1,    null: false
+    t.integer  "number",                                  default: 1, null: false
     t.string   "warranty"
     t.integer  "provider_id"
     t.date     "acquisition"
-    t.integer  "type_id",                                                null: false
+    t.integer  "type_id",                                             null: false
     t.integer  "person_id"
     t.decimal  "purchase_value", precision: 10, scale: 2
-    t.boolean  "active",                                  default: true, null: false
-    t.integer  "company_id",                                             null: false
+    t.integer  "company_id",                                          null: false
     t.integer  "request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -96,9 +94,8 @@ ActiveRecord::Schema.define(version: 20150621165413) do
   add_index "fixtures", ["type_id"], name: "index_fixtures_on_type_id", using: :btree
 
   create_table "groups", force: true do |t|
-    t.string   "name",       default: "",   null: false
-    t.boolean  "active",     default: true, null: false
-    t.integer  "company_id",                null: false
+    t.string   "name",       default: "", null: false
+    t.integer  "company_id",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,12 +104,11 @@ ActiveRecord::Schema.define(version: 20150621165413) do
   add_index "groups", ["name", "company_id"], name: "index_groups_on_name_and_company_id", unique: true, using: :btree
 
   create_table "maintenances", force: true do |t|
-    t.date     "date",                                               null: false
-    t.string   "description",                                        null: false
-    t.decimal  "value",       precision: 8, scale: 2, default: 0.0,  null: false
-    t.boolean  "activate",                            default: true, null: false
-    t.integer  "person_id",                                          null: false
-    t.integer  "fixture_id",                                         null: false
+    t.date     "date",                                              null: false
+    t.string   "description",                                       null: false
+    t.decimal  "value",       precision: 8, scale: 2, default: 0.0, null: false
+    t.integer  "person_id",                                         null: false
+    t.integer  "fixture_id",                                        null: false
     t.integer  "request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -134,12 +130,11 @@ ActiveRecord::Schema.define(version: 20150621165413) do
   add_index "people", ["name", "group_id"], name: "index_people_on_name_and_group_id", unique: true, using: :btree
 
   create_table "providers", force: true do |t|
-    t.string   "name",         default: "",   null: false
+    t.string   "name",         default: "", null: false
     t.string   "cpfCnpj"
     t.string   "phone"
     t.string   "localization"
-    t.boolean  "active",       default: true, null: false
-    t.integer  "company_id",                  null: false
+    t.integer  "company_id",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -169,10 +164,9 @@ ActiveRecord::Schema.define(version: 20150621165413) do
   add_index "requests", ["responsible_id"], name: "index_requests_on_responsible_id", using: :btree
 
   create_table "types", force: true do |t|
-    t.string   "description",  default: "",   null: false
-    t.boolean  "active",       default: true, null: false
-    t.integer  "initial_code", default: 1,    null: false
-    t.integer  "company_id",                  null: false
+    t.string   "description",  default: "", null: false
+    t.integer  "initial_code", default: 1,  null: false
+    t.integer  "company_id",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

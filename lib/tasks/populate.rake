@@ -5,8 +5,8 @@ namespace :db do
     require 'faker'
 
     populate 1, User do |user|
-      user.full_name = Faker::Name.name
-      user.email = Faker::Internet.email
+      user.full_name = 'Maicon Michelon'
+      user.email = 'maicon.f.michelon@gmail.com'
       user.password = '12345678'
       user.save!
 
