@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    @groups = @company.groups
+    @groups = @company.groups.page(params[:page])
     respond_with(@groups)
   end
 

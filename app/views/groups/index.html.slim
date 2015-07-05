@@ -15,6 +15,7 @@ table.table
         td = link_to t('helpers.links.show'), [@company, group]
         td = link_to t('helpers.links.edit'), edit_company_group_path(@company, group)
         td = link_to t('helpers.links.destroy'), [@company, group], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+= paginate @groups
 
 br
 

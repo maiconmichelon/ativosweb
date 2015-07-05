@@ -17,6 +17,7 @@ table class = "table"
         td = link_to t('helpers.links.show'), [@company, type]
         td = link_to t('helpers.links.edit'), edit_company_type_path(@company, type)
         td = link_to t('helpers.links.destroy'), [@company, type], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+= paginate @types
 
 br
 

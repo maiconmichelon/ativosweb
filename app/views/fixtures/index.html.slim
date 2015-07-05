@@ -28,6 +28,7 @@ table.table
         td = link_to t('helpers.links.show'), [@company, fixture]
         td = link_to t('helpers.links.edit'), edit_company_fixture_path(@company, fixture)
         td = link_to t('helpers.links.destroy'), [@company, fixture], data: {:confirm => t('helpers.links.confirm')}, :method => :delete
+= paginate @fixtures
 
 br
 

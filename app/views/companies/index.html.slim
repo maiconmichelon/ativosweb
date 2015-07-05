@@ -18,3 +18,4 @@
           - if company.decorate.owner? current_user
             td = link_to t('helpers.links.edit'), edit_company_path(company)
             /td = link_to t('helpers.links.destroy'), company, data: {:confirm => 'Você tem certeza ?'}, :method => :delete
+  = paginate @companies

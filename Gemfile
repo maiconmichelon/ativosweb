@@ -6,6 +6,8 @@ group :development do
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'populator' # used to populate database with fake data
+  gem 'faker' # used to populate database with fake data
 end
 
 group :development, :test do
@@ -45,8 +47,7 @@ gem "bcrypt-ruby", :require => 'bcrypt' # For login
 gem 'devise'
 gem 'gravtastic'
 gem 'font-awesome-rails'
-gem 'chartkick'
-gem 'groupdate'
-gem 'populator'
-gem 'faker'
+gem 'chartkick' # reports
+gem 'groupdate' # used to generate reports grouped by date
 gem 'bootstrap-datepicker-rails'
+gem 'kaminari', git: 'https://github.com/amatsuda/kaminari.git' # paginator

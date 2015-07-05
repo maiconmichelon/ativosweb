@@ -2,7 +2,7 @@ class ComponentsController < ApplicationController
   before_action :set_component, only: [:show, :edit, :update, :destroy]
 
   def index
-    @components = @company.components
+    @components = @company.components.page(params[:page])
     respond_with(@components)
   end
 

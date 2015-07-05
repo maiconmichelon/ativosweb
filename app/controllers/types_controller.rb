@@ -2,7 +2,7 @@ class TypesController < ApplicationController
   before_action :set_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    @types = @company.types
+    @types = @company.types.page(params[:page])
     respond_with(@types)
   end
 

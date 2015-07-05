@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/amatsuda/kaminari.git
+  revision: 61e387251bf37527b26b6554a96e66914fef72af
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -241,6 +249,7 @@ DEPENDENCIES
   groupdate
   high_voltage
   jquery-rails
+  kaminari!
   omniauth-google-oauth2
   pg
   populator

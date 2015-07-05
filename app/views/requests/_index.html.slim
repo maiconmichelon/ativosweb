@@ -31,5 +31,5 @@ table.table
         td = link_to t('helpers.links.show'), [@company, request]
         td = link_to t('helpers.links.edit'), edit_path(@company, request)
         td = link_to t('helpers.links.destroy'), [@company, request], data: {:confirm => 'Are you sure?'}, :method => :delete
-
+= paginate requests
 br

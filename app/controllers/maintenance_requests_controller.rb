@@ -4,7 +4,7 @@ class MaintenanceRequestsController < RequestsController
   respond_to :html
 
   def index
-    @maintenance_requests = @company.maintenance_requests
+    @maintenance_requests = @company.maintenance_requests.page(params[:page])
     respond_with(@maintenance_requests)
   end
 

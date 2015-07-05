@@ -109,7 +109,7 @@ pt-BR:
         status: Status
         approval_responsible: Responsável pela aprovação
         status_i18n: Status
-    
+
   request:
     approved_budget_cant_be_null: "Favor, informar o orçamento aprovado"
     approved_budget_should_be_null: O orçamento aprovado deve ser null
@@ -125,7 +125,15 @@ pt-BR:
         pending: Pendente
         approved: Aprovada
         rejected: Rejeitada
-  
+
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próximo &rsaquo;"
+      truncate: "&hellip;"
+
   helpers:
     actions: "Ações"
     links:
@@ -157,7 +165,7 @@ pt-BR:
       define_as_admin: Definir como administrador
       remove_permission: Remover permissão
       add_permission: Adicionar permissão
-  
+
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
 

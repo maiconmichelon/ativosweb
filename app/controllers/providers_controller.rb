@@ -2,7 +2,7 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
   def index
-    @providers = @company.providers
+    @providers = @company.providers.page(params[:page])
     respond_with(@providers)
   end
 

@@ -13,7 +13,7 @@ Ativos::Application.routes.draw do
           get 'group_by_period', action: :group_by_period, as: :maintenances_grouped_by_period
         end
       end
-      resources :budgets
+      resources :budgets, only: :index
       resources :components
       resources :purchase_requests
       resources :maintenance_requests

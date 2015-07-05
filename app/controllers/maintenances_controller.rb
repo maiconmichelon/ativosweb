@@ -2,7 +2,7 @@ class MaintenancesController < ApplicationController
   before_action :set_maintenance, only: [:show, :edit, :update, :destroy]
 
   def index
-    @maintenances = @company.maintenances
+    @maintenances = @company.maintenances.page(params[:page])
     respond_with(@maintenances)
   end
 

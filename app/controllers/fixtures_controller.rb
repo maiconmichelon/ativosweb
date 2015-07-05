@@ -2,7 +2,7 @@ class FixturesController < ApplicationController
   before_action :set_fixture, only: [:show, :edit, :update, :destroy]
 
   def index
-    @fixtures = @company.fixtures
+    @fixtures = @company.fixtures.page(params[:page])
     respond_with(@fixtures)
   end
 
