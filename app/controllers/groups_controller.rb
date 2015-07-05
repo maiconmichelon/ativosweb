@@ -31,7 +31,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    respond_with(nil, location: groups_path)
+    redirect_to action: :index
   end
 
   private

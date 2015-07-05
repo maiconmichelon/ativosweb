@@ -34,7 +34,7 @@ class PurchaseRequestsController < RequestsController
 
   def destroy
     @purchase_request.destroy
-    respond_with(@company, @purchase_request)
+    redirect_to action: :index
   end
 
   private

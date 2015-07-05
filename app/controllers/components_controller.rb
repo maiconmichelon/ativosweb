@@ -30,7 +30,7 @@ class ComponentsController < ApplicationController
 
   def destroy
     @component.destroy
-    respond_with(nil, location: components_path)
+    redirect_to action: :index
   end
 
   private

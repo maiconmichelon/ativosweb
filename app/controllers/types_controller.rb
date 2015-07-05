@@ -31,7 +31,7 @@ class TypesController < ApplicationController
 
   def destroy
     @type.destroy
-    respond_with(nil, types_path)
+    redirect_to action: :index
   end
 
   private

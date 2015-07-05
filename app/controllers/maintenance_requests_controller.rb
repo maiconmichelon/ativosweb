@@ -34,7 +34,7 @@ class MaintenanceRequestsController < RequestsController
 
   def destroy
     @maintenance_request.destroy
-    respond_with(@company, @maintenance_request)
+    redirect_to action: :index
   end
 
   private

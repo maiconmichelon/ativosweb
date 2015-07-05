@@ -34,11 +34,6 @@ class CompaniesController < ApplicationController
     redirect_to action: :index
   end
 
-  def destroy
-    @company.destroy
-    respond_with(@company)
-  end
-
   def permissions
   end
 

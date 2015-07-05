@@ -5,7 +5,7 @@ class Request < ActiveRecord::Base
   belongs_to :approval_responsible, class_name: 'User'
   belongs_to :company
   belongs_to :budget_approved, class_name: 'Budget'
-  has_many :budgets
+  has_many :budgets, dependent: :delete_all
   
   accepts_nested_attributes_for :budgets, allow_destroy: true
 

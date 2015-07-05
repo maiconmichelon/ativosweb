@@ -31,7 +31,7 @@ class FixturesController < ApplicationController
 
   def destroy
     @fixture.destroy
-    respond_with(nil, location: fixtures_path)
+    redirect_to action: :index
   end
 
   private

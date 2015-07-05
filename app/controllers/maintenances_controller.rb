@@ -31,7 +31,7 @@ class MaintenancesController < ApplicationController
 
   def destroy
     @maintenance.destroy
-    respond_with(nil, location: company_maintenances_path)
+    redirect_to action: :index
   end
 
   def group_by_period

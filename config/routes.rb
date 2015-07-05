@@ -1,7 +1,7 @@
 Ativos::Application.routes.draw do
 
   scope "(:locale)", locale: /en|pt\-BR|en/ do
-    resources :companies do
+    resources :companies, except: :destroy do
       resources :fixtures
       resources :providers
       resources :people

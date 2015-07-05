@@ -31,7 +31,7 @@ class ProvidersController < ApplicationController
 
   def destroy
     @provider.destroy
-    respond_with(nil, providers_path)
+    redirect_to action: :index
   end
 
   private

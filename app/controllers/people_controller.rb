@@ -31,7 +31,7 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    respond_with(nil, people_path)
+    redirect_to action: :index
   end
 
   private
