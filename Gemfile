@@ -14,6 +14,10 @@ group :development, :test do
   gem 'thin'
 end
 
+group :test do 
+  gem 'rubocop', require: false
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'unicorn'

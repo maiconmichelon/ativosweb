@@ -20,5 +20,17 @@ module Ativos
     # Rails.application.config.i18n.load_path
     # += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :"pt-BR"
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'gmail.com',
+      :user_name            => 'controleativos',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true 
+    }
+    # Para debug apenas, é melhor que a linha abaixo seja adicionado apenas no ambiente de desenvolvimento
+    config.action_mailer.raise_delivery_errors = true
   end
 end
