@@ -15,7 +15,7 @@ br
   = f.input :password_confirmation, required: false
   = f.input :current_password, hint: t(".form_hints.current_password"), required: true
   
-  = f.button :submit, t('helpers.links.edit')
+  = f.button :submit, t('helpers.links.edit'), class: 'btn btn-primary'
 
 br
 h4 = t('.cancel_my_account')
