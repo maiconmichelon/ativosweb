@@ -1,3 +1,6 @@
+br
+== render 'search', maintenance_request: maintenance_request
+
 table.table
   thead
     tr
@@ -18,7 +21,7 @@ table.table
       - klass = request.pending? ? 'warning' : (request.approved? ? 'success' : 'danger')
       tr class = [klass]
         td = request.title
-        td = request.date
+        td = l(request.date) if request.date
         td = request.description
         td = request.responsible
         

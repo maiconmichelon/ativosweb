@@ -5,6 +5,12 @@ class CompanyDecorator < Draper::Decorator
     admins + not_admin_users
   end
 
+  def all_users
+    usrs = []
+    usrs += admins
+    usrs + not_admin_users
+  end
+
   def users(context)
     return admins if context == :admin
     return not_admin_users if context == :not_admin

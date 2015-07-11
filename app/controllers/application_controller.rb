@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
+  def search(elements, search_params)
+    search_params.each do |key, value|
+      elements = elements.send('by_' + key, value) unless value.empty?
+    end
+
+    elements
+  end
+
 protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :full_name

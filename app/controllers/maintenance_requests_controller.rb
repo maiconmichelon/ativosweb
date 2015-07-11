@@ -4,7 +4,10 @@ class MaintenanceRequestsController < RequestsController
   respond_to :html
 
   def index
-    @maintenance_requests = @company.maintenance_requests.page(params[:page])
+    @maintenance_requests = @company.maintenance_requests
+    @maintenance_requests = search(@maintenance_requests, search_params) if search_params
+    @maintenance_requests = @maintenance_requests.page(params[:page])
+
     respond_with(@maintenance_requests)
   end
 

@@ -4,7 +4,10 @@ class PurchaseRequestsController < RequestsController
   respond_to :html
 
   def index
-    @purchase_requests = @company.purchase_requests.page(params[:page])
+    @purchase_requests = @company.purchase_requests
+    @purchase_requests = search(@purchase_requests, search_params) if search_params
+    @purchase_requests = @purchase_requests.page(params[:page])
+
     respond_with(@purchase_requests)
   end
 

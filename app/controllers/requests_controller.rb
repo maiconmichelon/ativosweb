@@ -35,4 +35,10 @@ protected
 
     obj.permit(attrs)
   end
+
+  def search_params
+    return nil unless params[:search]
+    params.require(:search).permit(:title, :date, :responsible_id, :description, :status, :fixture_id)
+  end
+
 end

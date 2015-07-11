@@ -1,0 +1,24 @@
+= form_tag company_fixtures_path, method: :get do |f|
+  - model_path = 'activerecord.attributes.fixture.'
+  - search_params = params[:search] ? params[:search] : {}
+   
+  .row
+    .col-md-1 = label_tag 'search[number]', t(model_path + 'number') 
+    .col-md-5 = text_field_tag 'search[number]', search_params[:number], class: 'form-control input-sm'
+
+    .col-md-1 = label_tag 'search[type_id]', t(model_path + 'type')
+    .col-md-5 = select_tag 'search[type_id]', options_from_collection_for_select(@company.types, "id", "description", search_params[:type_id]), include_blank: true, class: 'form-control input-sm'
+
+  br
+  .row
+    .col-md-1 = label_tag 'search[person_id]', t(model_path + 'person')
+    .col-md-3 = select_tag 'search[person_id]', options_from_collection_for_select(@company.people, "id", "name", search_params[:person_id]), include_blank: true, class: 'form-control input-sm'
+
+    .col-md-1 = label_tag 'search[acquisition]', t(model_path + 'acquisition')
+    .col-md-2 = text_field_tag 'search[acquisition]', search_params[:acquisition], class: 'form-control input-sm', data: {provide: 'datepicker'}
+    
+    .col-md-1 = label_tag 'search[provider_id]', t(model_path + 'provider')
+    .col-md-2 = select_tag 'search[provider_id]', options_from_collection_for_select(@company.providers, "id", "name", search_params[:provider_id]), include_blank: true, class: 'form-control input-sm'
+
+    .col-md-2 = submit_tag t('helpers.links.search'), class: 'btn btn-sm btn-primary'
+  br

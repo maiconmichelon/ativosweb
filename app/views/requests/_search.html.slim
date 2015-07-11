@@ -1,0 +1,28 @@
+= form_tag({}, {method: :get}) do
+  - model_path = 'activerecord.attributes.request.'
+  - search_params = params[:search] ? params[:search] : {}
+
+  .row
+    .col-md-1 = label_tag 'search[title]', t(model_path + 'title') 
+    .col-md-3 = text_field_tag 'search[title]', search_params[:title], class: 'form-control input-sm'
+
+    .col-md-1 = label_tag 'search[responsible_id]', t(model_path + 'responsible')
+    .col-md-3 = select_tag 'search[responsible_id]', options_from_collection_for_select(@company.all_users, "id", "full_name", search_params[:responsible_id]), include_blank: true, class: 'form-control input-sm'
+
+    .col-md-1 = label_tag 'search[status]', t(model_path + 'status')
+    .col-md-3 = select_tag 'search[status]', options_from_collection_for_select(Request.statuses, "second", "first", search_params[:status]), include_blank: true, class: 'form-control input-sm'
+
+  br
+  .row
+    - if maintenance_request
+      .col-md-1 = label_tag 'search[fixture_id]', t(model_path + 'fixture')
+      .col-md-2 = select_tag 'search[fixture_id]', options_from_collection_for_select(@company.fixtures, "id", "complete_description", search_params[:fixture_id]), include_blank: true, class: 'form-control input-sm'
+
+    .col-md-1 = label_tag 'search[description]', t(model_path + 'description')
+    .col-md-2 = text_field_tag 'search[description]', search_params[:description], class: 'form-control input-sm'
+
+    .col-md-1 = label_tag 'search[date]', t(model_path + 'date')
+    .col-md-2 = text_field_tag 'search[date]', search_params[:date], class: 'form-control input-sm', data: {provide: 'datepicker'}
+    
+    .col-md-3 = submit_tag t('helpers.links.search'), class: 'btn btn-sm btn-primary'
+  br

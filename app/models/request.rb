@@ -14,6 +14,13 @@ class Request < ActiveRecord::Base
 
   after_initialize :default_values
 
+  scope :by_title, -> (title) { where('title LIKE ?', "%#{title}%")}
+  scope :by_description, -> (description) { where('description LIKE ?', "%#{description}%")}
+  scope :by_responsible_id, -> (responsible_id) { where(responsible_id: responsible_id)}
+  scope :by_status, -> (status) { where(status: status)}
+  scope :by_fuxture_id, -> (fixture_id) { where(fixture_id: fixture_id)}
+  scope :by_date, -> (date) { where(date: date)}
+
   def status_i18n
     I18n.translate('enumerize.request.status.' + status)
   end
