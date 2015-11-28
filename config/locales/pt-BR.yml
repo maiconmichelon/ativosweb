@@ -54,6 +54,7 @@ pt-BR:
         person: Pessoa
         purchase_value: Valor
         purchase_value_to_currency: Valor
+        purchase_request: Requisição de Compra
       person:
         name: Nome
         group: Grupo
