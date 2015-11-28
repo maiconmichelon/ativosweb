@@ -26,7 +26,7 @@ module Ativos
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => 'gmail.com',
-      :password             => 'controleativos123',
+      :password             => 'controleativos1234',
       :user_name            => 'controleativos',
       :authentication       => 'plain',
       :enable_starttls_auto => true 

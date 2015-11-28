@@ -30,7 +30,7 @@ private
   def current_company
     return nil if params[:controller].eql? 'users'
     company_id = params[:company_id] ? params[:company_id] : params[:id]
-    company = company_id ? current_user.decorate.companies.find(company_id).decorate : nil
+    company = company_id ? current_user.decorate.company_by_id(company_id).decorate : nil
   end
 
   def set_company

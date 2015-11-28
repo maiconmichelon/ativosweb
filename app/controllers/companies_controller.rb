@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 
   def index
     if (current_user)
-      @companies = current_user.decorate.companies.page(params[:page])
+      @companies = Kaminari.paginate_array(current_user.decorate.companies).page(params[:page])
       respond_with(@companies)
     else
       redirect_to new_user_session_path
