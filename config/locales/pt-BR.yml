@@ -109,6 +109,7 @@ pt-BR:
         fixture: Ativo
         status: Status
         approval_responsible: Responsável pela aprovação
+        approval_responsible_short: Resp. pela aprovação
         status_i18n: Status
 
   request:

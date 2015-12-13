@@ -1,6 +1,6 @@
 data = Date.strptime('03-02-2012', '%d-%m-%Y')
 
-user = User.create({full_name: 'Maicon Michelon', email: 'maicon.f.michelon@gmail.com', password: '12345678'})
+user = User.create({full_name: 'Elias', email: 'elias@gmail.com', password: '12345678'})
 user2 = User.create({full_name: 'Joao', email: 'joao@gmail.com', password: '12345678'})
 user3 = User.create({full_name: 'Jose', email: 'jose@gmail.com', password: '12345678'})
 user4 = User.create({full_name: 'Josias', email: 'josias@gmail.com', password: '12345678'})

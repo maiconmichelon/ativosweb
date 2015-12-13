@@ -6,12 +6,11 @@ table.table
     tr
       th = t_attribute 'request.title'
       th = t_attribute 'request.date'
-      th = t_attribute 'request.description'
       th = t_attribute 'request.responsible'
       - if maintenance_request
         th = t_attribute 'request.fixture'
       th = t_attribute 'request.status'
-      th = t_attribute 'request.approval_responsible'
+      th = t_attribute 'request.approval_responsible_short'
       th
       th
       th
@@ -20,9 +19,8 @@ table.table
     - requests.each do |request|
       - klass = request.pending? ? 'warning' : (request.approved? ? 'success' : 'danger')
       tr class = [klass]
-        td = request.title
+        td = truncate_with_hover(request.title)
         td = l(request.date) if request.date
-        td = request.description
         td = request.responsible
         
         - if maintenance_request

@@ -1,5 +1,6 @@
 random = Random.new
 
+# Para rodar 'rake db:populate'
 namespace :db do
   task :populate => :environment do
     require 'faker'
