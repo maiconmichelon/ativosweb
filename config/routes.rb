@@ -22,9 +22,10 @@ Ativos::Application.routes.draw do
         get 'permissions', as: :permissions
         
         put 'define_permission/:user_id', action: :define_permission, as: :define_permission 
+        post 'add_permission', action: :add_permission, as: :add_permission
         put 'remove_permission/:user_id', action: :remove_permission, as: :remove_permission
         put 'define_admin_permission/:user_id', action: :define_admin_permission, as: :define_admin_permission
-        
+
         put 'approve_request/:request_id', to: 'requests#approve_request', as: :approve_request 
         put 'reprove_request/:request_id', to: 'requests#reprove_request', as: :reprove_request
         put 'back_to_pending/:request_id', to: 'requests#back_to_pending', as: :back_to_pending

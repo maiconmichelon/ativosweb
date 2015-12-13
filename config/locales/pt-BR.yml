@@ -163,6 +163,7 @@ pt-BR:
       admins: Administradores
       users_with_permission: Usuários com permissão
       users_without_permission: Usuários sem permissão
+      add_permission: Adicionar permissão
     users:
       remove_admin_permission: Remover permissão de administrador
       define_as_admin: Definir como administrador

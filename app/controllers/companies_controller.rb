@@ -49,6 +49,26 @@ class CompaniesController < ApplicationController
     redirect_to action: 'permissions'
   end
 
+  def add_permission
+    if current_company.admin? current_user
+      email = add_permission_params[:email]
+
+      user = User.find_by(email: email)
+
+      unless user
+        return redirect_to action: 'permissions', notice: "Nenhum Usuário encontrado com o email #{email}" 
+      end
+
+      unless current_company.admin? user
+        company_user = current_company.company_users.build(user: user)
+        company_user.admin = false
+        company_user.save
+      end
+    end
+
+    redirect_to action: 'permissions'
+  end
+
   def remove_permission
     if current_company.admin? current_user
       company_user = current_company.company_user_by_user(@user_form_permission)
@@ -80,6 +100,10 @@ private
 
   def company_params
     params.require(:company).permit(:name, :owner_id)
+  end
+
+  def add_permission_params
+    params.require(:add_permission).permit(:email)
   end
 
 end
