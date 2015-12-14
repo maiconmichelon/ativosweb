@@ -12,7 +12,7 @@
         a href = "#" class = "close-icon"
           i.fa.fa-times-circle
         .notifications
-          h3 = "You have #{pending_requests.size} notifications"
+          h3 = t('layout.you_have_notifications', number: pending_requests.size)
           - pending_requests.each do |request| 
             a.item href = url_for([request.company, request])
               = request.title

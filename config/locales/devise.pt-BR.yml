@@ -47,6 +47,7 @@ pt-BR:
         cancel_my_account: 'Cancelar conta'
       new:
         sign_up: 'Cadastro'
+        minimum_chars: 'Minímo de %{number} caracteres'
     sessions:
       signed_in: 'Login efetuado com sucesso!'
       signed_out: 'Saiu com sucesso.'
