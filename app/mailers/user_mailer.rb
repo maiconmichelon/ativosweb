@@ -7,6 +7,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     @password = password
     mail(:to => user.email,
-         :subject => 'Password Reset Notification')
+         :subject => 'Notificação de mudança de senha')
   end
 end
