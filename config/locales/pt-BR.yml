@@ -25,6 +25,7 @@ pt-BR:
     reports: Relatórios
     maintenance_per_period: Manutenções por período
     you_have_notifications: "Você tem %{number} notificações"
+    send_suggestion: Enviar sugestão
 
   activerecord:
     models:
