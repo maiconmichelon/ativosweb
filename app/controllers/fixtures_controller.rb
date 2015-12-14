@@ -22,6 +22,12 @@ class FixturesController < ApplicationController
 
   def new
     @fixture = @company.fixtures.new
+
+    @fixture.acquisition = params[:acquisition]
+    @fixture.provider_id = params[:provider_id]
+    @fixture.request_id = params[:purchase_request_id]
+    @fixture.purchase_value = params[:value]
+
     respond_with(@fixture)
   end
 
@@ -50,7 +56,7 @@ class FixturesController < ApplicationController
     end
 
     def fixture_params
-      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchaseValue, :company_id, :request_id, 
+      params.require(:fixture).permit(:number, :warranty, :provider_id, :acquisition, :type_id, :person_id, :purchase_value, :company_id, :request_id, 
         component_fixtures_attributes: [:id, :_destroy, :description, :component_id, :quantity])
     end
 

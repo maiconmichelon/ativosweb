@@ -4,6 +4,8 @@ p#notice = notice
   = f.attributes :title, :date, :description, :status_i18n, :approval_responsible
   - if maintenance_request? request
     = f.attribute :fixture
+  - if request.approved?
+    = f.attribute :budget_approved
 
 h5 = t('layout.budgets')
 
@@ -31,6 +33,8 @@ table.table
   - else
     = link_to t('layout.back_to_pending'), back_to_pending_company_path(@company, request), class: 'btn btn-danger', method: :put
 
+  - if (request.instance_of?(PurchaseRequest) && request.approved?)
+    = link_to t('request.create_fixture'), new_company_fixture_path(acquisition: request.date, purchase_request_id: request.id, provider_id: request.budget_approved.provider_id, value: request.budget_approved.value), class: 'btn btn-info'
   = link_to t('helpers.links.edit'), edit_path(@company, request), class: 'btn btn-info'
   = link_to t('helpers.links.back'), path(request), class: 'btn btn-info btn-sm'
 

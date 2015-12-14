@@ -113,11 +113,13 @@ pt-BR:
         approval_responsible: Responsável pela aprovação
         approval_responsible_short: Resp. pela aprovação
         status_i18n: Status
+        budget_approved: Orçamento aprovado
 
   request:
     approved_budget_cant_be_null: "Favor, informar o orçamento aprovado"
     approved_budget_should_be_null: O orçamento aprovado deve ser null
     select_the budget_approved: "Selecione o orçamento aprovado"
+    create_fixture: Criar um novo ativo
   maintenances:
     group_by_period:
       daily: Diário
