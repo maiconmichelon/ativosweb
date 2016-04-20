@@ -2,6 +2,9 @@
 *= require_self
 */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "layout";
 @import 'bootstrap_and_overrides';
 @import 'translation_missing';
 @import 'element';
