@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require cocoon
 //= require bootstrap
-//= require sidebar
 //= require bootstrap-datepicker
 //= require_tree .
 
