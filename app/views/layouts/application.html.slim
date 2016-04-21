@@ -12,11 +12,12 @@ html
     link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"
   body
     = render 'layouts/navigation'
-    = render 'layouts/sidebar'
     
-    .content
+    .container-fluid
       .row
-        .col-md-10.col-md-offset-1
+        .col-sm-3.col-md-2.sidebar
+          = render 'layouts/sidebar'
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
           -if notice
             p.alert.alert-info
               = notice

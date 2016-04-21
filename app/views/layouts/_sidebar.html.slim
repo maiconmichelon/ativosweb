@@ -1,29 +1,28 @@
-aside#sidebar-nav
-  ul#dashboard-menu
-    - if current_user
-      - if current_company
-        li
-          = awesome_link 'desktop', t('layout.fixtures'), company_fixtures_path(current_company), class: 'dropdown-toggle'
-          ul.submenu
-            li = link_to t('layout.fixtures'), company_fixtures_path(current_company)
-            li = link_to t('layout.components'), company_components_path(current_company)
-            li = link_to t('layout.maintenances'), company_maintenances_path(current_company)
-            li = link_to t('layout.types'), company_types_path(current_company)
-            li = link_to t('layout.maintenance_requests'), company_maintenance_requests_path(current_company)
-            li = link_to t('layout.purchase_requests'), company_purchase_requests_path(current_company)
-        li
-          = awesome_link 'th-list', t('layout.management'), company_people_path(current_company), class: 'dropdown-toggle'
-          ul.submenu
-            li = link_to t('layout.people'), company_people_path(current_company)
-            li = link_to t('layout.groups'), company_groups_path(current_company)
-            li = link_to t('layout.providers'), company_providers_path(current_company)
-        li
-          = awesome_link 'line-chart', t('layout.reports'), nil, class: 'dropdown-toggle'
-          ul.submenu
-            li = link_to t('layout.maintenance_per_period'), maintenances_grouped_by_period_company_maintenances_path(current_company)
-        - if current_company.admin?(current_user)
-          li = awesome_link 'users', t('layout.permissions'), permissions_company_path(current_company)
-      - else
-        li = awesome_link 'plus', t('layout.new_company'), new_company_path
-      li = awesome_link 'building-o', t('layout.companies'), companies_path
-      li = awesome_link 'location-arrow', t('layout.send_suggestion'), 'mailto:maicon.f.michelon@gmail.com'
+ul.nav
+  - if current_user
+    - if current_company
+      li
+        = awesome_link 'desktop', t('layout.fixtures'), company_fixtures_path(current_company), class: 'dropdown-toggle'
+        ul.submenu
+          li = link_to t('layout.fixtures'), company_fixtures_path(current_company)
+          li = link_to t('layout.components'), company_components_path(current_company)
+          li = link_to t('layout.maintenances'), company_maintenances_path(current_company)
+          li = link_to t('layout.types'), company_types_path(current_company)
+          li = link_to t('layout.maintenance_requests'), company_maintenance_requests_path(current_company)
+          li = link_to t('layout.purchase_requests'), company_purchase_requests_path(current_company)
+      li
+        = awesome_link 'th-list', t('layout.management'), company_people_path(current_company), class: 'dropdown-toggle'
+        ul.submenu
+          li = link_to t('layout.people'), company_people_path(current_company)
+          li = link_to t('layout.groups'), company_groups_path(current_company)
+          li = link_to t('layout.providers'), company_providers_path(current_company)
+      li
+        = awesome_link 'line-chart', t('layout.reports'), nil, class: 'dropdown-toggle'
+        ul.submenu
+          li = link_to t('layout.maintenance_per_period'), maintenances_grouped_by_period_company_maintenances_path(current_company)
+      - if current_company.admin?(current_user)
+        li = awesome_link 'users', t('layout.permissions'), permissions_company_path(current_company)
+    - else
+      li = awesome_link 'plus', t('layout.new_company'), new_company_path
+    li = awesome_link 'building-o', t('layout.companies'), companies_path
+    li = awesome_link 'location-arrow', t('layout.send_suggestion'), 'mailto:maicon.f.michelon@gmail.com'
