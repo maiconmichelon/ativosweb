@@ -1,7 +1,3 @@
-.navbar-brand {
-  height: 40px;
-}
-
 #login-info {
   margin-top: 12px;
   margin-bottom: 8px;
@@ -194,7 +190,6 @@ textarea::-webkit-input-placeholder {
 
 /* NAVBAR */
 .navbar-inverse {
-
 	background: #2c3742; /* Old browsers */
 	background: -moz-linear-gradient(top,  #2c3742 0%, #28303a 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2c3742), color-stop(100%,#28303a)); /* Chrome,Safari4+ */
@@ -204,21 +199,13 @@ textarea::-webkit-input-placeholder {
 	background: linear-gradient(to bottom,  #2c3742 0%,#28303a 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c3742', endColorstr='#28303a',GradientType=0 ); /* IE6-9 */
 }
-/* navbar-nav*/
-.navbar-inverse .navbar-nav {
-	padding-right: 20px;
-}
-/* menu toggler */
-.navbar-inverse .navbar-toggle {
-	float: left;
-	margin-top: 10px;
-	margin-left: 15px;
-}
+
 /* navbar brand*/
 .navbar-inverse .navbar-brand {
 	color: #ffffff;
 	font-weight: bold;
 }
+
 /* navbar links */
 .navbar-inverse .nav > li > a {
 	padding: 13px 15px 8px;
@@ -229,10 +216,6 @@ textarea::-webkit-input-placeholder {
 	-moz-transition: background .1s linear; /* Firefox 4 */
 	-webkit-transition: background .1s linear; /* Safari and Chrome */
 	-o-transition: background .1s linear;  /* Opera */
-}
-
-.login-name-navigation, #login-info, .navbar-inverse .nav > li > a {
-	color: rgb(214, 214, 214);
 }
 
 .login-name-navigation:hover, .login-name-navigation:visited, .login-name-navigation:link, .login-name-navigation:active {
