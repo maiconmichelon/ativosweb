@@ -5,12 +5,7 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
     title
       |Controle de Ativos
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
-    = javascript_include_tag "//www.google.com/jsapi", "chartkick"
-    = csrf_meta_tags
-
-    link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"
+    
   body
     = render 'layouts/navigation'
     = render 'layouts/sidebar'
@@ -25,3 +20,9 @@ html
             p.alert.alert-danger
               = alert
           = yield
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag "//www.google.com/jsapi", "chartkick"
+    link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"
