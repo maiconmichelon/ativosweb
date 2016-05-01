@@ -51,6 +51,7 @@ gem "bcrypt-ruby", :require => 'bcrypt' # For login
 gem 'devise'
 gem 'gravtastic'
 gem 'font-awesome-rails'
+gem 'font-kit-rails'
 gem 'chartkick' # reports
 gem 'groupdate' # used to generate reports grouped by date
 gem 'bootstrap-datepicker-rails'
