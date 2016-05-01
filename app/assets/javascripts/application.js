@@ -4,6 +4,7 @@
 //= require bootstrap
 //= require sidebar
 //= require bootstrap-datepicker
+//= require("http://www.google.com/jsapi")
 //= require_tree .
 
 $(document).ready(function() {

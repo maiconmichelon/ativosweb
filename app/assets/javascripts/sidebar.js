@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function () {
 
   // navbar notification popups
   $(".notification-dropdown").each(function (index, el) {
