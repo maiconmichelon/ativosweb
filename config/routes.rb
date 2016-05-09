@@ -36,6 +36,6 @@ Ativos::Application.routes.draw do
     get 'users/:id' => 'users#show', as: :user
   end
 
-  root 'companies#index'
+  root 'application#index'
 
 end

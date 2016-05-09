@@ -20,6 +20,9 @@ class ApplicationController < ActionController::Base
     elements
   end
 
+  def index
+  end
+
 protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :full_name
