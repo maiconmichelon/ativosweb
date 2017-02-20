@@ -3,7 +3,6 @@
 
 Contributors: 
               Maicon Michelon
-              Alexsandro Specht
 
 =====
 Live example: 
